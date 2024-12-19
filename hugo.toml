@@ -1,5 +1,5 @@
-#baseURL = "https://benbradshawww.github.io/blog/"
-baseURL = "https://www.example.com"
+baseURL = "https://benbradshawww.github.io/blog/"
+#baseURL = "https://www.example.com"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 relativeURLs = false
