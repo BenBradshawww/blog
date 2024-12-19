@@ -1,0 +1,58 @@
+#baseURL = "https://benbradshawww.github.io/blog/"
+baseURL = "https://www.example.com"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+relativeURLs = false
+
+staticDir = ["static", "themes/Niello/static"]
+
+theme = "Niello"
+
+[languages]
+	[languages.en]
+		languageCode = "en-uk"
+		LanguageName = "🇬🇧EN"
+		contentDir = "content/en"
+		weight = 1
+		[[languages.en.menus.main]]
+			name = 'Home'
+			pageRef = '/'
+			weight = 1
+		[[languages.en.menus.main]]
+			name = 'Categories'
+			pageRef = '/categories'
+			weight = 2
+		[[languages.en.menus.main]]
+			name = 'Tags'
+			pageRef = '/tags'
+			weight = 3
+		[[languages.en.menus.main]]
+			name = 'About Me'
+			pageRef = '/about_me/'
+			weight = 4
+
+[params.math]
+	math = true
+[params.google]
+	google_ad_client = "******"
+	ga4 = "******"
+[params.bannershowcase]
+	categories = ["Statistical Modelling"]
+	limit = 2
+[params.email]
+	contact = "benbradshaw01@outlook.com"
+
+copyright = "&#xA9; 2019 ~ 2024 by www.example.com All Rights Reserved."
+sharethis = "******"
+
+[outputs]
+  home = ["HTML", "JSON"]   # Optional - JSON just for search
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['$', '$']]
