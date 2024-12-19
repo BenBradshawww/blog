@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/</loc>
+    <loc>http://localhost:64940/blog/en/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/categories/</loc>
+    <loc>http://localhost:64940/blog/en/categories/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/tags/gams/</loc>
+    <loc>http://localhost:64940/blog/en/tags/gams/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/gams/</loc>
+    <loc>http://localhost:64940/blog/en/gams/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/gams/gams/</loc>
+    <loc>http://localhost:64940/blog/en/gams/gams/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/tags/glms/</loc>
+    <loc>http://localhost:64940/blog/en/tags/glms/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/categories/statistical-modelling/</loc>
+    <loc>http://localhost:64940/blog/en/categories/statistical-modelling/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/tags/</loc>
+    <loc>http://localhost:64940/blog/en/tags/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://benbradshawww.github.io:64653/blog/en/about_me/</loc>
+    <loc>http://localhost:64940/blog/en/about_me/</loc>
     <lastmod>2024-12-01T00:00:00+00:00</lastmod>
   </url>
 </urlset>
