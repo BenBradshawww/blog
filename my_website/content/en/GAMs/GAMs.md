@@ -12,6 +12,8 @@ draft = false
 
 
 ![Image](/image/anh-vy--kJ542I1oVU-unsplash.jpg)
+![Image by Anh Vy.](https://unsplash.com/@anhvygor)
+
 
 ## GAMs
 
