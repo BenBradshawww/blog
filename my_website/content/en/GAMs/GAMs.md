@@ -11,11 +11,11 @@ draft = false
 +++
 
 
-![Image](/images/anh-vy--kJ542I1oVU-unsplash.jpg)
+![Image](image/anh-vy--kJ542I1oVU-unsplash.jpg)
 [Image by Anh Vy.](https://unsplash.com/@anhvygor)
 
 
-## GAMs
+# GAMs
 
 In this article we will cover Generalised Additive Models (GAMs). We'll cover the base case by modelling a response variable with a univariate smooth function. We'll then build on this by incorporating multiple exogenous variables to create additive models. After then, the GAM can be covered.
 

@@ -1,4 +1,4 @@
-baseURL = "https://benbradshawww.github.io/blog/"
+baseURL = "https://benbradshawww.github.io/blog/my_website/"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 disqusShortname = "guangmean"   # Optional
