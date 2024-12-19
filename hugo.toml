@@ -1,4 +1,4 @@
-baseURL = "www.mathstoml.com"
+baseURL = "https://www.mathstoml.com/"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 relativeURLs = false
