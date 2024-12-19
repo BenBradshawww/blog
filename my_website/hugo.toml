@@ -1,9 +1,11 @@
-baseURL = "https://benbradshawww.github.io/blog/my_website/"
+baseURL = "https://benbradshawww.github.io/blog/"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 disqusShortname = "guangmean"   # Optional
 
 staticDir = ["static", "themes/Niello/static"]
+
+relativeURLs = true
 
 theme = "Niello"
 
