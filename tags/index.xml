@@ -6,6 +6,21 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
+    <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.mathstoml.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GAMs</title>
+      <link>https://www.mathstoml.com/tags/gams/</link>
+      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/gams/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GLMs</title>
+      <link>https://www.mathstoml.com/tags/glms/</link>
+      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/glms/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
