@@ -1,4 +1,4 @@
-baseurl = "/"
+baseURL = "https://benbradshawww.github.io"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 relativeURLs = false
