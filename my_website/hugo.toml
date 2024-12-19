@@ -1,12 +1,10 @@
 baseURL = "https://benbradshawww.github.io/blog/"
 # baseURL = "https://www.example.com"
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
-disqusShortname = "guangmean"   # Optional
+defaultContentLanguageInSubdir = false
+relativeURLs = false
 
 staticDir = ["static", "themes/Niello/static"]
-
-relativeURLs = true
 
 theme = "Niello"
 
