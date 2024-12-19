@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
-    <link>http://localhost:1313/blog/my_website/en/tags/</link>
+    <link>https://benbradshawww.github.io/blog/my_website/en/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/my_website/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://benbradshawww.github.io/blog/my_website/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GAMs</title>
-      <link>http://localhost:1313/blog/my_website/en/tags/gams/</link>
+      <link>https://benbradshawww.github.io/blog/my_website/en/tags/gams/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/my_website/en/tags/gams/</guid>
+      <guid>https://benbradshawww.github.io/blog/my_website/en/tags/gams/</guid>
       <description></description>
     </item>
     <item>
       <title>GLMs</title>
-      <link>http://localhost:1313/blog/my_website/en/tags/glms/</link>
+      <link>https://benbradshawww.github.io/blog/my_website/en/tags/glms/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/my_website/en/tags/glms/</guid>
+      <guid>https://benbradshawww.github.io/blog/my_website/en/tags/glms/</guid>
       <description></description>
     </item>
   </channel>
