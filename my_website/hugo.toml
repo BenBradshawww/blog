@@ -6,7 +6,7 @@ disqusShortname = "guangmean"   # Optional
 
 staticDir = ["static", "themes/Niello/static"]
 
-relativeURLs = false
+relativeURLs = true
 
 theme = "Niello"
 
