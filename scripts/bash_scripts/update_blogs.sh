@@ -21,10 +21,10 @@ fi
 
 # Step 3: Save blog metadata
 echo "Saving blog metadata"
-python save_blog_metadata.py
+python scripts/python_scripts/save_blog_metadata.py
 
 if [ $? -ne 0 ]; then
-    echo "Python script failed. Exiting."
+    echo "Python script save_blog_metadata.py failed. Exiting."
     exit 1
 fi
 
@@ -45,7 +45,7 @@ fi
 
 # Step 5: Update blog with its metadata
 echo "Adding blog metadata"
-python add_blog_metadata.py
+python scripts/python_scripts/add_blog_metadata.py
 
 if [ $? -ne 0 ]; then
     echo "Python script failed. Exiting."
