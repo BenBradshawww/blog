@@ -67,6 +67,8 @@ done
 echo "Updating public directory"
 hugo   
 
+echo "www.mathstoml.com" > public/CNAME
+
 echo "Committing changes"
 git add .
 
