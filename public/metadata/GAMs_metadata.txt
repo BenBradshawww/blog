@@ -1,0 +1,11 @@
++++
+title = 'GAMs'
+date = 2024-12-18
+categories = ["Statistical Modelling"]
+tags = ["GAMs", "GLMs"]
+keywords = ["GAMs"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++
