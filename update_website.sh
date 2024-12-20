@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Step 1: Copy images from obsidian to website
+# Step 1: Pull latest changes from the origin
+echo "Pulling latest changes from the origin"
+git pull origin main
+
+# Step 2: Copy images from obsidian to website
 IMAGE_SOURCE_DIR="/Users/benbradshaw/Documents/Obsidian Vault/images/"
 IMAGE_TARGET_DIR="/Users/benbradshaw/Documents/Code/website/static/images/"
 
@@ -15,7 +19,7 @@ else
 fi
 
 
-# Step 2: Save blog metadata
+# Step 3: Save blog metadata
 echo "Saving blog metadata"
 python save_blog_metadata.py
 
@@ -25,7 +29,7 @@ if [ $? -ne 0 ]; then
 fi
 
 
-# Step 3: Copy blogs from obsidian to website
+# Step 4: Copy blogs from obsidian to website
 BLOG_SOURCE_DIR="/Users/benbradshaw/Documents/Obsidian Vault/posts/"
 BLOG_TARGET_DIR="/Users/benbradshaw/Documents/Code/website/content/en/"
 
@@ -39,7 +43,7 @@ else
     exit 1
 fi
 
-# Step 4: Update blog with its metadata
+# Step 5: Update blog with its metadata
 echo "Adding blog metadata"
 python add_blog_metadata.py
 
@@ -48,7 +52,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Step 5: Update website
+# Step 6: Confirm that all manaul changes with the blog metadata have been written.
 while true; do
     read -p "Type 'Y' if you have finished adding additional metadata:" input
     if [[ "$input" == "Y" ]]; then
@@ -59,7 +63,7 @@ while true; do
     fi
 done
 
-# Step 6: Updating main branch
+# Step 7: Updating main branch
 echo "Updating public directory"
 hugo   
 
@@ -71,7 +75,7 @@ git commit -m "Update blogs"
 echo "Pushing changes to the origin"
 git push origin main
 
-# Step 7: Update deployment branch
+# Step 8: Update deployment branch
 echo "Updating public branch"
 git subtree split --prefix public -b deploy
 
