@@ -1,2 +1,5 @@
 # Exclude blog metadata
 content/en/metadata/
+
+# Exclude mac data
+.DS_Store
