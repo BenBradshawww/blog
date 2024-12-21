@@ -1,5 +1,5 @@
 +++
-title = 'U-Net'
+title = 'Why Do Trees Outperform Neural Networks on Tabular Data?'
 date = 2024-06-27
 categories = ["Machine Learning", "Trees"]
 tags = ["Machine Learning", "Trees"]
