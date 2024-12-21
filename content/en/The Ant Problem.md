@@ -70,7 +70,7 @@ The premise behind this question is to model the ants 2D random walk as a 1D ran
 
 Figure 2.
 
-Let the yellow line denote where the food is located and let $X_{\text{black}}, X_{\text{red}}, X_{\text{blue}}, X_{\text{green}},$ and $ X_{\text{purple}}$ denote the random variables modelling the ants walks starting from the black, red, blue, green, and purple points.
+Let the yellow line denote where the food is located and let $X_{\text{black}}, X_{\text{red}}, X_{\text{blue}}, X_{\text{green}},$ and $X_{\text{purple}}$ denote the random variables modelling the ants walks starting from the black, red, blue, green, and purple points.
 
 $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{2}. \end{cases}$$
 
@@ -92,7 +92,7 @@ Suppose that the average number of steps to move from the black point to the lin
 
 $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{2}. \end{cases}$$
 
-$$\begin{align*}\mathbb{E}[X_{\text{black}}] = x &= \frac{1}{2} (1) + \frac{1}{2}\mathbb{E}[X_{\text{red}}] \\ &= 1 + \frac{1}{2}(x + x) \\ &= 1 + x \end{align*}$$
+$$\begin{align*}\mathbb{E}[X_{\text{black}}] = x &= \frac{1}{2} (1) + \frac{1}{2}(1 + \mathbb{E}[X_{\text{red}}]) \\ &= 1 + \frac{1}{2}(x + x) \\ &= 1 + x \end{align*}$$
 
 This leads to a contradiction. Consequently, there cannot be a finite average number of steps to hit the yellow line.
 
