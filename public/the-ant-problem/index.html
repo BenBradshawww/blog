@@ -22,7 +22,7 @@
     <meta name="keywords" content="Ants , Ant Problem , Probability , Random Walks">
     <meta name="description" content="SEO Description Here">
     <link rel="canonical" href="https://www.mathstoml.com/the-ant-problem/" />
-    <link rel="icon" href="/favicon.ico?v=1734802129" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=1734819055" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
     
@@ -260,13 +260,13 @@ $$\mathbb{E}[X_{\text{black}}] = 4.5$$<p>Therefore, on average it will take the 
 <p>The premise behind this question is to model the ants 2D random walk as a 1D random walk.</p>
 <p><img src="https://mathstoml.ghost.io/content/images/2024/08/image-13.png" alt=""></p>
 <p>Figure 2.</p>
-<p>Let the yellow line denote where the food is located and let $X_{\text{black}}, X_{\text{red}}, X_{\text{blue}}, X_{\text{green}},$ and $ X_{\text{purple}}$ denote the random variables modelling the ants walks starting from the black, red, blue, green, and purple points.</p>
+<p>Let the yellow line denote where the food is located and let $X_{\text{black}}, X_{\text{red}}, X_{\text{blue}}, X_{\text{green}},$ and $X_{\text{purple}}$ denote the random variables modelling the ants walks starting from the black, red, blue, green, and purple points.</p>
 $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{2}. \end{cases}$$$$X_{\text{red}} = \begin{cases} 1 + X_{\text{black}} & \text{w.p. } \frac{1}{2}, \\ 1 + X_{\text{blue}} & \text{w.p. } \frac{1}{2}. \end{cases}$$$$X_{\text{blue}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 + X_{\text{green}} & \text{w.p. } \frac{1}{2}. \end{cases}$$$$\vdots$$<p>Notice at each colour, the ant either moves 1 step further from the line w.p. 1/2 or 1 step closer to the line w.p. 1/2. Consequently, this 2 dimensional walk could be represented as 1D walk.</p>
 <p><img src="https://mathstoml.ghost.io/content/images/2024/08/image-15.png" alt=""></p>
 <p>Figure 3.</p>
 <p>There are several ways to prove the expected number of steps, and we&rsquo;ll use a proof by contradiction.</p>
 <p>Suppose that the average number of steps to move from the black point to the line exists and is equal to $x$. Next, we&rsquo;ll construct an equation for $x$ based on the expected number of steps required to return from our starting point. Taking a step toward the yellow lines gives us 1 step, and from there, no further steps are needed. On the other hand, taking a step toward the red point initially adds 1 step. From the red point, we then need to find the expected number of steps to return to the black point and subsequently reach the yellow line. The expected number of steps from the red point to the black point is equivalent to the number of steps from the black point to the yellow line. From our initial assumption, we know that the expected number of steps for this is $x$. Similarly, starting from the black point, it takes, on average, another $x$ steps to reach the yellow line.</p>
-$$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{2}. \end{cases}$$$$\begin{align*}\mathbb{E}[X_{\text{black}}] = x &= \frac{1}{2} (1) + \frac{1}{2}\mathbb{E}[X_{\text{red}}] \\ &= 1 + \frac{1}{2}(x + x) \\ &= 1 + x \end{align*}$$<p>This leads to a contradiction. Consequently, there cannot be a finite average number of steps to hit the yellow line.</p>
+$$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{2}. \end{cases}$$$$\begin{align*}\mathbb{E}[X_{\text{black}}] = x &= \frac{1}{2} (1) + \frac{1}{2}(1 + \mathbb{E}[X_{\text{red}}]) \\ &= 1 + \frac{1}{2}(x + x) \\ &= 1 + x \end{align*}$$<p>This leads to a contradiction. Consequently, there cannot be a finite average number of steps to hit the yellow line.</p>
 <p>The original proof by contradiction can be found <a href="https://math.stackexchange.com/questions/4320314/random-walk-1d-with-a-single-bound">here</a> and this solution will be verified in the last section.</p>
 <h3 id="part-c">Part C:</h3>
 <p>For this section we will be using python. We&rsquo;ll create a base class and 3 separate subclasses to verify solutions for the last 3 questions. Each subclass has a custom function called &ldquo;check&rdquo; which checks if there is food located at the ant&rsquo;s current location.</p>
@@ -355,7 +355,7 @@ $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}
         About
     </div>
 
-    <img src="/image/logo.webp?v=1734802129" class="w-80 self-center" alt="Logo" />
+    <img src="/image/logo.webp?v=1734819055" class="w-80 self-center" alt="Logo" />
 
     <p class="leading-8 text-center text-lg font-light mt-3">
         
@@ -426,6 +426,13 @@ $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/time-series/" class="hover:text-gray-300">Time Series <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/machine-learning/" class="hover:text-gray-300">Machine Learning <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
         </li>
@@ -440,21 +447,14 @@ $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/time-series/" class="hover:text-gray-300">Time Series <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
+            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistical-modelling/" class="hover:text-gray-300">Statistical Modelling <span
+            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -468,14 +468,14 @@ $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
+            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
+            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -508,13 +508,13 @@ $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}
         
         
         
-        <a href="/tags/time-series/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
-        
-        
-        
         <a href="/tags/gnn/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/machine-learning/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Machine Learning&nbsp;&nbsp;2</span></a>
         
         
         
@@ -528,33 +528,8 @@ $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}
         
         
         
-        <a href="/tags/machine-learning/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Machine Learning&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/optimisation/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/docker/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gans/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gnns/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/rest-apis/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/time-series/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
         
         
         
@@ -568,8 +543,33 @@ $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}
         
         
         
-        <a href="/tags/gams/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/glms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gnns/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/optimisation/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/rest-apis/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/trees/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;1</span></a>
         
         
         
@@ -583,18 +583,18 @@ $$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}
         
         
         
-        <a href="/tags/trees/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;1</span></a>
-        
-        
-        
         <a href="/tags/arma/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
         
         
         
-        <a href="/tags/glms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gams/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
         
         
         

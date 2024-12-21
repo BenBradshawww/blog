@@ -1,6 +1,6 @@
 +++
 title = 'Perpetual Children'
-date = 2024-21-02
+date = 2024-12-22
 categories = ["Probability"]
 tags = ["Probability"]
 keywords = ["Probability", "Random Walks"]
@@ -9,6 +9,7 @@ draft = false
 [params.math]
   math = true
 +++
+
 
 ![Image](/images/vivek-kumar-riAKT8Z7ifE-unsplash.jpg)
 [Image by Vivek Kumar](https://unsplash.com/@vikceo)
@@ -47,3 +48,5 @@ This is a contradiction! As a result, the expected number of children to have be
 **Solution 2**
 
 This is still under works for now!
+
+Let
