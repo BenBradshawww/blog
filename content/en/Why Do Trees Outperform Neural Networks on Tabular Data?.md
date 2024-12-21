@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/photo-1458966480358-a0ac42de0a7a.avif)
+![Image](/images/photo-1458966480358-a0ac42de0a7a.avif)
 [Image by Todd Quackenbush](https://unsplash.com/@toddquackenbush?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 
 For the past 30 years, tree-based algorithms such as Adaboost and Random Forests have been the go-to methods for solving tabular data problems. While neural networks (NNs) have been used in this context, they have historically struggled to match the performance of tree-based methods. Despite recent advancements in NN capabilities and their success in tasks from computer vision, language translation, and image generation, tree-based algorithms still outperform neural networks when it comes to tabular data. This article will introduce several reasons behind the continued dominance of tree-based methods in this domain.

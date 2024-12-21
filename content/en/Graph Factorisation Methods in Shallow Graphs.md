@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/photo-1706391162070-60a37dee114d.avif)
+![Image](/images/photo-1706391162070-60a37dee114d.avif)
 
 [Image by Elena Mozhvilo](https://unsplash.com/@miracleday?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 

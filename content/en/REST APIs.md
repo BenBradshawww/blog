@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/ante-hamersmit-DSUjNkiRFg0-unsplash.jpg)
+![Image](/images/ante-hamersmit-DSUjNkiRFg0-unsplash.jpg)
 [Image by Ante Hamersmit](https://unsplash.com/@ante_kante?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 ## What are APIs
 

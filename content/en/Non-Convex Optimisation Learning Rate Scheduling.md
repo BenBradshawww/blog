@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/joshua-sukoff-xTSwjDonDhE-unsplash.jpg)
+![Image](/images/joshua-sukoff-xTSwjDonDhE-unsplash.jpg)
 [Image by Joshua Sukoff](https://unsplash.com/@joshuas?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 One of the most crucial hyperparameters in any machine learning (ML) model is the learning rate. A small learning rate often results in longer training times and can lead to overfitting. Conversely, a large learning rate may accelerate initial training but risks hindering the model’s convergence to the global minimum and can even cause divergence. Therefore, selecting the appropriate learning rate is a critical step in training any ML model.
 

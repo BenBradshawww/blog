@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/justin-lim-tloFnD-7EpI-unsplash.jpg)
+![Image](/images/justin-lim-tloFnD-7EpI-unsplash.jpg)
 [Image by Justin Lim]
 ### Introduction
 

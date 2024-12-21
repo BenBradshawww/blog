@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](danny-greenberg-cbN8rxHr5S0-unsplash.jpg)
+![Image](/images/danny-greenberg-cbN8rxHr5S0-unsplash.jpg)
 [Image by Danny Greenberg](https://unsplash.com/@by_danny_g?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 ### **Summary**
 

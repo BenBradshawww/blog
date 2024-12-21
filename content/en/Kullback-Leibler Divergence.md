@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/daniela-turcanu-wABdckxoj90-unsplash.jpg)
+![Image](/images/daniela-turcanu-wABdckxoj90-unsplash.jpg)
 [Image by Daniela Turcanu](https://unsplash.com/@protopopica?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 ***
 **Introduction**

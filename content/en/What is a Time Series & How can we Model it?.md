@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/oguzhan-kiran-wj0l2BJKmkU-unsplash.jpg)
+![Image](/images/oguzhan-kiran-wj0l2BJKmkU-unsplash.jpg)
 [Image by Oğuzhan Kıran](https://mathstoml.ghost.io/ghost/#/editor/post/66eb4a6473445600016630bb)
 
 This article will cover what is a time series, what does it mean for a time series to be stationary, and how could an autoregressive process or moving average process be used to model the time series.

@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/mi_shots-8SJwz4nk7FA-unsplash.jpg)
+![Image](/images/mi_shots-8SJwz4nk7FA-unsplash.jpg)
 [Image by mi_shots](https://unsplash.com/@mi_shots?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 Today we'll be looking at a classic problem in probability: "The Ant Problem".
 

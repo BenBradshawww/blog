@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/boliviainteligente-AXNZb4FEkh8-unsplash.jpg)
+![Image](/images/boliviainteligente-AXNZb4FEkh8-unsplash.jpg)
 [Image by BoliviaInteligente](https://unsplash.com/@boliviainteligente)
 
 Over the past 15 years we have seen a surge of use of Graph Neural Networks (GNNs) being used to model social networks, recommendations systems, transportation networks, and many more systems. With the ever growing use of GNNs, this has naturally led to the questions about the use of GNNs within the medical sector. More specifically, the question of using GNNs to predict the properties of molecules was brought up. Back in the early 2010s, this idea was in its infancy with few successful applications.

@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/cajeo-zhang-20JfNRPsMCo-unsplash.jpg)
+![Image](/images/cajeo-zhang-20JfNRPsMCo-unsplash.jpg)
 [Image by Cajeo Zhang](https://unsplash.com/@cajeo?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 Graphs have been used across many fields due to their ability to represent relationships between entities with applications including social networks, search engines, and protein-protein interaction networks. However, one growing limitation of these graphs are the amount of computational resources they require with some large-scale graphs having millions of nodes each with their own set of features and their set of edges.
 

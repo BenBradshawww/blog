@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/will-turner-iSulLiXzGg0-unsplash.jpg)
+![Image](/images/will-turner-iSulLiXzGg0-unsplash.jpg)
 [Image by Will Turner](https://unsplash.com/@turner_imagery?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 In this article, we will cover what containerisation means and we look at Docker, a containerisation platform. Furthermore, we will cover the key commands and concepts needed to create your own containers in docker. 
 ## What is Docker?

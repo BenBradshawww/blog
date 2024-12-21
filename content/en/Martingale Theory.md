@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/sq-lim-aWm7fAUNPEc-unsplash.jpg)
+![Image](/images/sq-lim-aWm7fAUNPEc-unsplash.jpg)
 [Image by sq lim](https://unsplash.com/@sql)
 
 Today's article will look at one of the more difficult areas in probability called martingale theory. We will cover the basic theory and look at 2 examples which use martingale theory (the drunk man and the ABRACADABRA problem).

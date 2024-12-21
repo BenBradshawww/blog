@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/justin-simmonds-oGKncrpXn70-unsplash.jpg)
+![Image](/images/justin-simmonds-oGKncrpXn70-unsplash.jpg)
 [Image by Justin Simmonds](https://unsplash.com/@justsimms?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 
 Generative Adversarial Networks (GANs) were first introduced in 2014 by Ian Goodfellow in his paper “Generative Adversarial Nets.” This paper presented the GAN framework, which consists of two neural networks called the generator and the discriminator. The generator takes random noise as input and outputs a generated image. The discriminator takes both a generated image and a real image as inputs and tries to determine which is real and which is generated. Their training process can be likened to a ping-pong game, with the generator trying to produce images that fool the discriminator, and the discriminator is trying to identify which images are generated.

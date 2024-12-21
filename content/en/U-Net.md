@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](photo-1542144950-fa020d965709.avif)
+![Image](/images/photo-1542144950-fa020d965709.avif)
 [Image by Dan Gold](https://unsplash.com/@danielcgold?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 
 Machine Learning (ML) has numerous applications in medicine, including disease diagnosis, drug development, predictive healthcare, and more. One key application of ML in medicine is biomedical image processing. These types of models takes an image as an input and then assigns a class label to each pixel in a process called localisation. Competitions are held annually to advance these ML models for biomedical image processing tasks. For instance, the International Symposium on Biomedical Imaging (ISBI) hosts yearly competitions focused on various biomedical imaging challenges. One notable problems from the ISBI involves segmenting neuronal structures in electron microscopy stacks.

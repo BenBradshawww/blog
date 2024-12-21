@@ -10,7 +10,7 @@ draft = false
   math = true
 +++
 
-![Image](images/elijah-grimm-jSt_ZxlG2bk-unsplash.jpg)
+![Image](/images/elijah-grimm-jSt_ZxlG2bk-unsplash.jpg)
 [Image by Elijah Grimm](https://unsplash.com/@watchelijah?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 In this article we will cover the ARMA and ARIMA based statistical models, cover the maths behind these models, and look at the statistical test required prior and the post the model fitting.
 
