@@ -1,0 +1,11 @@
++++
+title = 'U-Net'
+date = 2024-07-03
+categories = ["Machine Learning", "Auto-Encoders"]
+tags = ["Auto-Encoders"]
+keywords = ["U-Net", "Machine Learning", "ML", "AutoEncoders"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++

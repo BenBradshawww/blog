@@ -1,0 +1,11 @@
++++
+title = 'Message Passing Neural Networks'
+date = 2024-09-23
+categories = ["Graphs"]
+tags = ["GNNs"]
+keywords = ["MMPNs", "GNNs", "Graphs"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++

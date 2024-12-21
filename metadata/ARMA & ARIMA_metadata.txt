@@ -1,0 +1,11 @@
++++
+title = 'ARMA & ARIMA'
+date = 2024-10-05
+categories = ["Time Series"]
+tags = ["Time Series", "ARMA", "ARIMA"]
+keywords = ["Time Series", "ARMA", "ARIMA", "PACF", "EACF", "Indeterministic Processes"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++

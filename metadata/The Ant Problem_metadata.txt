@@ -1,0 +1,11 @@
++++
+title = 'The Ant Problem'
+date = 2024-11-01
+categories = ["Probability"]
+tags = ["Probability"]
+keywords = ["Ants", "Ant Problem", "Probability", "Random Walks"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++

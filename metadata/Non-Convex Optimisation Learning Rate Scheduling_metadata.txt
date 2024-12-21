@@ -1,0 +1,11 @@
++++
+title = 'Non-Convex Optimisation Learning Rate Scheduling'
+date = 2024-11-01
+categories = ["Non-Convex Optimisation"]
+tags = ["Optimisation"]
+keywords = ["Non-Convex", "Learning Rate", "LR"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++
