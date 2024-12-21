@@ -11,7 +11,7 @@ draft = false
 +++
 
 ![Image](/images/cameron-cress-OZZIrjLTmA8-unsplash.jpg)
-![Image by Cameron Cress](https://unsplash.com/@cam_cress)
+[Image by Cameron Cress](https://unsplash.com/@cam_cress)
 
 ## The Drunkard
 
