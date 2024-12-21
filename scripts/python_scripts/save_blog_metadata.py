@@ -35,7 +35,7 @@ def extract_metadata(file_path):
 
             
         if started:
-            base_name = file_path.split('/')[-1].rstrip('.md')
+            base_name = file_path.split('/')[-1][:-3]
             output_file_path = os.path.join(metadata_directory, f"{base_name}_metadata.txt")
 
             with open(output_file_path, 'w', encoding='utf-8') as output_file:
