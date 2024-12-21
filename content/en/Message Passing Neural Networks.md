@@ -10,7 +10,6 @@ draft = false
   math = true
 +++
 
-
 ![Image](images/boliviainteligente-AXNZb4FEkh8-unsplash.jpg)
 [Image by BoliviaInteligente](https://unsplash.com/@boliviainteligente)
 

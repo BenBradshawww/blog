@@ -1,0 +1,11 @@
++++
+title = 'What is a Time Series & How can we Model it?'
+date = 2024-10-05
+categories = ["Time Series"]
+tags = ["Statistics", "Time Series"]
+keywords = ["Time Series"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++

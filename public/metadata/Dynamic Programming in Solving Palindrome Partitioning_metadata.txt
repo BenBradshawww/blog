@@ -1,0 +1,11 @@
++++
+title = 'Dynamic Programming in Solving Palindrome Partitioning'
+date = 2024-08-24
+categories = ["Algorithms"]
+tags = ["Dynamic Programming", "Algorithms"]
+keywords = ["Dynamic Programming", "Palindrome", "Algorithms"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++
