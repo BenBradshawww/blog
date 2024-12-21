@@ -6,8 +6,15 @@
     <description>Recent content in Probability on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Fri, 01 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.mathstoml.com/tags/probability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Some Questions in Probability I</title>
+      <link>https://www.mathstoml.com/some-questions-in-probability-i/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/some-questions-in-probability-i/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/cameron-cress-OZZIrjLTmA8-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;img src=&#34;https://unsplash.com/@cam_cress&#34; alt=&#34;Image by Cameron Cress&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-drunkard&#34;&gt;The Drunkard&lt;/h2&gt;&#xA;&lt;p&gt;Suppose someone has had a heavy evening in the pub and upon leaving the pub they have somehow ended up by the side of a cliff. Since he has one a one too many drinks he can&amp;rsquo;t walk well and they now has 1/3 probability to walk off the edge of the cliff or 2/3 probability to take a step backwards. What is the probability that he will eventually fall off the edge of the cliff?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Martingale Theory</title>
       <link>https://www.mathstoml.com/martingale-theory/</link>
