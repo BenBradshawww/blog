@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GNNs on </title>
+    <link>https://www.mathstoml.com/tags/gnns/</link>
+    <description>Recent content in GNNs on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Mon, 23 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/tags/gnns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Message Passing Neural Networks</title>
+      <link>https://www.mathstoml.com/message-passing-neural-networks/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/message-passing-neural-networks/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/boliviainteligente-AXNZb4FEkh8-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@boliviainteligente&#34;&gt;Image by BoliviaInteligente&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Over the past 15 years we have seen a surge of use of Graph Neural Networks (GNNs) being used to model social networks, recommendations systems, transportation networks, and many more systems. With the ever growing use of GNNs, this has naturally led to the questions about the use of GNNs within the medical sector. More specifically, the question of using GNNs to predict the properties of molecules was brought up. Back in the early 2010s, this idea was in its infancy with few successful applications.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

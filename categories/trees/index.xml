@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trees on </title>
+    <link>https://www.mathstoml.com/categories/trees/</link>
+    <description>Recent content in Trees on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Thu, 27 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/categories/trees/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>U-Net</title>
+      <link>https://www.mathstoml.com/why-do-trees-outperform-neural-networks-on-tabular-data/</link>
+      <pubDate>Thu, 27 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/why-do-trees-outperform-neural-networks-on-tabular-data/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/photo-1458966480358-a0ac42de0a7a.avif&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@toddquackenbush?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Todd Quackenbush&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;For the past 30 years, tree-based algorithms such as Adaboost and Random Forests have been the go-to methods for solving tabular data problems. While neural networks (NNs) have been used in this context, they have historically struggled to match the performance of tree-based methods. Despite recent advancements in NN capabilities and their success in tasks from computer vision, language translation, and image generation, tree-based algorithms still outperform neural networks when it comes to tabular data. This article will introduce several reasons behind the continued dominance of tree-based methods in this domain.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

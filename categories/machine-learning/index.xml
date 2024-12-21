@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on </title>
+    <link>https://www.mathstoml.com/categories/machine-learning/</link>
+    <description>Recent content in Machine Learning on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Wed, 03 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>U-Net</title>
+      <link>https://www.mathstoml.com/u-net/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/u-net/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;photo-1542144950-fa020d965709.avif&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@danielcgold?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Dan Gold&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Machine Learning (ML) has numerous applications in medicine, including disease diagnosis, drug development, predictive healthcare, and more. One key application of ML in medicine is biomedical image processing. These types of models takes an image as an input and then assigns a class label to each pixel in a process called localisation. Competitions are held annually to advance these ML models for biomedical image processing tasks. For instance, the International Symposium on Biomedical Imaging (ISBI) hosts yearly competitions focused on various biomedical imaging challenges. One notable problems from the ISBI involves segmenting neuronal structures in electron microscopy stacks.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>U-Net</title>
+      <link>https://www.mathstoml.com/why-do-trees-outperform-neural-networks-on-tabular-data/</link>
+      <pubDate>Thu, 27 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/why-do-trees-outperform-neural-networks-on-tabular-data/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/photo-1458966480358-a0ac42de0a7a.avif&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@toddquackenbush?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Todd Quackenbush&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;For the past 30 years, tree-based algorithms such as Adaboost and Random Forests have been the go-to methods for solving tabular data problems. While neural networks (NNs) have been used in this context, they have historically struggled to match the performance of tree-based methods. Despite recent advancements in NN capabilities and their success in tasks from computer vision, language translation, and image generation, tree-based algorithms still outperform neural networks when it comes to tabular data. This article will introduce several reasons behind the continued dominance of tree-based methods in this domain.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

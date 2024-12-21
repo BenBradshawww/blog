@@ -22,5 +22,124 @@
       <guid>https://www.mathstoml.com/tags/glms/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Docker</title>
+      <link>https://www.mathstoml.com/tags/docker/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimisation</title>
+      <link>https://www.mathstoml.com/tags/optimisation/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/optimisation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probability</title>
+      <link>https://www.mathstoml.com/tags/probability/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/probability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>REST APIs</title>
+      <link>https://www.mathstoml.com/tags/rest-apis/</link>
+      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/rest-apis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ARIMA</title>
+      <link>https://www.mathstoml.com/tags/arima/</link>
+      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/arima/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ARMA</title>
+      <link>https://www.mathstoml.com/tags/arma/</link>
+      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/arma/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Statistics</title>
+      <link>https://www.mathstoml.com/tags/statistics/</link>
+      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/statistics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Time Series</title>
+      <link>https://www.mathstoml.com/tags/time-series/</link>
+      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/time-series/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GNNs</title>
+      <link>https://www.mathstoml.com/tags/gnns/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/gnns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://www.mathstoml.com/tags/machine-learning/</link>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Auto-Encoders</title>
+      <link>https://www.mathstoml.com/tags/auto-encoders/</link>
+      <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/auto-encoders/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Diffusion Models</title>
+      <link>https://www.mathstoml.com/tags/diffusion-models/</link>
+      <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/diffusion-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algorithms</title>
+      <link>https://www.mathstoml.com/tags/algorithms/</link>
+      <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dynamic Programming</title>
+      <link>https://www.mathstoml.com/tags/dynamic-programming/</link>
+      <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/dynamic-programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GNN</title>
+      <link>https://www.mathstoml.com/tags/gnn/</link>
+      <pubDate>Sat, 27 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/gnn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GANs</title>
+      <link>https://www.mathstoml.com/tags/gans/</link>
+      <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/gans/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trees</title>
+      <link>https://www.mathstoml.com/tags/trees/</link>
+      <pubDate>Thu, 27 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/tags/trees/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

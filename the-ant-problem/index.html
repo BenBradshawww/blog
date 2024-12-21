@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en-uk"
+    dir="ltr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+    <title>
+    
+    The Ant Problem - MathsToML
+    
+</title>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="keywords" content="Ants , Ant Problem , Probability , Random Walks">
+    <meta name="description" content="SEO Description Here">
+    <link rel="canonical" href="https://www.mathstoml.com/the-ant-problem/" />
+    <link rel="icon" href="/favicon.ico?v=1734784287" type="image/x-icon">
+    
+<link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
+    
+<script src="/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+
+    
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "",
+            enable_page_level_ads: true
+        });
+    </script>
+    
+
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', '');
+    </script>
+    
+
+    
+    
+</head><head>
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['$', '$']]                  
+    }
+  };
+</script>
+    
+</head>
+
+<body>
+    <div class="
+        mx-auto max-w-[calc(120rem)]
+        min-h-screen
+        2xl:px-[calc(16rem)]
+        xl:px-24
+        md:px-8
+        px-4
+    ">
+
+        <div x-data="{ openMenu: false }" class="relative">
+    <nav class="flex flex-1 flex-col lg:flex-row items-center justify-between">
+        <a href="/">
+            <img src="/image/logo.webp" alt="site logo"
+                class="w-16 h-16 my-5 p-1 bg-gray-100 rounded-full cursor-pointer hover:scale-110" />
+        </a>
+        <div class="hidden lg:block" :class="{'hidden': !openMenu}">
+            
+
+
+
+
+
+
+<ul
+    class="flex flex-col lg:flex-row justify-end mt-2 sm:mt-5 mb-5 pb-2 font-light text-xl lg:text-2xl gap-5 lg:gap-1 text-center">
+    
+
+
+
+
+
+
+
+
+<li>
+    <a    class="px-5 lg:px-10 py-3 font-light hover:border-b-2 hover:border-red-500"     href="/"  >Home</a>
+    
+</li>
+
+
+
+
+
+
+
+<li>
+    <a    class="px-5 lg:px-10 py-3 font-light hover:border-b-2 hover:border-red-500"     href="/categories/"  >Categories</a>
+    
+</li>
+
+
+
+
+
+
+
+<li>
+    <a    class="px-5 lg:px-10 py-3 font-light hover:border-b-2 hover:border-red-500"     href="/tags/"  >Tags</a>
+    
+</li>
+
+
+
+
+
+
+
+<li>
+    <a    class="px-5 lg:px-10 py-3 font-light hover:border-b-2 hover:border-red-500"     href="/about_me/"  >About Me</a>
+    
+</li>
+
+
+</ul>
+
+
+
+
+        </div>
+    </nav>
+    <div class="absolute top-8 right-5 flex items-center lg:hidden">
+        
+        <button @click="openMenu = !openMenu" type="button"
+            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-800 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu" aria-expanded="openMenu">
+            
+            <svg x-show="!openMenu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            
+            <svg x-show="openMenu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+        <header class="flex flex-col w-full items-center justify-center text-white pt-8 pb-8">
+    <div class="w-full">
+        <div class="flex flex-1 flex-row justify-between">
+            <h2 class="w-full text-center text-3xl sm:text-5xl font-crimson font-bold tracking-tight text-gray-300">
+                <a href="https://www.mathstoml.com/">MathsToML</a>
+            </h2>
+        </div>
+        <p
+            class="w-full text-center pl-1 pb-4 sm:pt-3 sm:pb-0 font-crimson font-normal text-xl sm:text-2xl leading-8 text-gray-500">
+            My Blog</p>
+    </div>
+
+    <div class="relative w-9/12 lg:w-1/2 h-12 my-5">
+        <form action="/en/search" method="get">
+            <input
+                class="bg-gray-800 placeholder:italic placeholder:text-gray-600 w-full h-12 rounded-full mt-1 pl-5 pr-5 border border-gray-800 text-gray-100"
+                placeholder='Input Keywords...' type="text" name="q" id="search-query" />
+
+            <button
+                class="absolute inset-y-2 right-1 w-28 h-10 font-light bg-gray-900 hover:bg-red-500 text-gray-500 hover:text-gray-100 rounded-full cursor-pointer"
+                type="submit">Search</button>
+        </form>
+    </div>
+
+    
+    <div class="w-full flex flex-row justify-start text-gray-500 text-lg px-1 border-l-4 border-l-red-500">
+        <ul class="flex flex-row gap-x-2">
+            <li class="">
+                <a href="/" class="hover:text-gray-100">Home</a>
+            </li>
+            
+            <li>
+                &gt;&nbsp;&nbsp;<a href="/the-ant-problem/" class="hover:text-gray-100">The Ant Problem</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="w-full h-2 border-b border-b-gray-600/50 border-dashed font-light text-gray-300">
+    </div>
+    
+
+</header>
+
+        <div class="
+            flex flex-col overflow-hidden
+            xl:px-0
+            lg:flex-row lg:space-x-8
+        ">
+            <main class="w-full overflow-hidden">
+                
+
+<article class="single-article">
+    
+    <div class="group relative">
+        <h1 class="text-3xl font-medium leading-10 text-gray-400 hover:text-gray-100">
+            <a href="/the-ant-problem/">
+                The Ant Problem
+            </a>
+        </h1>
+        <time datetime="2025-03-16" class="flex items-center py-2 text-xl text-gray-600">
+            2024-11-01 00:00
+            &nbsp;&nbsp;|&nbsp;&nbsp;6 minute read
+        </time>
+
+        <div
+            class="mt-1 lg:pb-10 px-2 text-2xl leading-10 font-thin text-gray-500 overflow-hidden break-words article-body">
+            <p><img src="images/mi_shots-8SJwz4nk7FA-unsplash.jpg" alt="Image">
+<a href="https://unsplash.com/@mi_shots?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Image by mi_shots</a>
+Today we&rsquo;ll be looking at a classic problem in probability: &ldquo;The Ant Problem&rdquo;.</p>
+<h2 id="the-question">The Question:</h2>
+<p>An ant leaves its anthill in order to forage for food. It moves with the speed of 10cm per second, but it doesn&rsquo;t know where to go, therefore every second it moves randomly 10cm directly north, south, east or west with equal probability.</p>
+<p>a) If the food is located on east-west lines 20cm to the north and 20cm to the south, as well as on north-south lines 20cm to the east and 20cm to the west from the anthill, how long will it take the ant to reach it on average?</p>
+<p>b) What is the average time the ant will reach food if it is located only on a diagonal line passing through (10cm, 0cm) and (0cm, 10cm) points?</p>
+<p>c) Can you write a program that comes up with an estimate of average time to find food for any closed boundary around the anthill? What would be the answer if food is located outside an defined by <strong>( (x – 2.5cm) / 30cm )2</strong> <strong>+ ( (y – 2.5cm) / 40cm )2</strong> <strong>&lt; 1</strong> in coordinate system where the anthill is located at (x = 0cm, y = 0cm)? Provide us with a solution rounded to the nearest integer.</p>
+<p>The question can be found <a href="https://dsapattern.nl/vacancies/8/">here</a>.</p>
+<h2 id="solutions">Solutions:</h2>
+<h3 id="part-a">Part A:</h3>
+<p>Let&rsquo;s demonstrate the solution of this problem with probability.</p>
+<p><img src="https://mathstoml.ghost.io/content/images/2024/08/image-12.png" alt=""></p>
+<p>Figure 1.</p>
+<p>Given that the ant starts at the origin, we can see from Figure 1 that the ant has four options: up, right, down, and left (corresponding to the red dots in Figure 1). Notice that taking any of these four routes places the ant in one of four equivalent positions. These positions are considered equivalent because, from any of them, the ant has the same possibilities for the next step. Similarly, if the ant lands on any blue points, there are three other equivalent positions within the grid where the possible next steps are exactly the same.</p>
+<p>Let $X_{\text{black}}, X_{\text{red}},$ and $X_{\text{blue}}$ denote the random variables representing the number of steps required to reach the yellow box from the black, red, and blue points, respectively. These can also be expressed as:</p>
+$$X_{\text{black}} = 1 + X_{\text{red}}.$$$$X_{\text{red}} = \begin{cases} 1 + X_{\text{black}} & \text{w.p. } \frac{1}{4}, \\ 1 + X_{\text{blue}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{4}. \end{cases}$$$$X_{\text{blue}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{2}. \end{cases}$$<p>Taking the expectation of the 3 random variables gives:</p>
+$$\mathbb{E}[X_{\text{black}}] = 1 + \mathbb{E}[X_{\text{red}}],$$$$\mathbb{E}[X_{\text{red}}] = 1 + \frac{1}{4}\mathbb{E}[X_{\text{black}}] + \frac{1}{2}\mathbb{E}[X_{\text{blue}}],$$$$\mathbb{E}[X_{\text{blue}}] = 1 + \frac{1}{2}\mathbb{E}[X_{\text{red}}].$$<p>Solving the above formulas by substitution gives:</p>
+$$\mathbb{E}[X_{\text{black}}] = 4.5$$<p>Therefore, on average it will take the ant 4.5 steps to reach the food.</p>
+<p>This solution can be verified using the code from the last section.</p>
+<h3 id="part-b">Part B:</h3>
+<p>The premise behind this question is to model the ants 2D random walk as a 1D random walk.</p>
+<p><img src="https://mathstoml.ghost.io/content/images/2024/08/image-13.png" alt=""></p>
+<p>Figure 2.</p>
+<p>Let the yellow line denote where the food is located and let $X_{\text{black}}, X_{\text{red}}, X_{\text{blue}}, X_{\text{green}},$ and $ X_{\text{purple}}$ denote the random variables modelling the ants walks starting from the black, red, blue, green, and purple points.</p>
+$$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{2}. \end{cases}$$$$X_{\text{red}} = \begin{cases} 1 + X_{\text{black}} & \text{w.p. } \frac{1}{2}, \\ 1 + X_{\text{blue}} & \text{w.p. } \frac{1}{2}. \end{cases}$$$$X_{\text{blue}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 + X_{\text{green}} & \text{w.p. } \frac{1}{2}. \end{cases}$$$$\vdots$$<p>Notice at each colour, the ant either moves 1 step further from the line w.p. 1/2 or 1 step closer to the line w.p. 1/2. Consequently, this 2 dimensional walk could be represented as 1D walk.</p>
+<p><img src="https://mathstoml.ghost.io/content/images/2024/08/image-15.png" alt=""></p>
+<p>Figure 3.</p>
+<p>There are several ways to prove the expected number of steps, and we&rsquo;ll use a proof by contradiction.</p>
+<p>Suppose that the average number of steps to move from the black point to the line exists and is equal to $x$. Next, we&rsquo;ll construct an equation for $x$ based on the expected number of steps required to return from our starting point. Taking a step toward the yellow lines gives us 1 step, and from there, no further steps are needed. On the other hand, taking a step toward the red point initially adds 1 step. From the red point, we then need to find the expected number of steps to return to the black point and subsequently reach the yellow line. The expected number of steps from the red point to the black point is equivalent to the number of steps from the black point to the yellow line. From our initial assumption, we know that the expected number of steps for this is $x$. Similarly, starting from the black point, it takes, on average, another $x$ steps to reach the yellow line.</p>
+$$X_{\text{black}} = \begin{cases} 1 + X_{\text{red}} & \text{w.p. } \frac{1}{2}, \\ 1 & \text{w.p. } \frac{1}{2}. \end{cases}$$$$\begin{align*}\mathbb{E}[X_{\text{black}}] = x &= \frac{1}{2} (1) + \frac{1}{2}\mathbb{E}[X_{\text{red}}] \\ &= 1 + \frac{1}{2}(x + x) \\ &= 1 + x \end{align*}$$<p>This leads to a contradiction. Consequently, there cannot be a finite average number of steps to hit the yellow line.</p>
+<p>The original proof by contradiction can be found <a href="https://math.stackexchange.com/questions/4320314/random-walk-1d-with-a-single-bound">here</a> and this solution will be verified in the last section.</p>
+<h3 id="part-c">Part C:</h3>
+<p>For this section we will be using python. We&rsquo;ll create a base class and 3 separate subclasses to verify solutions for the last 3 questions. Each subclass has a custom function called &ldquo;check&rdquo; which checks if there is food located at the ant&rsquo;s current location.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">base_ants</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> __init__(self, n_iters<span style="color:#f92672">=</span><span style="color:#ae81ff">100000</span>, max_iters<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>):
+</span></span><span style="display:flex;"><span>		self<span style="color:#f92672">.</span>n_iters <span style="color:#f92672">=</span> n_iters
+</span></span><span style="display:flex;"><span>		self<span style="color:#f92672">.</span>max_iters <span style="color:#f92672">=</span> max_iters
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">estimate</span>(self):
+</span></span><span style="display:flex;"><span>		walk_storage <span style="color:#f92672">=</span> [self<span style="color:#f92672">.</span>walk((<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>), <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>n_iters)]
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> round(sum(walk_storage) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>n_iters, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check</span>(self, pos):
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">walk</span>(self, pos, count):
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> count <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>max_iters:
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> float(<span style="color:#e6db74">&#39;inf&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		x, y <span style="color:#f92672">=</span> pos
+</span></span><span style="display:flex;"><span>		dx, dy <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>choice([(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>), (<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">0</span>), (<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>), (<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">0</span>)])
+</span></span><span style="display:flex;"><span>		nx, ny <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> dx, y <span style="color:#f92672">+</span> dy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>check((nx, ny)):
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> count <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>walk((nx, ny), count <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ants_q1</span>(base_ants):
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>		super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check</span>(self, pos):
+</span></span><span style="display:flex;"><span>		x, y <span style="color:#f92672">=</span> pos
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> abs(x) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">or</span> abs(y) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ants_q2</span>(base_ants):
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>		super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check</span>(self, pos):
+</span></span><span style="display:flex;"><span>		x, y <span style="color:#f92672">=</span> pos
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> (x <span style="color:#f92672">+</span> y) <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ants_q3</span>(base_ants):
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> __init__(self, ellipse_center, horizontal_radius, vertical_radius):
+</span></span><span style="display:flex;"><span>		super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>		self<span style="color:#f92672">.</span>ellipse_center <span style="color:#f92672">=</span> ellipse_center
+</span></span><span style="display:flex;"><span>		self<span style="color:#f92672">.</span>horizontal_radius <span style="color:#f92672">=</span> horizontal_radius
+</span></span><span style="display:flex;"><span>		self<span style="color:#f92672">.</span>vertical_radius <span style="color:#f92672">=</span> vertical_radius
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check</span>(self, pos):
+</span></span><span style="display:flex;"><span>		x, y <span style="color:#f92672">=</span> pos
+</span></span><span style="display:flex;"><span>		x0, y0 <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>ellipse_center
+</span></span><span style="display:flex;"><span>		ellipse_eq <span style="color:#f92672">=</span> ((x <span style="color:#f92672">-</span> x0) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>horizontal_radius) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> ((y <span style="color:#f92672">-</span> y0) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>vertical_radius) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> ellipse_eq <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Running the ants_q3 class gives an answer of 14.0.</p>
+<h3 id="references">References:</h3>
+<p>Random (2021). <strong>Random walk 1D with a single bound</strong>. [online] Mathematics Stack Exchange. Available at: <a href="https://math.stackexchange.com/questions/4320314/random-walk-1d-with-a-single-bound">https://math.stackexchange.com/questions/4320314/random-walk-1d-with-a-single-bound</a> [Accessed 28 Aug. 2024].</p>
+<p>‌</p>
+
+        </div>
+    </div>
+    <div class="text-gray-500 text-lg">
+        Page link:&nbsp;<a href="https://www.mathstoml.com/the-ant-problem/"
+            class="border-b border-b-gray-500 hover:text-gray-400">https://www.mathstoml.com/the-ant-problem/</a>
+    </div>
+    <div class="my-10 py-5 border-t border-dashed border-t-white/10 text-xl text-gray-600">
+        
+    </div>
+</article>
+
+
+            </main>
+
+            <aside id="sidebar" class="aside-container">
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </svg>
+        About
+    </div>
+
+    <img src="/image/logo.webp?v=1734784287" class="w-80 self-center" alt="Logo" />
+
+    <p class="leading-8 text-center text-lg font-light mt-3">
+        
+    </p>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+        </svg>
+        Latest Post
+    </div>
+
+    <ul class="text-lg">
+        
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/gams/" class="py-5 hover:text-gray-300">GAMs</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/the-ant-problem/" class="py-5 hover:text-gray-300">The Ant Problem</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/non-convex-optimisation-learning-rate-scheduling/" class="py-5 hover:text-gray-300">Non-Convex Optimisation Learning Rate Scheduling</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/martingale-theory/" class="py-5 hover:text-gray-300">Martingale Theory</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/docker/" class="py-5 hover:text-gray-300">Docker</a>
+        </li>
+        
+        
+    </ul>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
+        </svg>
+        Hot Categories
+    </div>
+    <ul class="leading-10 text-lg">
+        
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/graphs/" class="hover:text-gray-300">Graphs <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/machine-learning/" class="hover:text-gray-300">Machine Learning <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/time-series/" class="hover:text-gray-300">Time Series <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/probability/" class="hover:text-gray-300">Probability <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/algorithms/" class="hover:text-gray-300">Algorithms <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+
+    </ul>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+        </svg>
+        Top Tags
+    </div>
+    <div class="flex flex-wrap gap-2 text-lg leading-8 pt-3 pl-1">
+        
+        
+        
+        
+        <a href="/tags/auto-encoders/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Auto-Encoders&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/probability/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Probability&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/statistics/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/time-series/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/gnn/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/machine-learning/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Machine Learning&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/diffusion-models/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gnns/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arma/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/dynamic-programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/optimisation/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/algorithms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arima/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gams/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/rest-apis/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/glms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/trees/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        
+    </div>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+        </svg>
+        Archive Analytics
+    </div>
+    <ul class="leading-10 text-lg font-light">
+        
+        
+        
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Sep, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Oct, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">3</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Nov, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Jun, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Jul, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Jan, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Dec, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">Aug, 2024<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+    </ul>
+
+    
+    <div class="aside-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+        </svg>
+        Contact
+    </div>
+    <div class="flex flex-row gap-2">
+        Email：benbradshaw01@outlook.com
+    </div>
+</aside>
+        </div>
+
+        <footer class="p-5 text-xl text-center mt-8 pt-8 pb-8 border-t border-gray-100/10">
+    <div class="text-gray-500">
+        
+        &#xA9; 2019 - 2023 by <a class="hover:text-gray-100" href="https://github.com/guangmean/Niello"
+            target="_blank">guangmean</a>. All Rights
+        Reserved.
+        
+
+        
+        | <a class="hover:text-gray-100" href=" /en ">🇬🇧EN</a>
+        
+    </div>
+</footer>
+
+        <div class="cookie-container text-center py-12 text-2xl font-thin text-gray-500">
+  <p>
+    We use cookies on this website to give you the best experience on our
+    site and show you relevant ads. To find out more, read our
+    <a href="/privacy/" class="text-red-600">privacy policy</a> and <a href="/cookies/" class="text-red-600">cookie
+      policy</a>.
+  </p>
+  <button class="cookie-btn w-32 h-22 mt-5 py-2 bg-red-600 text-white rounded-full hover:scale-110">
+    Okay
+  </button>
+</div>
+<script src="/js/cookie.js"></script>
+
+    </div>
+</body>
+
+</html>
