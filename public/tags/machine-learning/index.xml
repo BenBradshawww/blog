@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on </title>
+    <link>https://www.mathstoml.com/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Tue, 10 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kullback-Leibler Divergence</title>
+      <link>https://www.mathstoml.com/kullback-leibler-divergence/</link>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/kullback-leibler-divergence/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/daniela-turcanu-wABdckxoj90-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@protopopica?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Daniela Turcanu&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;This article will cover the key features of Kullback-Leibler Divergence (KL divergence), a formula invented in 1951 by the mathematicians Soloman Kullback and Richard Leibler. This formula is used in the background of many of the modern day machine learning models focused around probabilistic modelling. These including Variational Autoencoders (VAEs), Generative Models, Reinforcement Learning, and Natural Language Processing. Additionally, this article will cover some of KL divergence&amp;rsquo;s key properties and briefly cover one of its applications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>U-Net</title>
+      <link>https://www.mathstoml.com/why-do-trees-outperform-neural-networks-on-tabular-data/</link>
+      <pubDate>Thu, 27 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/why-do-trees-outperform-neural-networks-on-tabular-data/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/photo-1458966480358-a0ac42de0a7a.avif&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@toddquackenbush?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Todd Quackenbush&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;For the past 30 years, tree-based algorithms such as Adaboost and Random Forests have been the go-to methods for solving tabular data problems. While neural networks (NNs) have been used in this context, they have historically struggled to match the performance of tree-based methods. Despite recent advancements in NN capabilities and their success in tasks from computer vision, language translation, and image generation, tree-based algorithms still outperform neural networks when it comes to tabular data. This article will introduce several reasons behind the continued dominance of tree-based methods in this domain.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

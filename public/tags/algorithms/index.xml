@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms on </title>
+    <link>https://www.mathstoml.com/tags/algorithms/</link>
+    <description>Recent content in Algorithms on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sat, 24 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dynamic Programming in Solving Palindrome Partitioning</title>
+      <link>https://www.mathstoml.com/dynamic-programming-in-solving-palindrome-partitioning/</link>
+      <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/dynamic-programming-in-solving-palindrome-partitioning/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;danny-greenberg-cbN8rxHr5S0-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@by_danny_g?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Danny Greenberg&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;summary&#34;&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;This article explores dynamic programming (DP), a technique used to tackle complex problems in computer science. We will specifically apply DP to two problems involving palindrome partitioning.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;A basic understanding of dynamic programming and some experience with DP problems are recommended before reading this article.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;strong&gt;Definitions&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;• &lt;strong&gt;&lt;strong&gt;Palindrome&lt;/strong&gt;&lt;/strong&gt;: A string is a palindrome if it reads the same backward as forward. For example, “aba” is a palindrome, while “aab” is not.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

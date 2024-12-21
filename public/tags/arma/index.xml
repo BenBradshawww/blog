@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ARMA on </title>
+    <link>https://www.mathstoml.com/tags/arma/</link>
+    <description>Recent content in ARMA on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sat, 05 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/tags/arma/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARMA &amp; ARIMA</title>
+      <link>https://www.mathstoml.com/arma--arima/</link>
+      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/arma--arima/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/elijah-grimm-jSt_ZxlG2bk-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@watchelijah?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Elijah Grimm&lt;/a&gt;&#xA;In this article we will cover the ARMA and ARIMA based statistical models, cover the maths behind these models, and look at the statistical test required prior and the post the model fitting.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;d recommend reading the previous article &lt;a href=&#34;https://mathstoml.ghost.io/what-is-a-time-series-how-can-we-model-it-2/&#34;&gt;here&lt;/a&gt; before reading the remainder of this article. In that article we cover the basics of what is a time series and how we could model it.&lt;/p&gt;&#xA;&lt;h3 id=&#34;definitions&#34;&gt;Definitions:&lt;/h3&gt;&#xA;&lt;p&gt;Recall from our previous article that given a sequence of data points $\{ X_{t}, t \in \mathbb{Z} \}$, the sequence is &lt;strong&gt;&lt;strong&gt;strongly stationary&lt;/strong&gt;&lt;/strong&gt; or &lt;strong&gt;&lt;strong&gt;strictly stationary&lt;/strong&gt;&lt;/strong&gt; if&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

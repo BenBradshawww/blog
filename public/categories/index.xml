@@ -15,5 +15,82 @@
       <guid>https://www.mathstoml.com/categories/statistical-modelling/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Non-Convex Optimisation</title>
+      <link>https://www.mathstoml.com/categories/non-convex-optimisation/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/non-convex-optimisation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probability</title>
+      <link>https://www.mathstoml.com/categories/probability/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/probability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming Tools</title>
+      <link>https://www.mathstoml.com/categories/programming-tools/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/programming-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Time Series</title>
+      <link>https://www.mathstoml.com/categories/time-series/</link>
+      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/time-series/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graphs</title>
+      <link>https://www.mathstoml.com/categories/graphs/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/graphs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Statistics</title>
+      <link>https://www.mathstoml.com/categories/statistics/</link>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/statistics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Diffusion Models</title>
+      <link>https://www.mathstoml.com/categories/diffusion-models/</link>
+      <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/diffusion-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algorithms</title>
+      <link>https://www.mathstoml.com/categories/algorithms/</link>
+      <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/algorithms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Auto-Encoders</title>
+      <link>https://www.mathstoml.com/categories/auto-encoders/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/auto-encoders/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://www.mathstoml.com/categories/machine-learning/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trees</title>
+      <link>https://www.mathstoml.com/categories/trees/</link>
+      <pubDate>Thu, 27 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/categories/trees/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

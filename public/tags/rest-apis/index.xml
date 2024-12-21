@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>REST APIs on </title>
+    <link>https://www.mathstoml.com/tags/rest-apis/</link>
+    <description>Recent content in REST APIs on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Wed, 30 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/tags/rest-apis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rest APIs</title>
+      <link>https://www.mathstoml.com/rest-apis/</link>
+      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/rest-apis/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/ante-hamersmit-DSUjNkiRFg0-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@ante_kante?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Ante Hamersmit&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-are-apis&#34;&gt;What are APIs&lt;/h2&gt;&#xA;&lt;p&gt;Before we just into the class of Rest APIs it is best to understand what is an API. An API is simply an acronym for application programming interface, a software intermediary that allows two applications to talk to each other.&lt;/p&gt;&#xA;&lt;p&gt;They are usually explained in terms of a client and a server. The application that sends a request is called the client and the application that sends the response is called the server.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

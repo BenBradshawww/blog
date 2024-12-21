@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics on </title>
+    <link>https://www.mathstoml.com/categories/statistics/</link>
+    <description>Recent content in Statistics on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Tue, 10 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/categories/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kullback-Leibler Divergence</title>
+      <link>https://www.mathstoml.com/kullback-leibler-divergence/</link>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/kullback-leibler-divergence/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/daniela-turcanu-wABdckxoj90-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@protopopica?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Daniela Turcanu&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;This article will cover the key features of Kullback-Leibler Divergence (KL divergence), a formula invented in 1951 by the mathematicians Soloman Kullback and Richard Leibler. This formula is used in the background of many of the modern day machine learning models focused around probabilistic modelling. These including Variational Autoencoders (VAEs), Generative Models, Reinforcement Learning, and Natural Language Processing. Additionally, this article will cover some of KL divergence&amp;rsquo;s key properties and briefly cover one of its applications.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

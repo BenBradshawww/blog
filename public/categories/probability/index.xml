@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Probability on </title>
+    <link>https://www.mathstoml.com/categories/probability/</link>
+    <description>Recent content in Probability on </description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Fri, 01 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.mathstoml.com/categories/probability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Martingale Theory</title>
+      <link>https://www.mathstoml.com/martingale-theory/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/martingale-theory/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/sq-lim-aWm7fAUNPEc-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@sql&#34;&gt;Image by sq lim&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Today&amp;rsquo;s article will look at one of the more difficult areas in probability called martingale theory. We will cover the basic theory and look at 2 examples which use martingale theory (the drunk man and the ABRACADABRA problem).&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-theory&#34;&gt;The Theory&lt;/h2&gt;&#xA;&lt;p&gt;Before jumping into the problem, we have to cover some of the theory behind martingales. It is important to mention we will be skipping over many of the measure theory definitions and theorems. These will be covered at a later time. If you wish to read up more about this area of mathematics, I&amp;rsquo;d recommend reading the paper by T. Smith &lt;a href=&#34;https://math.uchicago.edu/~may/REU2012/REUPapers/Smith.pdf&#34;&gt;here&lt;/a&gt;. This paper was the basis for this article [1].&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Ant Problem</title>
+      <link>https://www.mathstoml.com/the-ant-problem/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/the-ant-problem/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/mi_shots-8SJwz4nk7FA-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@mi_shots?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by mi_shots&lt;/a&gt;&#xA;Today we&amp;rsquo;ll be looking at a classic problem in probability: &amp;ldquo;The Ant Problem&amp;rdquo;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-question&#34;&gt;The Question:&lt;/h2&gt;&#xA;&lt;p&gt;An ant leaves its anthill in order to forage for food. It moves with the speed of 10cm per second, but it doesn&amp;rsquo;t know where to go, therefore every second it moves randomly 10cm directly north, south, east or west with equal probability.&lt;/p&gt;&#xA;&lt;p&gt;a) If the food is located on east-west lines 20cm to the north and 20cm to the south, as well as on north-south lines 20cm to the east and 20cm to the west from the anthill, how long will it take the ant to reach it on average?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
