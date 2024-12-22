@@ -4,6 +4,7 @@
 echo "Pulling latest changes from the origin"
 git pull origin main
 
+
 # Step 2: Copy images from obsidian to website
 IMAGE_SOURCE_DIR="/Users/benbradshaw/Documents/Obsidian Vault/images/"
 IMAGE_TARGET_DIR="/Users/benbradshaw/Documents/Code/website/static/images/"
@@ -43,14 +44,16 @@ else
     exit 1
 fi
 
+
 # Step 5: Update blog with its metadata
 echo "Adding blog metadata"
 python scripts/python_scripts/add_blog_metadata.py
 
 if [ $? -ne 0 ]; then
-    echo "Python script failed. Exiting."
+    echo "Python script add_blog_metadata failed. Exiting."
     exit 1
 fi
+
 
 # Step 6: Confirm that all manaul changes with the blog metadata have been written.
 while true; do
@@ -63,19 +66,30 @@ while true; do
     fi
 done
 
+
 # Step 7: Updating main branch
 echo "Updating public directory"
-hugo   
+hugo build
+
+if [ $? -ne 0 ]; then
+    echo "Hugo failed. Exiting."
+    exit 1
+fi
 
 echo "www.mathstoml.com" > public/CNAME
 
 echo "Committing changes"
 git add .
 
-git commit -m "Update blogs"
+DEFAULT_MESSAGE="Update blogs"
+
+COMMIT_MESSAGE=${1:-$DEFAULT_MESSAGE}
+
+git commit -m "$COMMIT_MESSAGE"
 
 echo "Pushing changes to the origin"
 git push origin main
+
 
 # Step 8: Update deployment branch
 echo "Updating public branch"
@@ -84,6 +98,7 @@ git subtree split --prefix public -b deploy
 git push origin deploy -f
 
 git branch -D deploy
+
 
 # Process completed
 echo "Process completed. Changes pushed to both main and public branch"

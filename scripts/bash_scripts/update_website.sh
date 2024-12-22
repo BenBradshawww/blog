@@ -1,13 +1,17 @@
 # Step 1: Updating main branch
 echo "Updating public directory"
-hugo   
+hugo build
 
 echo "www.mathstoml.com" > public/CNAME
 
 echo "Committing changes"
 git add .
 
-git commit -m "Update website"
+DEFAULT_MESSAGE="Update website"
+
+COMMIT_MESSAGE=${1:-$DEFAULT_MESSAGE}
+
+git commit -m "$COMMIT_MESSAGE"
 
 echo "Pushing changes to the origin"
 git push origin main
