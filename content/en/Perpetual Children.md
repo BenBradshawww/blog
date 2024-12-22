@@ -57,7 +57,7 @@ $$\mathbb{E}[X] = \sum x . \mathbb{P}[X = x]$$
 In our case, let $X$ be the random variable denoting the number of children needed to reach parity. We can then rewrite the formula above as:
 $$\mathbb{E}[X] = \sum_{x=2}^\infty x . \mathbb{P}[X = x]$$
 To solve this formula, we need to find $\mathbb{P}[X = x]$ for each value of $x$. To do this, we will model this question as a 2D random walk. Lets take $x=10$ as an example and we'll use the grid below.
-![Image](2d_boy_girl_grid.drawio.png)
+![Image](/images/2d_boy_girl_grid.drawio.png)
 Anytime the couple gives birth to a boy, a step to the right is taken and if a girl is birthed, a step up is taken. Equality is reached when the path hits the blue line. 
 
 Representing the question using a 2d grid now opens the possibility of using something called [Dyck's path](https://mathworld.wolfram.com/DyckPath.html) [2]. A Dyck path is a staircase walk from (0,0) to (n,n) that lies strictly below (but may touch) the diagonal y=x. The number of Dyck's paths of order n is given by the Catalan number:
