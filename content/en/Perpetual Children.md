@@ -39,7 +39,9 @@ Our goal is to determine $\mathbb{E}[W_1]$, i.e. the number of children needed t
 
 Spoiler warning. The answer is infinite and to prove this we will use a proof by contradiction. Given we are at step 1, let us suppose that $\mathbb{E}[W_1]$ is finite. Following this assumption and the formula for expectation:
 $$\begin{align*}\mathbb{E}[W_1] &= \mathbb{P}[X_1 = -1] \mathbb{E}[W_1 | X_1 = -1] + \mathbb{P}[X_1 = 1] \mathbb{E}[W_1 | X_1 = 1] \\ &=\frac{1}{2}(1 + \mathbb{E}[W_0]) + \frac{1}{2}(1 + \mathbb{E}[W_2]) \\ &= 1 + \frac{1}{2}\mathbb{E}[W_2]\end{align*}$$
-Given you are at step 2, returning back to step 1 is equivalent to being at step 1 and returning to step 0, i.e. they are identically distributed.
+
+Given you are at step 2, returning back to step 1 is equivalent to being at step 1 and returning to step 0, i.e., they are identically distributed.
+
 $$\mathbb{E}[W_2] = \mathbb{E}[W_1] + \mathbb{E}[W_1]$$
 By substitution, we get:
 $$\begin{align*}\mathbb{E}[W_1] &= 1 + \frac{1}{2}(\mathbb{E}[W_1] + \mathbb{E}[W_1]) \\ &= 1 + \mathbb{E}[W_1]\end{align*}$$
