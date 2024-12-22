@@ -22,7 +22,7 @@
     <meta name="keywords" content="Probability , Random Walks">
     <meta name="description" content="SEO Description Here">
     <link rel="canonical" href="https://www.mathstoml.com/perpetual-children/" />
-    <link rel="icon" href="/favicon.ico?v=1734883430" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=1734898372" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
     
@@ -231,18 +231,18 @@
         </h1>
         <time datetime="2025-03-16" class="flex items-center py-2 text-xl text-gray-600">
             2024-12-22 00:00
-            &nbsp;&nbsp;|&nbsp;&nbsp;2 minute read
+            &nbsp;&nbsp;|&nbsp;&nbsp;4 minute read
         </time>
 
         <div
             class="mt-1 lg:pb-10 px-2 text-2xl leading-10 font-thin text-gray-500 overflow-hidden break-words article-body">
             <p><img src="/images/vivek-kumar-riAKT8Z7ifE-unsplash.jpg" alt="Image">
 <a href="https://unsplash.com/@vikceo">Image by Vivek Kumar</a></p>
-<p><strong>The Question</strong>
-A couple chooses to keep having children till they have an equal number of boys and girls. How many children will they have on average?</p>
-<p>In this article we will cover 2 ways to solve this problem. First using a random walk and proof by contradiction. The second is Optiver&rsquo;s solution to this problem.</p>
-<p><strong>Solution 1</strong>
-Let $X_t$ denote the random variable for which child has been born at time $t$.</p>
+<p><strong>The Question</strong></p>
+<p>A couple chooses to keep having children till they have an equal number of boys and girls. How many children will they have on average? [1]</p>
+<p>In this article we will cover 2 ways to solve this problem. First using a random walk and proof by contradiction. The second is Optiver&rsquo;s solution to this problem which use Dyck&rsquo;s path.</p>
+<p><strong>Solution 1</strong></p>
+<p>Let $X_t$ denote the random variable for which child has been born at time $t$.</p>
 <p>Given the first child is already born at time 0. If the first child is a boy, then let $X_t$ take the value 1 if a boy is born at time t and let $X_t$ be -1 if a girl is born at time t. Similarly, if the first child is a girl, then  $X_t$ will take the value 1 if a girl is born at time t and we will take the value -1 if a girl has been born at time t.</p>
 <p>Using the random variable $X_t$, we can model this question as a 1D random walk starting at the point 1.
 <img src="/images/random_walk_1d.png" alt="Image"></p>
@@ -254,8 +254,18 @@ $$\begin{align*}\mathbb{E}[W_1] &= \mathbb{P}[X_1 = -1] \mathbb{E}[W_1 | X_1 = -
 $$\mathbb{E}[W_2] = \mathbb{E}[W_1] + \mathbb{E}[W_1]$$$$\begin{align*}\mathbb{E}[W_1] &= 1 + \frac{1}{2}(\mathbb{E}[W_1] + \mathbb{E}[W_1]) \\ &= 1 + \mathbb{E}[W_1]\end{align*}$$<p>
 This is a contradiction! As a result, the expected number of children to have before you hit 0 is infinite.</p>
 <p><strong>Solution 2</strong></p>
-<p>This is still under works for now!</p>
-<p>Let</p>
+$$\mathbb{E}[X] = \sum x . \mathbb{P}[X = x]$$$$\mathbb{E}[X] = \sum_{x=2}^\infty x . \mathbb{P}[X = x]$$<p>
+To solve this formula, we need to find $\mathbb{P}[X = x]$ for each value of $x$. To do this, we will model this question as a 2D random walk. Lets take $x=10$ as an example and we&rsquo;ll use the grid below.
+<img src="2d_boy_girl_grid.drawio.png" alt="Image">
+Anytime the couple gives birth to a boy, a step to the right is taken and if a girl is birthed, a step up is taken. Equality is reached when the path hits the blue line.</p>
+$$C_n = \frac{1}{n+1} \binom{2n}{n}.$$$$C_4 = \frac{1}{5} \binom{8}{4} = 14$$<p>
+Consequently, the number of paths that start with a boy and achieves equality on the 10th child is 14. By symmetry, the number of paths that start with a girl and achieves equality on the 10th child is also 14.</p>
+$$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \mathbb{P}[X = 2k] &= \frac{2 C_{k-1}}{2^{2k}} \\ &= \frac{2}{k}\binom{2k-2}{k-1}\frac{1}{2^{2k}} \\ &= \frac{2}{4^kk} \binom{2k-2}{k-1}\end{align*}$$$$\begin{align*}\mathbb{E}[X] &= \sum_{k=1}^\infty 2k . \mathbb{P}[X = 2k] \\ &= \sum_{k=1}^{\infty} 2k \frac{2}{4^kk} \binom{2k-2}{k-1} \\ &= \sum_{k=1}^{\infty} \frac{1}{4^{k-1}} \binom{2k-2}{k-1} \end{align*}$$$$\begin{align*}\mathbb{E}[X] &= \sum_{n=0}^{\infty} \frac{1}{4^n} \binom{2n}{n} \end{align*}$$$$4^n = 2^{2n} = (1 + 1)^{2n} = \sum_{m=0}^{2n} \binom{2n}{m} < (2n + 1) \binom{2n}{n}$$$$\frac{1}{4^n} \binom{2n}{n} > \frac{1}{2n+1}$$$$\begin{align*}\mathbb{E}[X] &= \sum_{n=0}^{\infty}\frac{1}{4^n} \binom{2n}{n} \\ &> \sum_{n=0}^\infty\frac{1}{2n+1} \\ &> \sum_{n=0}^\infty \sum{1}{2n} \\ &= \frac{1}{2} \sum_{n=0}^\infty \frac{1}{n} \\ &\rightarrow \infty \end{align*}$$<p>As a result, the expectation is infinite!</p>
+<h3 id="references">References</h3>
+<ol>
+<li>Optiver (2024). <em>Prove it - Ep5: Perpetual Children</em>. [online] YouTube. Available at: <a href="https://www.youtube.com/watch?v=YllN9Pz15cU">https://www.youtube.com/watch?v=YllN9Pz15cU</a> [Accessed 22 Dec. 2024].</li>
+<li>Weisstein, Eric W. “Dyck Path.” <em>Mathworld.wolfram.com</em>, 18 Dec. 2024, mathworld.wolfram.com/DyckPath.html.</li>
+</ol>
 
         </div>
     </div>
@@ -283,7 +293,7 @@ This is a contradiction! As a result, the expected number of children to have be
         About
     </div>
 
-    <img src="/image/logo.webp?v=1734883430" class="w-80 self-center" alt="Logo" />
+    <img src="/image/logo.webp?v=1734898372" class="w-80 self-center" alt="Logo" />
 
     <p class="leading-8 text-center text-lg font-light mt-3">
         
@@ -354,7 +364,7 @@ This is a contradiction! As a result, the expected number of children to have be
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/time-series/" class="hover:text-gray-300">Time Series <span
+            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
         </li>
         
@@ -368,8 +378,15 @@ This is a contradiction! As a result, the expected number of children to have be
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
+            <a href="/categories/time-series/" class="hover:text-gray-300">Time Series <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         
@@ -382,7 +399,7 @@ This is a contradiction! As a result, the expected number of children to have be
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
+            <a href="/categories/trees/" class="hover:text-gray-300">Trees <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -396,14 +413,7 @@ This is a contradiction! As a result, the expected number of children to have be
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
+            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -436,6 +446,16 @@ This is a contradiction! As a result, the expected number of children to have be
         
         
         
+        <a href="/tags/machine-learning/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Machine Learning&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/statistics/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
+        
+        
+        
         <a href="/tags/gnn/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
         
@@ -451,13 +471,58 @@ This is a contradiction! As a result, the expected number of children to have be
         
         
         
-        <a href="/tags/statistics/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
+        <a href="/tags/trees/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;1</span></a>
         
         
         
-        <a href="/tags/machine-learning/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Machine Learning&nbsp;&nbsp;2</span></a>
+        <a href="/tags/gnns/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/glms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arima/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/dynamic-programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/rest-apis/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arma/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/diffusion-models/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gams/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
         
         
         
@@ -468,61 +533,6 @@ This is a contradiction! As a result, the expected number of children to have be
         
         <a href="/tags/algorithms/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/diffusion-models/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gnns/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arima/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arma/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/dynamic-programming/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gans/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/glms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/rest-apis/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/trees/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/docker/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gams/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
         
         
         
