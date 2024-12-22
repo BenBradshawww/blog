@@ -6,7 +6,7 @@ tags = ["Probability"]
 keywords = ["Probability", "Random Walks"]
 description = "SEO Description Here"
 draft = false
-featuredImage =  "/images/vivek-kumar-riAKT8Z7ifE-unsplash.jpg"
+featuredImage = "/images/vivek-kumar-riAKT8Z7ifE-unsplash.jpg"
 [params.math]
   math = true
 +++
