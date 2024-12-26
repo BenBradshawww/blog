@@ -63,7 +63,7 @@ Anytime the couple gives birth to a boy, a step to the right is taken and if a g
 Representing the question using a 2d grid now opens the possibility of using something called [Dyck's path](https://mathworld.wolfram.com/DyckPath.html) [2]. A Dyck path is a staircase walk from (0,0) to (n,n) that lies strictly below (but may touch) the diagonal y=x. The number of Dyck's paths of order n is given by the Catalan number:
 $$C_n = \frac{1}{n+1} \binom{2n}{n}.$$
 If the first child is a boy and we are looking at the paths to hit equality by child 10, then we know the final step must be a girl. 
-![Image](2d_boy_girl_grid_dycks.drawio.png)
+![Image](/images/2d_boy_girl_grid_dycks.drawio.png)
 Using this methodology, any path from the first boy to the last girl which touches but does not surpass the red line, is a valid path. This allows us to use Dyck's path of degree 4.
 $$C_4 = \frac{1}{5} \binom{8}{4} = 14$$
 Consequently, the number of paths that start with a boy and achieves equality on the 10th child is 14. By symmetry, the number of paths that start with a girl and achieves equality on the 10th child is also 14.

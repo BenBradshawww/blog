@@ -3,10 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.mathstoml.com/</loc>
-    <lastmod>2024-12-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/tags/boosting/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/categories/</loc>
-    <lastmod>2024-12-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/tags/machine-learning/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/categories/machine-learning/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/tags/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/tags/trees/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/categories/trees/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/xgboost/</loc>
+    <lastmod>2024-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/perpetual-children/</loc>
     <lastmod>2024-12-22T00:00:00+00:00</lastmod>
@@ -15,9 +36,6 @@
     <lastmod>2024-12-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/categories/probability/</loc>
-    <lastmod>2024-12-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.mathstoml.com/tags/</loc>
     <lastmod>2024-12-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/some-questions-in-probability-i/</loc>
@@ -98,9 +116,6 @@
     <loc>https://www.mathstoml.com/kullback-leibler-divergence/</loc>
     <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mathstoml.com/tags/machine-learning/</loc>
-    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.mathstoml.com/categories/statistics/</loc>
     <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -146,17 +161,8 @@
     <loc>https://www.mathstoml.com/categories/auto-encoders/</loc>
     <lastmod>2024-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mathstoml.com/categories/machine-learning/</loc>
-    <lastmod>2024-07-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.mathstoml.com/u-net/</loc>
     <lastmod>2024-07-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.mathstoml.com/tags/trees/</loc>
-    <lastmod>2024-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.mathstoml.com/categories/trees/</loc>
-    <lastmod>2024-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/why-do-trees-outperform-neural-networks-on-tabular-data/</loc>
     <lastmod>2024-06-27T00:00:00+00:00</lastmod>
