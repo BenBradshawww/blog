@@ -10,7 +10,6 @@ draft = false
   math = true
 +++
 
-
 ![Image](/images/bob-brewer-f309SjsrC3I-unsplash.jpg)
 [Image by Bob Brewer](https://unsplash.com/@brewbottle)
 
@@ -70,7 +69,7 @@ The second method is column subsampling (which is also used in random forest) an
 
 ### Split Finding Algorithms
 The basic split finding algorithm (which we will call the exact greedy method) which enumerates over all the possible splits on features is computationally demanding. This becomes even more of an issue when the dataset is large and does not fit into memory or if this model is trained in a distributive setting.
-![Image][/images/algorithm_1_exact.png]
+![Image](/images/algorithm_1_exact.png)
 
 As a result, an alternative framework is proposed. This approximate algorithm proposes candidate split points based on percentiles of a feature distribution. The algorithm maps the continuous features into buckets split by the candidate split points, aggregates the statistics and finds the best solution among the proposals.
 
@@ -93,7 +92,7 @@ We use the hessian as the weighting because it captures the importance uncertain
 3. The gradient is insufficient. The gradients $g_i$ indiciate the direction of optimisation but does not account for the magnitude or stability of the loss function. If only the gradient points were used as weights the model would be unable to distinguish between instances with similar gradients but different curvatures (uncertainty). This could lead to suboptimal splits that do not accurately capture the structure of the data.
 
 The algorithm for the approximate splitting algorithm is below.
-![Image][/images/algorithm_2_approximate_split.png]
+![Image](/images/algorithm_2_approximate_split.png)
 
 ### Sparsity-aware Split Finding
 
