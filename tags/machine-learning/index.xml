@@ -6,8 +6,15 @@
     <description>Recent content in Machine Learning on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Tue, 10 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.mathstoml.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>XGBoost</title>
+      <link>https://www.mathstoml.com/xgboost/</link>
+      <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/xgboost/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/bob-brewer-f309SjsrC3I-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@brewbottle&#34;&gt;Image by Bob Brewer&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Since the introduction of gradient tree boosting methods, tree boosting methods have often been the highest performing models across many tabular benchmarks. Alongside this, they have often be the winning models in many Kaggle competitions. Today we&amp;rsquo;ll cover the most popular of these models: XGBoost.&lt;/p&gt;&#xA;&lt;p&gt;XGBoost popularity stems from many reasons, with the most important being its scalability to all scenarios. It is one of the fastest tree based models to train because of the algorithms used with sparse data and it&amp;rsquo;s exploitation of parallel and distributed computing.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Kullback-Leibler Divergence</title>
       <link>https://www.mathstoml.com/kullback-leibler-divergence/</link>

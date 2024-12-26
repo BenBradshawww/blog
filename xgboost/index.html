@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
     <title>
     
-    Statistics - MathsToML
+    XGBoost - MathsToML
     
 </title>
     
@@ -15,9 +15,13 @@
     
     
     
-    <meta name="keywords" content="Example Site Home SEO Keywords">
-    <meta name="description" content="Example Site Home SEO Description">
-    <link rel="canonical" href="https://www.mathstoml.com/categories/statistics/" />
+    
+    
+    
+    
+    <meta name="keywords" content="Trees , Machine Learning , ML , Decision Trees , Boosting , Gradient Boosting">
+    <meta name="description" content="SEO Description Here">
+    <link rel="canonical" href="https://www.mathstoml.com/xgboost/" />
     <link rel="icon" href="/favicon.ico?v=1735248730" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
@@ -198,7 +202,7 @@
             </li>
             
             <li>
-                &gt;&nbsp;&nbsp;<a href="/categories/statistics/" class="hover:text-gray-100">Statistics</a>
+                &gt;&nbsp;&nbsp;<a href="/xgboost/" class="hover:text-gray-100">XGBoost</a>
             </li>
             
         </ul>
@@ -217,50 +221,76 @@
             <main class="w-full overflow-hidden">
                 
 
-
-
-
-
-<div class="list-container">
+<article class="single-article">
     
-
-    
-    
-    <article class="flex flex-col lg:flex-row items-center  px-1 rounded-md">
-    <div class="flex-none w-full lg:w-64 h-48 rounded-lg shadow-md bg-gray-900 shadow-gray-800">
-        
-        
-        <img src="/images/daniela-turcanu-wABdckxoj90-unsplash.jpg?v=1735248730" alt="Image"
-            class="w-full h-48 rounded-2xl object-cover" />
-        
-
-    </div>
-    <div class="w-full lg:p-5 overflow-auto">
-        <h3 class="pt-2 lg:pt-0 line-clamp-1 text-2xl font-medium leading-10 text-gray-400 hover:text-gray-300">
-            <a href="/kullback-leibler-divergence/">
-                Kullback-Leibler Divergence
+    <div class="group relative">
+        <h1 class="text-3xl font-medium leading-10 text-gray-400 hover:text-gray-100">
+            <a href="/xgboost/">
+                XGBoost
             </a>
-        </h3>
-        <div class="flex flex-row items-center justify-start py-1 text-lg">
-            
-            <time datetime="2025-03-16" class="text-gray-600">2024-09-10
-                |
-                7 minute read</time>
-            
+        </h1>
+        <time datetime="2025-03-16" class="flex items-center py-2 text-xl text-gray-600">
+            2024-12-26 00:00
+            &nbsp;&nbsp;|&nbsp;&nbsp;6 minute read
+        </time>
+
+        <div
+            class="mt-1 lg:pb-10 px-2 text-2xl leading-10 font-thin text-gray-500 overflow-hidden break-words article-body">
+            <p><img src="/images/bob-brewer-f309SjsrC3I-unsplash.jpg" alt="Image">
+<a href="https://unsplash.com/@brewbottle">Image by Bob Brewer</a></p>
+<p>Since the introduction of gradient tree boosting methods, tree boosting methods have often been the highest performing models across many tabular benchmarks. Alongside this, they have often be the winning models in many Kaggle competitions. Today we&rsquo;ll cover the most popular of these models: XGBoost.</p>
+<p>XGBoost popularity stems from many reasons, with the most important being its scalability to all scenarios. It is one of the fastest tree based models to train because of the algorithms used with sparse data and it&rsquo;s exploitation of parallel and distributed computing.</p>
+<p>This article will follow a similar format to the XGBoost paper with the following sections being covered in this article:</p>
+<ul>
+<li>The Regularised Objective.</li>
+<li>The Split Finding Algorithms.</li>
+</ul>
+<h3 id="constructing-the-regularised-objective">Constructing the Regularised Objective</h3>
+$$\hat{y}_i = \phi(x_i) = \sum_{k=1}^K f_k(x_i), \quad f_k \in \mathcal{F},$$$$\text{Prediction}(x) = \sum_{k=1}^K w_{k, q_k}(x)$$$$\mathcal{L}(\phi) = \sum_i l(\hat{y}_i, y_i) + \sum_i \Omega (f_k) \quad \text{where  } \ \Omega(f) = \gamma T + \frac{1}{2} \lambda \| w\|^2.$$<p>Here, $l$ is a differentiable convex loss function (such as the mean squared error) and $\Omega$ is the complexity penaliser term to avoid overfitting. When the penalising term is removed, this objective function is the same as gradient boosting.</p>
+<h3 id="gradient-tree-boosting">Gradient Tree Boosting</h3>
+<p>Tree ensemble methods cannot be optimised by traditional optimisation methods in the Euclidean space because they are discontinuos functions and are not differentiable. Consequently, this prohibits the use of gradient based optimisation methods which rely on these two properties. As a result, models need to be trained in an additive manner.</p>
+$$\mathcal{L}^{(t)} = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)} + f_t(x_i)) + \Omega(f_t).$$$$\mathcal{L}^{(t)} \approx \sum_{i=1}^n [l(y_i, \hat{y}_i^{(t)}) + g_if_t(x_i)) + \frac{1}{2}h_if_t(x_i)^2] + \Omega(f_t),$$$$g_i = \frac{\delta l(y_i, \hat{y}_i^{(t-1)})}{\delta \hat{y}_i^{(t-1)} } \quad \text{and} \quad h_i = \frac{\delta l(y_i, \hat{y}_i^{(t-1)})}{\delta^2 \hat{y}_i^{(t-1)^2} }.$$$$\mathcal{L}^{(t)} = \sum_i^n [g_if_t(x_i)) + \frac{1}{2}h_if_t(x_i)^2] + \Omega(f_t).$$$$\mathcal{L}^{(t)} = \sum_{j=1}^T [(\sum_{i \in I_j}g_i)w_j) + \frac{1}{2}(\sum_{i \in I_j}h_i + \lambda) w_j^2] + \lambda T.$$$$w_j^* = -\frac{\sum_{i \in I_j}g_i}{\sum_{i \in I_j}h_i + \lambda}.$$$$\tilde{\mathcal{L}}^{(t)}(q) = -\frac{1}{2} \sum_{j=1}^T\frac{(\sum_{i \in I_j}g_i)^2}{\sum_{i \in I_j}h_i + \lambda} + \lambda T.$$<p>
+This function can be thought of as a quality measure of the tree structure $q$ and can be thought of as the impurity score.</p>
+<p>The issue with this metric is that it becomes impossible to enumerate over all tree structures because any time a new branch is added, the number of potential configurations increases combinatorially. This approach is infeasible for any large dataset.</p>
+$$\mathcal{L}_{\text{split}} = \frac{1}{2} \left[ \frac{(\sum_{i \in I_L}g_i)^2}{\sum_{i \in I_L}h_i + \lambda} + \frac{(\sum_{i \in I_R}g_i)^2}{\sum_{i \in I_R}h_i + \lambda} - \frac{(\sum_{i \in I}g_i)^2}{\sum_{i \in I}h_i + \lambda} \right] - \lambda.$$<p>
+This formula is used for evaluating split candidates.</p>
+<h3 id="shrinkage-and-column-subsampling">Shrinkage and Column Subsampling</h3>
+<p>In addition to the regularised objective, two further techniques were introduced by Tianqi Chen and Carlos Guestrin. The first method, is shrinkage introduce by Friedman where newly added weights are scaled by a factor $\mu$ after each step of tree boosting. This reduces the influence of each individual tree and leaves spaces for future trees to improve the model.</p>
+<p>The second method is column subsampling (which is also used in random forest) and this method often outperforms the row. sub-sampling method.</p>
+<h3 id="split-finding-algorithms">Split Finding Algorithms</h3>
+<p>The basic split finding algorithm (which we will call the exact greedy method) which enumerates over all the possible splits on features is computationally demanding. This becomes even more of an issue when the dataset is large and does not fit into memory or if this model is trained in a distributive setting.
+![Image][/images/algorithm_1_exact.png]</p>
+<p>As a result, an alternative framework is proposed. This approximate algorithm proposes candidate split points based on percentiles of a feature distribution. The algorithm maps the continuous features into buckets split by the candidate split points, aggregates the statistics and finds the best solution among the proposals.</p>
+<p>There are two variants of this proposal; the global variant which propose split points during the initial tree construction phase and then uses the same proposals for splits at each level. The local variant re-proposes after each split. The local proposal tends to outperform the global proposal, however, the global method can achieve a similar performance to the global proposal given enough candidate split points are given.</p>
+<p>Most approximate methods for distributed tree learning also follow this framework but some construct approximations based on histograms of the gradient statistic and some use other variants of binning strategies instead of quantile. But, from these methods, Tianqi Chen and Carlos Guestrin chose to go for the quantile strategy.</p>
+<h3 id="weighted-quantile-sketch">Weighted Quantile Sketch</h3>
+<p>The most important step in each approximate algorithm is to find the best candidate split points. Usually, percentiles of a feature distribution are used to make candidates distribute evenly on the data. This methods did not incorporate any form of weighting and treated each data point as equally important. The limitations of this method, is that they assume uniform importance, which typically is not the case. This alternative method incorporates the hessian information into its splitting.</p>
+$$r_k(z) = \frac{1}{\sum_{(x, h) \in D_k} h}  \sum_{(x, h) \in D_k, x < z} h,$$$$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \quad s_{kl} = \max_i x_{ik}.$$<p>
+Where $\epsilon$ is an approximation factor. This means that there is roughly $1/\epsilon$ candidate points and here, each data point is weighted by the hessian $h_i$.</p>
+<p>We use the hessian as the weighting because it captures the importance uncertainty of each data point within the optimisation setting:</p>
+<ol>
+<li>Curvature information. The Hessian captures the curvature of the loss function. A higher. curvature (large $h_i$) implies that the gradient at this point is changing more rapidly and the model should focus on these points because they may impact the model&rsquo;s performance.</li>
+<li>Weight Squared Loss. The rewritten loss takes the form of: $\sum_{i=1}^n \frac{1}{2} h_i \left(f_t(x_i) - \frac{g_i}{h_i} \right)^2 + \Omega(f_t) + \text{constant}$, which is a weighted square loss with labels $g_i/h_i$.</li>
+<li>The gradient is insufficient. The gradients $g_i$ indiciate the direction of optimisation but does not account for the magnitude or stability of the loss function. If only the gradient points were used as weights the model would be unable to distinguish between instances with similar gradients but different curvatures (uncertainty). This could lead to suboptimal splits that do not accurately capture the structure of the data.</li>
+</ol>
+<p>The algorithm for the approximate splitting algorithm is below.
+![Image][/images/algorithm_2_approximate_split.png]</p>
+<h3 id="sparsity-aware-split-finding">Sparsity-aware Split Finding</h3>
+<p>In many of the real world problems, the input $x$ is sparse as a result of the presence of missing values, frequent zero entries, or artefacts a result of feature engineering and one hot encoding. To make an algorithm aware of this sparsity, Tianqi Chen and Carlos Guestrin proposed to add a default direction in each tree. When a sample is missing, the instance is assigned to that direction with the optimal direction learnt from the data.</p>
+<p><img src="/images/algorithm_3_sparse_aware.png" alt="Image"></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>In todays article we covered the maths behind the leading tree boosting algorithm, XGBoost. In later articles we will cover the system design behind XGBoost and its end-to-end evaluations.</p>
+
         </div>
+    </div>
+    <div class="text-gray-500 text-lg">
+        Page link:&nbsp;<a href="https://www.mathstoml.com/xgboost/"
+            class="border-b border-b-gray-500 hover:text-gray-400">https://www.mathstoml.com/xgboost/</a>
+    </div>
+    <div class="my-10 py-5 border-t border-dashed border-t-white/10 text-xl text-gray-600">
         
-        <div class="line-clamp-3 text-xl font-light leading-8 lg:leading-9 text-gray-500"></div>
     </div>
 </article>
-    
-
-
-    
-    
-</div>
-
-
-
 
 
             </main>
@@ -334,14 +364,14 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/graphs/" class="hover:text-gray-300">Graphs <span
+            <a href="/categories/probability/" class="hover:text-gray-300">Probability <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
         </li>
         
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/probability/" class="hover:text-gray-300">Probability <span
+            <a href="/categories/graphs/" class="hover:text-gray-300">Graphs <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
         </li>
         
@@ -376,13 +406,6 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/statistical-modelling/" class="hover:text-gray-300">Statistical Modelling <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
@@ -390,14 +413,21 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/algorithms/" class="hover:text-gray-300">Algorithms <span
+            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
+            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -435,11 +465,6 @@
         
         
         
-        <a href="/tags/statistics/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
-        
-        
-        
         <a href="/tags/auto-encoders/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Auto-Encoders&nbsp;&nbsp;2</span></a>
         
@@ -460,18 +485,8 @@
         
         
         
-        <a href="/tags/arima/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/docker/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arma/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
+        <a href="/tags/statistics/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
         
         
         
@@ -485,13 +500,8 @@
         
         
         
-        <a href="/tags/boosting/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/diffusion-models/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        <a href="/tags/arma/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
         
         
         
@@ -505,13 +515,13 @@
         
         
         
-        <a href="/tags/algorithms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
+        <a href="/tags/boosting/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
         
         
         
-        <a href="/tags/gans/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/diffusion-models/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
         
         
         
@@ -522,6 +532,26 @@
         
         <a href="/tags/optimisation/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/algorithms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arima/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
         
         
         
