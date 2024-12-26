@@ -1,0 +1,11 @@
++++
+title = 'XGBoost'
+date = 2024-12-26
+categories = ["Machine Learning", "Trees"]
+tags = ["Machine Learning", "Trees", "Boosting"]
+keywords = ["Trees", "Machine Learning", "ML", "Decision Trees", "Boosting", "Gradient Boosting"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+  math = true
++++
