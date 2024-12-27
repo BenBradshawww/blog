@@ -24,11 +24,14 @@ This article will follow a similar format to the XGBoost paper with the followin
 
 ### Constructing the Regularised Objective
 Given a dataset with $n$ examples and $m$ features, $\mathcal{D} = \{(x_i, y_i)\} (|\mathcal{D}| = n, x_i \in \mathbb{R}^m, y_i \in \mathbb{R})$, a tree ensemble model uses K additive functions used to predict the output.
+
 $$\hat{y}_i = \phi(x_i) = \sum_{k=1}^K f_k(x_i), \quad f_k \in \mathcal{F},$$
 where $\mathcal{F} = \{ f(x) = w_{q(x)} \}(q : \mathbb{R}^m \rightarrow T, w \in \mathbb{R}^T)$ is the space of regression trees, $T$ is the number of leafs in the tree, and each $f_k$ is a tree with its own tree structure $q$ and leaf weights $w$. Rather than taking the approach used by typical decision trees where each regression tree contains a continuous score on each leaf, we will use $w_i$ to represent score on the ith leaf. These scores are summed over the trees used in the prediction to give a final score:
+
 $$\text{Prediction}(x) = \sum_{k=1}^K w_{k, q_k}(x)$$
 
 To learn these set of functions, we use the followed regularised objective:
+
 $$\mathcal{L}(\phi) = \sum_i l(\hat{y}_i, y_i) + \sum_i \Omega (f_k) \quad \text{where  } \ \Omega(f) = \gamma T + \frac{1}{2} \lambda \| w\|^2.$$
 
 Here, $l$ is a differentiable convex loss function (such as the mean squared error) and $\Omega$ is the complexity penaliser term to avoid overfitting. When the penalising term is removed, this objective function is the same as gradient boosting.
