@@ -7,7 +7,7 @@ keywords = ["Rest", "REST APIs", "APIs"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/ante-hamersmit-DSUjNkiRFg0-unsplash.jpg)
@@ -113,10 +113,10 @@ Internet browsers use HTTP requests as communications platforms to ask for the i
 
 ```xml
 <events>
-  <event>sale</event>
-    <user>Jani</user>
-    <item>123456789</item>
-    <time>11:59:03</time>
+<event>sale</event>
+<user>Jani</user>
+<item>123456789</item>
+<time>11:59:03</time>
 </events>
 ```
 
@@ -130,7 +130,7 @@ This article introduces the idea of web APIs and briefly covered many of their v
 
 ## References
 
-  
+
 
 1. Stoplight. (n.d.). __Types of APIs | Types Of API Calls & REST API Protocol__. [online] Available at: https://stoplight.io/api-types.
 2. w3schools (2015). __XML Introduction__. [online] W3schools.com. Available at: https://www.w3schools.com/xml/xml_whatis.asp.

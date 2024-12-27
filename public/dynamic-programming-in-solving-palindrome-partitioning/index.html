@@ -22,7 +22,7 @@
     <meta name="keywords" content="Dynamic Programming , Palindrome , Algorithms">
     <meta name="description" content="SEO Description Here">
     <link rel="canonical" href="https://www.mathstoml.com/dynamic-programming-in-solving-palindrome-partitioning/" />
-    <link rel="icon" href="/favicon.ico?v=1735290694" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=1735323639" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
     
@@ -257,7 +257,7 @@
 <p>To illustrate overlapping sub-problems, consider a string like <code>aabc</code>. If we know whether a substring like <code>ab</code> is a palindrome, this information can help determine if <code>aabc</code> is a palindrome. Specifically, since <code>ab</code> is not a palindrome, <code>aabc</code> cannot be a palindrome either. This principle also extends to longer strings. For example, if <code>ab</code> is not a palindrome, then <code>aaabca</code> cannot be a palindrome. This shows that smaller sub-problems overlap and their solutions contribute to solving the larger problem.</p>
 <p>In general, if the middle portion of a string is not a palindrome, the whole string cannot be a palindrome. Conversely, if the first and last characters of a string are the same, there is a possibility that the string could be a palindrome, provided the substring between them is also palindromic. If the first and last characters do not match, the string is definitely not a palindrome.</p>
 <p><strong><strong>Optimal Substructure</strong></strong></p>
-<p>Optimal substructure means that the solution to a problem can be constructed from the solutions to its sub-problems. For palindrome checking, the problem can be broken down by determining whether a substring is palindromic or not. The optimal solution to any of the subproblem is either a True or False boolean. Consequently, any solution to the subproblem is the optimal solution. </p>
+<p>Optimal substructure means that the solution to a problem can be constructed from the solutions to its sub-problems. For palindrome checking, the problem can be broken down by determining whether a substring is palindromic or not. The optimal solution to any of the subproblem is either a True or False boolean. Consequently, any solution to the subproblem is the optimal solution.</p>
 <p>Given the solution to this problem can be constructed using overlapping sub-problems and optimal substructure, DP can be used, more specifically we&rsquo;ll be implementing bottom-up DP. We&rsquo;ll illustrate this example by using the string <code>abaa</code> as the example problem for the rest of this section.</p>
 <p>We&rsquo;ll create bottom-up DP table where each index in the array corresponds to a substring of the string <code>abaa</code>. Specifically, row index i and column index j corresponds to the substring from index i to j .</p>
 <table>
@@ -473,19 +473,19 @@
 <p>Summing over the number of True values in the grid above tells us that there are 6 substring palindromes.</p>
 <p>This application of DP may seem trivial however, we have now reduced the run-time complexity of the algorithm to $\mathcal{O}(n^{2})$. This is a consequence of storing the smaller subproblems which are used to solve the larger palindromes later on.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">countSubstrings</span>(self, s: str) <span style="color:#f92672">-&gt;</span> int:
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">=</span> len(s)
-</span></span><span style="display:flex;"><span>        dp <span style="color:#f92672">=</span> [[<span style="color:#66d9ef">False</span>]<span style="color:#f92672">*</span>n <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
-</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> n
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
-</span></span><span style="display:flex;"><span>            dp[i][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> s[j] <span style="color:#f92672">==</span> s[i] <span style="color:#f92672">and</span> (i<span style="color:#f92672">-</span>j<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">or</span> dp[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]):
-</span></span><span style="display:flex;"><span>                    dp[j][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>                    ans <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
+</span></span><span style="display:flex;"><span>n <span style="color:#f92672">=</span> len(s)
+</span></span><span style="display:flex;"><span>dp <span style="color:#f92672">=</span> [[<span style="color:#66d9ef">False</span>]<span style="color:#f92672">*</span>n <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
+</span></span><span style="display:flex;"><span>ans <span style="color:#f92672">=</span> n
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>dp[i][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> s[j] <span style="color:#f92672">==</span> s[i] <span style="color:#f92672">and</span> (i<span style="color:#f92672">-</span>j<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">or</span> dp[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]):
+</span></span><span style="display:flex;"><span>dp[j][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>ans <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> ans
 </span></span></code></pre></div><h2 id="q2-palindromic-partitioning-ii">Q2: Palindromic Partitioning II</h2>
 <p>Given a string <code>s</code>, partition <code>s</code> such that every  substring of the partition is a palindrome.Return the minimum cuts needed for a palindrome partitioning of <code>s</code>.</p>
 <p>Similar to the question above, I&rsquo;d recommend trying out this question beforehand <a href="https://leetcode.com/problems/palindrome-partitioning-ii/description/">here</a>.</p>
@@ -718,29 +718,29 @@
 <p>Checking the final value at row 0 column 3 gives us 1. So 1 cut is needed to make all substrings palindromic.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minCut</span>(self, s: str) <span style="color:#f92672">-&gt;</span> int:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> len(s)
-</span></span><span style="display:flex;"><span>    dp_pali <span style="color:#f92672">=</span> [[<span style="color:#66d9ef">False</span>]<span style="color:#f92672">*</span>n <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
+</span></span><span style="display:flex;"><span>n <span style="color:#f92672">=</span> len(s)
+</span></span><span style="display:flex;"><span>dp_pali <span style="color:#f92672">=</span> [[<span style="color:#66d9ef">False</span>]<span style="color:#f92672">*</span>n <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
-</span></span><span style="display:flex;"><span>        dp_pali[i][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> s[j] <span style="color:#f92672">==</span> s[i] <span style="color:#f92672">and</span> (i<span style="color:#f92672">-</span>j<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">or</span> dp_pali[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]):
-</span></span><span style="display:flex;"><span>                dp_pali[j][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    dp_cuts <span style="color:#f92672">=</span> [[float(<span style="color:#e6db74">&#39;inf&#39;</span>)]<span style="color:#f92672">*</span>n <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>dp_pali[i][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> s[j] <span style="color:#f92672">==</span> s[i] <span style="color:#f92672">and</span> (i<span style="color:#f92672">-</span>j<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">or</span> dp_pali[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]):
+</span></span><span style="display:flex;"><span>dp_pali[j][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
-</span></span><span style="display:flex;"><span>        dp_cuts[i][i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>dp_cuts <span style="color:#f92672">=</span> [[float(<span style="color:#e6db74">&#39;inf&#39;</span>)]<span style="color:#f92672">*</span>n <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(j, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> dp_pali[i][j]:
-</span></span><span style="display:flex;"><span>                dp_cuts[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>   
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, j):
-</span></span><span style="display:flex;"><span>                dp_cuts[i][j] <span style="color:#f92672">=</span> min(<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>dp_cuts[i][k]<span style="color:#f92672">+</span>dp_cuts[k<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j], dp_cuts[i][j])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>dp_cuts[i][i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n):
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(j, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> dp_pali[i][j]:
+</span></span><span style="display:flex;"><span>dp_cuts[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, j):
+</span></span><span style="display:flex;"><span>dp_cuts[i][j] <span style="color:#f92672">=</span> min(<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>dp_cuts[i][k]<span style="color:#f92672">+</span>dp_cuts[k<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j], dp_cuts[i][j])
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> dp_cuts[<span style="color:#ae81ff">0</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> dp_cuts[<span style="color:#ae81ff">0</span>][<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
 </span></span></code></pre></div><p>This method works but under time complexity requirements, this method needs to be further optimised. This algorithm suffers from complexity $\mathcal{O}(n^{3})$ as a consequence of $\mathcal{O}(n^{2})$ substrings being checked, with each check being an $\mathcal{O}(n)$ operation.</p>
 <p>I&rsquo;d recommend watching the video by Tushar <a href="https://www.youtube.com/watch?v=lDYIvtBVmgo&amp;t=1s">here</a> to gain a deeper understanding of this question.</p>
 <p><strong><strong>Optimised DP Approach</strong></strong></p>
@@ -751,27 +751,27 @@
 <p>This is best explained with an example. Let&rsquo;s use the final substring <code>abaa</code>. Since this is not a palindrome we&rsquo;ll iterate from 0 to x, checking to see if the subsequent substring is a palindrome. <code>baa</code> is not, so we go to the next index. <code>aa</code> is a palindrome. With this information we know that no more cuts are needed to make the subsequent substring (<code>aa</code>) a palindrome and we have stored the minimum cuts needed to make <code>ab</code> a palindrome from a previous iteration.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minCut</span>(self, s: str) <span style="color:#f92672">-&gt;</span> int:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> len(s)
-</span></span><span style="display:flex;"><span>    dp_pali <span style="color:#f92672">=</span> [[<span style="color:#66d9ef">False</span>]<span style="color:#f92672">*</span>n <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
+</span></span><span style="display:flex;"><span>n <span style="color:#f92672">=</span> len(s)
+</span></span><span style="display:flex;"><span>dp_pali <span style="color:#f92672">=</span> [[<span style="color:#66d9ef">False</span>]<span style="color:#f92672">*</span>n <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
-</span></span><span style="display:flex;"><span>        dp_pali[i][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> s[j] <span style="color:#f92672">==</span> s[i] <span style="color:#f92672">and</span> (i<span style="color:#f92672">-</span>j<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">or</span> dp_pali[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]):
-</span></span><span style="display:flex;"><span>                dp_pali[j][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    dp_cuts <span style="color:#f92672">=</span> [float(<span style="color:#e6db74">&#39;inf&#39;</span>)]<span style="color:#f92672">*</span>n
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>dp_pali[i][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> s[j] <span style="color:#f92672">==</span> s[i] <span style="color:#f92672">and</span> (i<span style="color:#f92672">-</span>j<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">or</span> dp_pali[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]):
+</span></span><span style="display:flex;"><span>dp_pali[j][i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> dp_pali[<span style="color:#ae81ff">0</span>][i]:
-</span></span><span style="display:flex;"><span>            dp_cuts[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> dp_pali[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][i]:
-</span></span><span style="display:flex;"><span>                    dp_cuts[i] <span style="color:#f92672">=</span> min(dp_cuts[i], <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> dp_cuts[j])
+</span></span><span style="display:flex;"><span>dp_cuts <span style="color:#f92672">=</span> [float(<span style="color:#e6db74">&#39;inf&#39;</span>)]<span style="color:#f92672">*</span>n
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> dp_pali[<span style="color:#ae81ff">0</span>][i]:
+</span></span><span style="display:flex;"><span>dp_cuts[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> dp_pali[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][i]:
+</span></span><span style="display:flex;"><span>dp_cuts[i] <span style="color:#f92672">=</span> min(dp_cuts[i], <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> dp_cuts[j])
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> dp_cuts[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> dp_cuts[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
 </span></span></code></pre></div><h3 id="conclusion">Conclusion</h3>
 <p>This article delved into 2 DP approaches used to solve problems related to palindrome partitions.</p>
 
@@ -801,7 +801,7 @@
         About
     </div>
 
-    <img src="/image/logo.webp?v=1735290694" class="w-80 self-center" alt="Logo" />
+    <img src="/image/logo.webp?v=1735323639" class="w-80 self-center" alt="Logo" />
 
     <p class="leading-8 text-center text-lg font-light mt-3">
         
@@ -886,6 +886,13 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/trees/" class="hover:text-gray-300">Trees <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
         </li>
@@ -893,8 +900,8 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         
@@ -907,14 +914,7 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistical-modelling/" class="hover:text-gray-300">Statistical Modelling <span
+            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -964,8 +964,8 @@
         
         
         
-        <a href="/tags/trees/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
+        <a href="/tags/statistics/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
         
         
         
@@ -974,58 +974,13 @@
         
         
         
-        <a href="/tags/statistics/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
-        
-        
-        
         <a href="/tags/time-series/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
         
         
         
-        <a href="/tags/optimisation/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/algorithms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/dynamic-programming/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gams/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gans/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gnns/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/boosting/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/docker/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/glms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/trees/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
         
         
         
@@ -1039,13 +994,58 @@
         
         
         
-        <a href="/tags/diffusion-models/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        <a href="/tags/gams/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/glms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gnns/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/algorithms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/optimisation/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
         
         
         
         <a href="/tags/rest-apis/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/dynamic-programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/boosting/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/diffusion-models/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
         
         
         

@@ -7,7 +7,7 @@ keywords = ["Probability", "Random Walks"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/cameron-cress-OZZIrjLTmA8-unsplash.jpg)
@@ -79,6 +79,8 @@ From the problem question, we know that the probability of not observing a car d
 
 $$\begin{align*}\mathbb{P}[X_{0:20} = 0] &= \mathbb{P}[X_{0:5} + X_{5:10} + X_{10:15} + X_{15:20} = 0] \\ &= \mathbb{P}[X_{0:5}=0] * \mathbb{P}[X_{5:10} = 0] * \mathbb{P}[X_{10:15} = 0] * \mathbb{P}[X_{15:20} = 0] \\   &= \mathbb{P}[X_{0:5}=0]^4 = \frac{16}{625} \end{align*}$$
 This implies
+
 $$\mathbb{P}[X_{0:5}=0] = \frac{2}{5}$$
 Consequently, the probability of observing 1 or more cars is:
+
 $$\mathbb{P}[X_{0:5}\geq 1] = 1- \mathbb{P}[X_{0:5} = 0] = \frac{3}{5}$$

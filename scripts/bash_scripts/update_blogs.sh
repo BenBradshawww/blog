@@ -66,8 +66,16 @@ while true; do
     fi
 done
 
+# Step 7: Update blog with its metadata
+echo "Adding spacing between paragraphs and latex $$"
+python scripts/python_scripts/add_spacing.py
 
-# Step 7: Updating main branch
+if [ $? -ne 0 ]; then
+    echo "Python script add_spacing failed. Exiting."
+    exit 1
+fi
+
+# Step 8: Updating main branch
 echo "Updating public directory"
 hugo build
 
@@ -91,7 +99,7 @@ echo "Pushing changes to the origin"
 git push origin main
 
 
-# Step 8: Update deployment branch
+# Step 9: Update deployment branch
 echo "Updating public branch"
 git subtree split --prefix public -b deploy
 

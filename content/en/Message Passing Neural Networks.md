@@ -7,7 +7,7 @@ keywords = ["MMPNs", "GNNs", "Graphs"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/boliviainteligente-AXNZb4FEkh8-unsplash.jpg)

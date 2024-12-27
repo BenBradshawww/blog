@@ -7,7 +7,7 @@ keywords = ["Time Series", "ARMA", "ARIMA", "PACF", "EACF", "Indeterministic Pro
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/elijah-grimm-jSt_ZxlG2bk-unsplash.jpg)

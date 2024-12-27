@@ -7,7 +7,7 @@ keywords = ["GNNs", "GraphSage"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/cajeo-zhang-20JfNRPsMCo-unsplash.jpg)

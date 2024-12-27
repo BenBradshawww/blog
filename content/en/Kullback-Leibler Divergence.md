@@ -7,7 +7,7 @@ keywords = ["Kullback-Leibler Divergence", "KL Divergence"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/daniela-turcanu-wABdckxoj90-unsplash.jpg)

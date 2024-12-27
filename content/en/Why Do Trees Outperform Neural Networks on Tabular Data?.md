@@ -7,7 +7,7 @@ keywords = ["Trees", "Machine Learning", "ML", "Random Forests", "Random Forest"
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/photo-1458966480358-a0ac42de0a7a.avif)

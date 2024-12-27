@@ -19,7 +19,7 @@ def add_metadata_to_all_blogs():
 
 def add_metadata(metadata_path):
     file = metadata_path.split('/')[-1][:-len('_metadata.txt')]
-    print(file)
+    
     blog_path = os.path.join(blog_directory, file+'.md')
 
     with open(metadata_path, 'r') as file:

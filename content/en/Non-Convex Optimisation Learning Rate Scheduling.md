@@ -7,14 +7,14 @@ keywords = ["Non-Convex", "Learning Rate", "LR"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/joshua-sukoff-xTSwjDonDhE-unsplash.jpg)
 [Image by Joshua Sukoff](https://unsplash.com/@joshuas?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
 One of the most crucial hyperparameters in any machine learning (ML) model is the learning rate. A small learning rate often results in longer training times and can lead to overfitting. Conversely, a large learning rate may accelerate initial training but risks hindering the model’s convergence to the global minimum and can even cause divergence. Therefore, selecting the appropriate learning rate is a critical step in training any ML model.
 
-Over the years there have been a host of methods used to find the ideal learning rate with each of these methods tailored to different settings. This article will focus on the learning rate strategies in the non-convex optimisation setting. These non-convex functions are what’s hidden behind the of all Deep Learning (DL) models used today such as ChatGPT, Claude, AlphaFold, and many more models. 
+Over the years there have been a host of methods used to find the ideal learning rate with each of these methods tailored to different settings. This article will focus on the learning rate strategies in the non-convex optimisation setting. These non-convex functions are what’s hidden behind the of all Deep Learning (DL) models used today such as ChatGPT, Claude, AlphaFold, and many more models.
 
 The objective in training any deep learning model is to find the parameters that best minimize the loss function. This requires finding the minimum of a non-convex function, which is challenging due to the presence of multiple local minima. Consequently, optimisation methods must be carefully designed to ensure convergence to a global minimum rather than getting trapped in a local minimum.
 

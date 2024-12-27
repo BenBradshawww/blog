@@ -7,12 +7,12 @@ keywords = ["Docker"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/will-turner-iSulLiXzGg0-unsplash.jpg)
 [Image by Will Turner](https://unsplash.com/@turner_imagery?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit)
-In this article, we will cover what containerisation means and we look at Docker, a containerisation platform. Furthermore, we will cover the key commands and concepts needed to create your own containers in docker. 
+In this article, we will cover what containerisation means and we look at Docker, a containerisation platform. Furthermore, we will cover the key commands and concepts needed to create your own containers in docker.
 ## What is Docker?
 
 Docker is an open-source software platform that assists the deployment of applications. It does this by creating standardized units called containers which are isolated environments containing the application code, runtime, libraries, and any dependencies. These containers are a type of virtual machine that has an OS but does not simulate the entire computer. It is like a sandboxed environment.
@@ -110,7 +110,7 @@ docker ps
 
 This will display a list of running containers.
 
-There are a few other commands that are useful to know. 
+There are a few other commands that are useful to know.
 
 To display the logs of the running container run:
 ```python
@@ -142,7 +142,7 @@ The final concept we will cover are volumes. Whenever a docker container is stop
 Some of the situations where this feature comes in handy includes:
 * database storage.
 * application data.
-* data backups. 
+* data backups.
 
 There are a few different types of volumes within Docker.
 
@@ -176,7 +176,7 @@ docker run -v /path/on/host:/app/data my_image
 Some of the other important docker volume commands include:
 
 To list the docker volumes:
-```python 
+```python
 docker volume ls
 ```
 

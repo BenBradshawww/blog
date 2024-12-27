@@ -7,7 +7,7 @@ keywords = ["Ants", "Ant Problem", "Probability", "Random Walks"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/mi_shots-8SJwz4nk7FA-unsplash.jpg)
@@ -104,59 +104,59 @@ For this section we will be using python. We'll create a base class and 3 separa
 
 ```python
 class base_ants:
-	def __init__(self, n_iters=100000, max_iters=2000):
-		self.n_iters = n_iters
-		self.max_iters = max_iters
+def __init__(self, n_iters=100000, max_iters=2000):
+self.n_iters = n_iters
+self.max_iters = max_iters
 
-	def estimate(self):
-		walk_storage = [self.walk((0,0), 0) for _ in range(self.n_iters)]
-		return round(sum(walk_storage) / self.n_iters, 1)
+def estimate(self):
+walk_storage = [self.walk((0,0), 0) for _ in range(self.n_iters)]
+return round(sum(walk_storage) / self.n_iters, 1)
 
-	def check(self, pos):
-		pass
+def check(self, pos):
+pass
 
-	def walk(self, pos, count):
-		if count >= self.max_iters:
-			return float('inf')
+def walk(self, pos, count):
+if count >= self.max_iters:
+return float('inf')
 
-		x, y = pos
-		dx, dy = random.choice([(0,10), (10,0), (0,-10), (-10,0)])
-		nx, ny = x + dx, y + dy
+x, y = pos
+dx, dy = random.choice([(0,10), (10,0), (0,-10), (-10,0)])
+nx, ny = x + dx, y + dy
 
-		if self.check((nx, ny)):
-			return count + 1
-		else:
-			return self.walk((nx, ny), count + 1)
+if self.check((nx, ny)):
+return count + 1
+else:
+return self.walk((nx, ny), count + 1)
 
 class ants_q1(base_ants):
-	def __init__(self):
-		super().__init__()
+def __init__(self):
+super().__init__()
 
-	def check(self, pos):
-		x, y = pos
-		return abs(x) >= 20 or abs(y) >= 20
+def check(self, pos):
+x, y = pos
+return abs(x) >= 20 or abs(y) >= 20
 
 class ants_q2(base_ants):
-	def __init__(self):
-		super().__init__()
+def __init__(self):
+super().__init__()
 
-	def check(self, pos):
-		x, y = pos
-		return (x + y) == 10
+def check(self, pos):
+x, y = pos
+return (x + y) == 10
 
 class ants_q3(base_ants):
-	def __init__(self, ellipse_center, horizontal_radius, vertical_radius):
-		super().__init__()
-		self.ellipse_center = ellipse_center
-		self.horizontal_radius = horizontal_radius
-		self.vertical_radius = vertical_radius
+def __init__(self, ellipse_center, horizontal_radius, vertical_radius):
+super().__init__()
+self.ellipse_center = ellipse_center
+self.horizontal_radius = horizontal_radius
+self.vertical_radius = vertical_radius
 
-	def check(self, pos):
-		x, y = pos
-		x0, y0 = self.ellipse_center
-		ellipse_eq = ((x - x0) / self.horizontal_radius) ** 2 + ((y - y0) / self.vertical_radius) ** 2
+def check(self, pos):
+x, y = pos
+x0, y0 = self.ellipse_center
+ellipse_eq = ((x - x0) / self.horizontal_radius) ** 2 + ((y - y0) / self.vertical_radius) ** 2
 
-		return ellipse_eq >= 1
+return ellipse_eq >= 1
 ```
 
 Running the ants_q3 class gives an answer of 14.0.

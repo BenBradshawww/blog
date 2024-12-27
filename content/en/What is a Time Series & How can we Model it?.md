@@ -7,7 +7,7 @@ keywords = ["Time Series"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/oguzhan-kiran-wj0l2BJKmkU-unsplash.jpg)

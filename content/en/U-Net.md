@@ -7,7 +7,7 @@ keywords = ["U-Net", "Machine Learning", "ML", "AutoEncoders"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/photo-1542144950-fa020d965709.avif)
@@ -27,7 +27,7 @@ The expansive path, or decoder path, focuses on reconstructing the image segment
 
 Figure 1: U-Net Architecture. Source: Ronneberger, O., Fischer, P. and Brox, T. (n.d.). __U-Net: Convolutional Networks for Biomedical Image Segmentation__. [online] Available at: [https://arxiv.org/pdf/1505.04597](https://arxiv.org/pdf/1505.04597.)
 
-  
+
 
 In the pooling process, the encoder loses a significant amount of fine-grained information. To help the decoder achieve precise localization, skip connections are added between the encoder and decoder layers. These skip connections concatenate the encoder’s layers with the corresponding decoder layers, helping the decoder preserve finer details. Skip connections provide direct pathways to previous layers in the network, which helps maintain the gradient of the parameters and prevents them from vanishing.
 
@@ -49,7 +49,7 @@ Another challenge the U-net authors encountered was the separation of touching o
 
 This weight function is applied to the energy function. The energy function is a combination of the pixel-wise softmax function and the cross entropy loss function.
 
-The softmax function takes the form below: 
+The softmax function takes the form below:
 
 ![](https://cdn-images-1.medium.com/max/1600/1*B_nyUOyGTD5N_M1zsiZy4Q.png)
 

@@ -7,7 +7,7 @@ keywords = ["Trees", "Machine Learning", "ML", "Decision Trees", "Boosting", "Gr
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/bob-brewer-f309SjsrC3I-unsplash.jpg)
@@ -41,25 +41,33 @@ Here, $l$ is a differentiable convex loss function (such as the mean squared err
 Tree ensemble methods cannot be optimised by traditional optimisation methods in the Euclidean space because they are discontinuos functions and are not differentiable. Consequently, this prohibits the use of gradient based optimisation methods which rely on these two properties. As a result, models need to be trained in an additive manner.
 
 Given a prediction $\hat{y}_i^{(t)}$ of the ith instance (of $n$ samples) during the t-th iteration. We need to find $f_t$ that minimises this objective:
+
 $$\mathcal{L}^{(t)} = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)} + f_t(x_i)) + \Omega(f_t).$$
 In essence, we greedily add the $f_t$ that most improves our model. Applying the Taylor's Theorem Approximation, we can render a second-order approximation of the equation above:
+
 $$\mathcal{L}^{(t)} \approx \sum_{i=1}^n [l(y_i, \hat{y}_i^{(t)}) + g_if_t(x_i)) + \frac{1}{2}h_if_t(x_i)^2] + \Omega(f_t),$$
 where
-$$g_i = \frac{\delta l(y_i, \hat{y}_i^{(t-1)})}{\delta \hat{y}_i^{(t-1)} } \quad \text{and} \quad h_i = \frac{\delta l(y_i, \hat{y}_i^{(t-1)})}{\delta^2 \hat{y}_i^{(t-1)^2} }.$$ 
+
+$$g_i = \frac{\delta l(y_i, \hat{y}_i^{(t-1)})}{\delta \hat{y}_i^{(t-1)} } \quad \text{and} \quad h_i = \frac{\delta l(y_i, \hat{y}_i^{(t-1)})}{\delta^2 \hat{y}_i^{(t-1)^2} }.$$
 
 Removing the constant terms gives:
+
 $$\mathcal{L}^{(t)} = \sum_i^n [g_if_t(x_i)) + \frac{1}{2}h_if_t(x_i)^2] + \Omega(f_t).$$
 Let $I_j = \{i | q(x_i) = j \}$ be the instance set of the leaf $j$.
+
 $$\mathcal{L}^{(t)} = \sum_{j=1}^T [(\sum_{i \in I_j}g_i)w_j) + \frac{1}{2}(\sum_{i \in I_j}h_i + \lambda) w_j^2] + \lambda T.$$
 Differentiating and equating to 0, tells us that the optimal weight $w_j^*$ of leaf $j$ is given by:
+
 $$w_j^* = -\frac{\sum_{i \in I_j}g_i}{\sum_{i \in I_j}h_i + \lambda}.$$
 Substituting this above, gives the optimal value of:
+
 $$\tilde{\mathcal{L}}^{(t)}(q) = -\frac{1}{2} \sum_{j=1}^T\frac{(\sum_{i \in I_j}g_i)^2}{\sum_{i \in I_j}h_i + \lambda} + \lambda T.$$
 This function can be thought of as a quality measure of the tree structure $q$ and can be thought of as the impurity score.
 
 The issue with this metric is that it becomes impossible to enumerate over all tree structures because any time a new branch is added, the number of potential configurations increases combinatorially. This approach is infeasible for any large dataset.
 
 Alternatively, a greedy approach is taken where we start with a leafe and iteratively add branches to the tree. Let $I_L$ and $I_R$ denote the instance sets on the left and right nodes after the split. Letting $I = I_L \cup I_R$, then the loss reduction formula is given by:
+
 $$\mathcal{L}_{\text{split}} = \frac{1}{2} \left[ \frac{(\sum_{i \in I_L}g_i)^2}{\sum_{i \in I_L}h_i + \lambda} + \frac{(\sum_{i \in I_R}g_i)^2}{\sum_{i \in I_R}h_i + \lambda} - \frac{(\sum_{i \in I}g_i)^2}{\sum_{i \in I}h_i + \lambda} \right] - \lambda.$$
 This formula is used for evaluating split candidates.
 
@@ -81,16 +89,18 @@ There are two variants of this proposal; the global variant which propose split 
 Most approximate methods for distributed tree learning also follow this framework but some construct approximations based on histograms of the gradient statistic and some use other variants of binning strategies instead of quantile. But, from these methods, Tianqi Chen and Carlos Guestrin chose to go for the quantile strategy.
 
 ### Weighted Quantile Sketch
-The most important step in each approximate algorithm is to find the best candidate split points. Usually, percentiles of a feature distribution are used to make candidates distribute evenly on the data. This methods did not incorporate any form of weighting and treated each data point as equally important. The limitations of this method, is that they assume uniform importance, which typically is not the case. This alternative method incorporates the hessian information into its splitting. 
+The most important step in each approximate algorithm is to find the best candidate split points. Usually, percentiles of a feature distribution are used to make candidates distribute evenly on the data. This methods did not incorporate any form of weighting and treated each data point as equally important. The limitations of this method, is that they assume uniform importance, which typically is not the case. This alternative method incorporates the hessian information into its splitting.
 
 Formally, for a multi-set $\mathcal{D}_k = \{ (x_{1k}, h_1), ..., (x_{nk}, h_n) \}$, which represents the kth feature values and second order gradient statistics for each training class. The rank function $r_k: \mathbb{R} \rightarrow [0, \infty)$ as:
+
 $$r_k(z) = \frac{1}{\sum_{(x, h) \in D_k} h}  \sum_{(x, h) \in D_k, x < z} h,$$
 which represents the proportion of instances whose feature value $k$ is smaller than $z$. The goal is to find candidate split points $\{ s_{k1}, s_{k2}, ..., s_{kn}\}$ such that:
+
 $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \quad s_{kl} = \max_i x_{ik}.$$
 Where $\epsilon$ is an approximation factor. This means that there is roughly $1/\epsilon$ candidate points and here, each data point is weighted by the hessian $h_i$.
 
 We use the hessian as the weighting because it captures the importance uncertainty of each data point within the optimisation setting:
-1. Curvature information. The Hessian captures the curvature of the loss function. A higher. curvature (large $h_i$) implies that the gradient at this point is changing more rapidly and the model should focus on these points because they may impact the model's performance. 
+1. Curvature information. The Hessian captures the curvature of the loss function. A higher. curvature (large $h_i$) implies that the gradient at this point is changing more rapidly and the model should focus on these points because they may impact the model's performance.
 2. Weight Squared Loss. The rewritten loss takes the form of: $\sum_{i=1}^n \frac{1}{2} h_i \left(f_t(x_i) - \frac{g_i}{h_i} \right)^2 + \Omega(f_t) + \text{constant}$, which is a weighted square loss with labels $g_i/h_i$.
 3. The gradient is insufficient. The gradients $g_i$ indiciate the direction of optimisation but does not account for the magnitude or stability of the loss function. If only the gradient points were used as weights the model would be unable to distinguish between instances with similar gradients but different curvatures (uncertainty). This could lead to suboptimal splits that do not accurately capture the structure of the data.
 

@@ -7,7 +7,7 @@ keywords = ["Diffusion", "Forward Process", "Backward Process", "Auto Encoders"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/justin-lim-tloFnD-7EpI-unsplash.jpg)

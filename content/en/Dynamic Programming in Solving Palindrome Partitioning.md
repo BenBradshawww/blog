@@ -7,7 +7,7 @@ keywords = ["Dynamic Programming", "Palindrome", "Algorithms"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/danny-greenberg-cbN8rxHr5S0-unsplash.jpg)
@@ -50,7 +50,7 @@ In general, if the middle portion of a string is not a palindrome, the whole str
 
 ****Optimal Substructure****
 
-Optimal substructure means that the solution to a problem can be constructed from the solutions to its sub-problems. For palindrome checking, the problem can be broken down by determining whether a substring is palindromic or not. The optimal solution to any of the subproblem is either a True or False boolean. Consequently, any solution to the subproblem is the optimal solution. 
+Optimal substructure means that the solution to a problem can be constructed from the solutions to its sub-problems. For palindrome checking, the problem can be broken down by determining whether a substring is palindromic or not. The optimal solution to any of the subproblem is either a True or False boolean. Consequently, any solution to the subproblem is the optimal solution.
 
 Given the solution to this problem can be constructed using overlapping sub-problems and optimal substructure, DP can be used, more specifically we'll be implementing bottom-up DP. We'll illustrate this example by using the string `abaa` as the example problem for the rest of this section.
 
@@ -107,19 +107,19 @@ This application of DP may seem trivial however, we have now reduced the run-tim
 
 ```python
 def countSubstrings(self, s: str) -> int:
-        
-        n = len(s)
-        dp = [[False]*n for _ in range(n)]
-        ans = n
 
-        for i in range(n):
-            dp[i][i] = True
-            for j in range(i):
-                if s[j] == s[i] and (i-j<=2 or dp[j+1][i-1]):
-                    dp[j][i] = True
-                    ans += 1
-        
-        return ans
+n = len(s)
+dp = [[False]*n for _ in range(n)]
+ans = n
+
+for i in range(n):
+dp[i][i] = True
+for j in range(i):
+if s[j] == s[i] and (i-j<=2 or dp[j+1][i-1]):
+dp[j][i] = True
+ans += 1
+
+return ans
 ```
 
 ## Q2: Palindromic Partitioning II
@@ -210,29 +210,29 @@ Checking the final value at row 0 column 3 gives us 1. So 1 cut is needed to mak
 ```python
 def minCut(self, s: str) -> int:
 
-    n = len(s)
-    dp_pali = [[False]*n for _ in range(n)]
+n = len(s)
+dp_pali = [[False]*n for _ in range(n)]
 
-    for i in range(n):
-        dp_pali[i][i] = True
-        for j in range(i):
-            if s[j] == s[i] and (i-j<=2 or dp_pali[j+1][i-1]):
-                dp_pali[j][i] = True
-    
-    dp_cuts = [[float('inf')]*n for _ in range(n)]
+for i in range(n):
+dp_pali[i][i] = True
+for j in range(i):
+if s[j] == s[i] and (i-j<=2 or dp_pali[j+1][i-1]):
+dp_pali[j][i] = True
 
-    for i in range(n):
-        dp_cuts[i][i] = 0
+dp_cuts = [[float('inf')]*n for _ in range(n)]
 
-    for j in range(1, n):
-        for i in range(j, -1, -1):
-            if dp_pali[i][j]:
-                dp_cuts[i][j] = 0   
-            for k in range(0, j):
-                dp_cuts[i][j] = min(1+dp_cuts[i][k]+dp_cuts[k+1][j], dp_cuts[i][j])
+for i in range(n):
+dp_cuts[i][i] = 0
+
+for j in range(1, n):
+for i in range(j, -1, -1):
+if dp_pali[i][j]:
+dp_cuts[i][j] = 0
+for k in range(0, j):
+dp_cuts[i][j] = min(1+dp_cuts[i][k]+dp_cuts[k+1][j], dp_cuts[i][j])
 
 
-    return dp_cuts[0][-1]
+return dp_cuts[0][-1]
 ```
 
 This method works but under time complexity requirements, this method needs to be further optimised. This algorithm suffers from complexity $\mathcal{O}(n^{3})$ as a consequence of $\mathcal{O}(n^{2})$ substrings being checked, with each check being an $\mathcal{O}(n)$ operation.
@@ -254,30 +254,30 @@ This is best explained with an example. Let's use the final substring `abaa`. Si
 ```python
 def minCut(self, s: str) -> int:
 
-    n = len(s)
-    dp_pali = [[False]*n for _ in range(n)]
+n = len(s)
+dp_pali = [[False]*n for _ in range(n)]
 
-    for i in range(n):
-        dp_pali[i][i] = True
-        for j in range(i):
-            if s[j] == s[i] and (i-j<=2 or dp_pali[j+1][i-1]):
-                dp_pali[j][i] = True
-    
-    dp_cuts = [float('inf')]*n
+for i in range(n):
+dp_pali[i][i] = True
+for j in range(i):
+if s[j] == s[i] and (i-j<=2 or dp_pali[j+1][i-1]):
+dp_pali[j][i] = True
 
-    for i in range(n):
-        if dp_pali[0][i]:
-            dp_cuts[i] = 0
-        else:
-            for j in range(i):
-                if dp_pali[j+1][i]:
-                    dp_cuts[i] = min(dp_cuts[i], 1 + dp_cuts[j])
+dp_cuts = [float('inf')]*n
+
+for i in range(n):
+if dp_pali[0][i]:
+dp_cuts[i] = 0
+else:
+for j in range(i):
+if dp_pali[j+1][i]:
+dp_cuts[i] = min(dp_cuts[i], 1 + dp_cuts[j])
 
 
-    return dp_cuts[-1]
+return dp_cuts[-1]
 ```
 
-  
+
 
 ### Conclusion
 

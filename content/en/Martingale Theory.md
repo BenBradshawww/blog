@@ -7,7 +7,7 @@ keywords = ["Martingales", "Optional-Stopping Theorem"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/sq-lim-aWm7fAUNPEc-unsplash.jpg)
@@ -15,7 +15,7 @@ draft = false
 
 Today's article will look at one of the more difficult areas in probability called martingale theory. We will cover the basic theory and look at 2 examples which use martingale theory (the drunk man and the ABRACADABRA problem).
 
-  
+
 
 ## The Theory
 

@@ -7,7 +7,7 @@ keywords = ["GANs", "Instance Normalisation"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/justin-simmonds-oGKncrpXn70-unsplash.jpg)

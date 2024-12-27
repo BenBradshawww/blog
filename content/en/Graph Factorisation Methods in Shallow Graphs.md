@@ -7,7 +7,7 @@ keywords = ["GNNs", "Locally Linear Embeddings", "Graph Factorisation", "GraRep"
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
 
 ![Image](/images/photo-1706391162070-60a37dee114d.avif)
@@ -198,7 +198,7 @@ This matrix $W^{k}$ gives our d-dimensional representations of the data which ca
 
 The authors mentioned alternative approaches to SVD could be used for the dimensionality reduction but had yet to be investigated. These include incremental SVD, independent component analysis, and deep neural networks.
 
-###   
+###
 
 ## Limitations of Shallow Embedding Methods
 
