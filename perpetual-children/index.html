@@ -22,7 +22,7 @@
     <meta name="keywords" content="Probability , Random Walks">
     <meta name="description" content="SEO Description Here">
     <link rel="canonical" href="https://www.mathstoml.com/perpetual-children/" />
-    <link rel="icon" href="/favicon.ico?v=1735290694" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=1735323639" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
     
@@ -231,7 +231,7 @@
         </h1>
         <time datetime="2025-03-16" class="flex items-center py-2 text-xl text-gray-600">
             2024-12-22 00:00
-            &nbsp;&nbsp;|&nbsp;&nbsp;4 minute read
+            &nbsp;&nbsp;|&nbsp;&nbsp;5 minute read
         </time>
 
         <div
@@ -248,19 +248,39 @@
 <img src="/images/random_walk_1d.png" alt="Image"></p>
 <p>Without loss of generality, we will assume the first child to be born is a boy. If the next child born is a boy, we go up one, otherwise we go down one.</p>
 $$X_t = \begin{cases} 1 \quad  &w.p. 1/2 \ \ (\text{if a boy}) \\ -1 \quad &w.p. 1/2 \ \ (\text{if a girl})\end{cases}$$<p>The random walk will finish once we hit 0 (i.e. when we have had equal number of boys and girls).</p>
+<p>Now, let $W_x$ denote the number of walks starting from x to reach 0. More specifically, $W_x$ is the first time, given we have started at x, to hit 0.</p>
 $$\sum_{i=x}^{W_x} X_i = 0$$<p>
 Our goal is to determine $\mathbb{E}[W_1]$, i.e. the number of children needed to have an equal number of boys and girls, given that our first child is a boy.</p>
+<p>Spoiler warning. The answer is infinite and to prove this we will use a proof by contradiction. Given we are at step 1, let us suppose that $\mathbb{E}[W_1]$ is finite. Following this assumption and the formula for expectation:</p>
 $$\begin{align*}\mathbb{E}[W_1] &= \mathbb{P}[X_1 = -1] \mathbb{E}[W_1 | X_1 = -1] + \mathbb{P}[X_1 = 1] \mathbb{E}[W_1 | X_1 = 1] \\ &=\frac{1}{2}(1 + \mathbb{E}[W_0]) + \frac{1}{2}(1 + \mathbb{E}[W_2]) \\ &= 1 + \frac{1}{2}\mathbb{E}[W_2]\end{align*}$$<p>Given you are at step 2, returning back to step 1 is equivalent to being at step 1 and returning to step 0, i.e., they are identically distributed.</p>
-$$\mathbb{E}[W_2] = \mathbb{E}[W_1] + \mathbb{E}[W_1]$$$$\begin{align*}\mathbb{E}[W_1] &= 1 + \frac{1}{2}(\mathbb{E}[W_1] + \mathbb{E}[W_1]) \\ &= 1 + \mathbb{E}[W_1]\end{align*}$$<p>
+$$\mathbb{E}[W_2] = \mathbb{E}[W_1] + \mathbb{E}[W_1]$$<p>
+By substitution, we get:</p>
+$$\begin{align*}\mathbb{E}[W_1] &= 1 + \frac{1}{2}(\mathbb{E}[W_1] + \mathbb{E}[W_1]) \\ &= 1 + \mathbb{E}[W_1]\end{align*}$$<p>
 This is a contradiction! As a result, the expected number of children to have before you hit 0 is infinite.</p>
 <p><strong>Solution 2</strong></p>
-$$\mathbb{E}[X] = \sum x . \mathbb{P}[X = x]$$$$\mathbb{E}[X] = \sum_{x=2}^\infty x . \mathbb{P}[X = x]$$<p>
+<p>For this solution, we&rsquo;ll start with the formula for the expectation of a discrete random variable.</p>
+$$\mathbb{E}[X] = \sum x . \mathbb{P}[X = x]$$<p>
+In our case, let $X$ be the random variable denoting the number of children needed to reach parity. We can then rewrite the formula above as:</p>
+$$\mathbb{E}[X] = \sum_{x=2}^\infty x . \mathbb{P}[X = x]$$<p>
 To solve this formula, we need to find $\mathbb{P}[X = x]$ for each value of $x$. To do this, we will model this question as a 2D random walk. Lets take $x=10$ as an example and we&rsquo;ll use the grid below.
 <img src="/images/2d_boy_girl_grid.drawio.png" alt="Image">
 Anytime the couple gives birth to a boy, a step to the right is taken and if a girl is birthed, a step up is taken. Equality is reached when the path hits the blue line.</p>
-$$C_n = \frac{1}{n+1} \binom{2n}{n}.$$$$C_4 = \frac{1}{5} \binom{8}{4} = 14$$<p>
+<p>Representing the question using a 2d grid now opens the possibility of using something called <a href="https://mathworld.wolfram.com/DyckPath.html">Dyck&rsquo;s path</a> [2]. A Dyck path is a staircase walk from (0,0) to (n,n) that lies strictly below (but may touch) the diagonal y=x. The number of Dyck&rsquo;s paths of order n is given by the Catalan number:</p>
+$$C_n = \frac{1}{n+1} \binom{2n}{n}.$$<p>
+If the first child is a boy and we are looking at the paths to hit equality by child 10, then we know the final step must be a girl.
+<img src="/images/2d_boy_girl_grid_dycks.drawio.png" alt="Image">
+Using this methodology, any path from the first boy to the last girl which touches but does not surpass the red line, is a valid path. This allows us to use Dyck&rsquo;s path of degree 4.</p>
+$$C_4 = \frac{1}{5} \binom{8}{4} = 14$$<p>
 Consequently, the number of paths that start with a boy and achieves equality on the 10th child is 14. By symmetry, the number of paths that start with a girl and achieves equality on the 10th child is also 14.</p>
-$$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \mathbb{P}[X = 2k] &= \frac{2 C_{k-1}}{2^{2k}} \\ &= \frac{2}{k}\binom{2k-2}{k-1}\frac{1}{2^{2k}} \\ &= \frac{2}{4^kk} \binom{2k-2}{k-1}\end{align*}$$$$\begin{align*}\mathbb{E}[X] &= \sum_{k=1}^\infty 2k . \mathbb{P}[X = 2k] \\ &= \sum_{k=1}^{\infty} 2k \frac{2}{4^kk} \binom{2k-2}{k-1} \\ &= \sum_{k=1}^{\infty} \frac{1}{4^{k-1}} \binom{2k-2}{k-1} \end{align*}$$$$\begin{align*}\mathbb{E}[X] &= \sum_{n=0}^{\infty} \frac{1}{4^n} \binom{2n}{n} \end{align*}$$$$4^n = 2^{2n} = (1 + 1)^{2n} = \sum_{m=0}^{2n} \binom{2n}{m} < (2n + 1) \binom{2n}{n}$$$$\frac{1}{4^n} \binom{2n}{n} > \frac{1}{2n+1}$$$$\begin{align*}\mathbb{E}[X] &= \sum_{n=0}^{\infty}\frac{1}{4^n} \binom{2n}{n} \\ &> \sum_{n=0}^\infty\frac{1}{2n+1} \\ &> \sum_{n=0}^\infty \sum{1}{2n} \\ &= \frac{1}{2} \sum_{n=0}^\infty \frac{1}{n} \\ &\rightarrow \infty \end{align*}$$<p>As a result, the expectation is infinite!</p>
+<p>To convert this to a probability, we will divide by the total number of possible paths by the 10th child, which is $2^{10} = 1024$. So the probability of achieving equality of the 10th child is:</p>
+$$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$<p>Now, lets do the rest. Let $x=2k$ where $k\in \mathbb{Z}^+$.</p>
+$$\begin{align*} \mathbb{P}[X = 2k] &= \frac{2 C_{k-1}}{2^{2k}} \\ &= \frac{2}{k}\binom{2k-2}{k-1}\frac{1}{2^{2k}} \\ &= \frac{2}{4^kk} \binom{2k-2}{k-1}\end{align*}$$<p>
+By substitution:</p>
+$$\begin{align*}\mathbb{E}[X] &= \sum_{k=1}^\infty 2k . \mathbb{P}[X = 2k] \\ &= \sum_{k=1}^{\infty} 2k \frac{2}{4^kk} \binom{2k-2}{k-1} \\ &= \sum_{k=1}^{\infty} \frac{1}{4^{k-1}} \binom{2k-2}{k-1} \end{align*}$$<p>
+Substituting $n = k-1$ gives:</p>
+$$\begin{align*}\mathbb{E}[X] &= \sum_{n=0}^{\infty} \frac{1}{4^n} \binom{2n}{n} \end{align*}$$<p>
+Using the fact that:</p>
+$$4^n = 2^{2n} = (1 + 1)^{2n} = \sum_{m=0}^{2n} \binom{2n}{m} < (2n + 1) \binom{2n}{n}$$$$\frac{1}{4^n} \binom{2n}{n} > \frac{1}{2n+1}$$$$\begin{align*}\mathbb{E}[X] &= \sum_{n=0}^{\infty}\frac{1}{4^n} \binom{2n}{n} \\ &> \sum_{n=0}^\infty\frac{1}{2n+1} \\ &> \sum_{n=0}^\infty \sum{1}{2n} \\ &= \frac{1}{2} \sum_{n=0}^\infty \frac{1}{n} \\ &\rightarrow \infty \end{align*}$$<p>As a result, the expectation is infinite!</p>
 <h3 id="references">References</h3>
 <ol>
 <li>Optiver (2024). <em>Prove it - Ep5: Perpetual Children</em>. [online] YouTube. Available at: <a href="https://www.youtube.com/watch?v=YllN9Pz15cU">https://www.youtube.com/watch?v=YllN9Pz15cU</a> [Accessed 22 Dec. 2024].</li>
@@ -293,7 +313,7 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         About
     </div>
 
-    <img src="/image/logo.webp?v=1735290694" class="w-80 self-center" alt="Logo" />
+    <img src="/image/logo.webp?v=1735323639" class="w-80 self-center" alt="Logo" />
 
     <p class="leading-8 text-center text-lg font-light mt-3">
         
@@ -371,6 +391,13 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/trees/" class="hover:text-gray-300">Trees <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
         </li>
@@ -380,20 +407,6 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/time-series/" class="hover:text-gray-300">Time Series <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/trees/" class="hover:text-gray-300">Trees <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         
@@ -414,6 +427,13 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/algorithms/" class="hover:text-gray-300">Algorithms <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -451,13 +471,13 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         
         
         
+        <a href="/tags/gnn/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
+        
+        
+        
         <a href="/tags/statistics/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/time-series/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
         
         
         
@@ -466,8 +486,8 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         
         
         
-        <a href="/tags/gnn/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
+        <a href="/tags/time-series/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
         
         
         
@@ -476,33 +496,13 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         
         
         
-        <a href="/tags/diffusion-models/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/rest-apis/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arima/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arma/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/optimisation/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
-        
-        
-        
         <a href="/tags/gans/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/glms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
         
         
         
@@ -516,8 +516,13 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         
         
         
-        <a href="/tags/dynamic-programming/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        <a href="/tags/arima/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arma/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
         
         
         
@@ -526,18 +531,33 @@ $$\mathbb{P}[X=10] = \frac{14 + 14}{1024} = \frac{28}{1024}.$$$$\begin{align*} \
         
         
         
+        <a href="/tags/optimisation/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/rest-apis/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
+        
+        
+        
         <a href="/tags/boosting/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
         
         
         
+        <a href="/tags/dynamic-programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/diffusion-models/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        
+        
+        
         <a href="/tags/docker/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/glms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
         
         
         

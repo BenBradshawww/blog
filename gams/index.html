@@ -22,7 +22,7 @@
     <meta name="keywords" content="GAMs">
     <meta name="description" content="SEO Description Here">
     <link rel="canonical" href="https://www.mathstoml.com/gams/" />
-    <link rel="icon" href="/favicon.ico?v=1735290694" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=1735323639" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
     
@@ -231,7 +231,7 @@
         </h1>
         <time datetime="2025-03-16" class="flex items-center py-2 text-xl text-gray-600">
             2024-12-18 00:00
-            &nbsp;&nbsp;|&nbsp;&nbsp;9 minute read
+            &nbsp;&nbsp;|&nbsp;&nbsp;11 minute read
         </time>
 
         <div
@@ -242,16 +242,23 @@
 <p>For more details about this methods please read the book by Simon N. Wood about Generalised Additive Models.</p>
 <h2 id="gams">GAMs</h2>
 <p><strong><strong>GAMS:</strong></strong> GAMs are a form of generalised linear models with linear response variables that depend on unknown smooth functions of some exogenous variables. These forms of models were initially developed to blend the properties of Generalised Linear Models (GLMs) with additive models.</p>
-$$g(\mathbb{E}[Y]) = \beta_0 + f_1(x_1) + ... + f_m(x_m)$$<p><br>
+<p>The models goes as follows, given a univariate response variable Y and predictor (exogenous) variables $x_i, i \in {1, ..., m}$. An exponential family distribution is chosen for $Y$ along with a link function $g$ which relates the expected value of Y to the predictor variables via</p>
+$$g(\mathbb{E}[Y]) = \beta_0 + f_1(x_1) + ... + f_m(x_m)$$<p>
 where $f_i$ are functions with a specified parametric forms (for example, $f_i$ may follow a polynomial or an unpenalised regression spline of a variable) or may be specified non-parametrically or semi-parametrically as simply smooth functions to be estimated in a non-parametric way. Due to the relaxed assumptions of the relationship between the response and the predictors, it provides a better fit to the data than the parametric models but with a loss of interpretability.</p>
-$$f(x) = \sum_{q=0}^{2n} \Phi_q\left(\sum_{p=1}^n \phi_{q, p}(x_p)\right)$$<p><br>
+<p>The idea behind GAMs comes from the <strong><strong>Kolmogorov-Arnold representation theorem</strong></strong> which states that any multivariate continuous function can be represented as sums and compositions of univariate functions:</p>
+$$f(x) = \sum_{q=0}^{2n} \Phi_q\left(\sum_{p=1}^n \phi_{q, p}(x_p)\right)$$<p>
 This theorem states a representation of this form exists but it provides no method to construct this function in practice. Proofs to find this representation are complex and often require the use of functions with a fractal structure. While fractals are mathematically interesting, they are not practical for models due to their complexity and computational complexity. Consequently, Kolmogorov-Arnold model based methods are not suitable for practical modelling. In modelling, you tend to focus on functions which are simple and easily interpretable. Fractal based methods are the opposite to this.</p>
-$$f(x) = \Phi \left(\sum_{p=1}^n \phi_p (x_p)\right)$$$$g(f(x)) = \sum_i f_i (x_i).$$$$g(\mathbb{E}[Y]) = \beta_0 + f_1(x_1) + ... + f_m(x_m).$$<h2 id="univariate-smooth-functions">Univariate Smooth Functions</h2>
-$$\begin{equation}y_i = f(x_i) + \epsilon_i\end{equation}$$<p><br>
+<p>As a result, GAMs drop the outer sum focus on creating functions of a simpler class:</p>
+$$f(x) = \Phi \left(\sum_{p=1}^n \phi_p (x_p)\right)$$$$g(f(x)) = \sum_i f_i (x_i).$$<p>When this model is tasked to find the expectation of a response variable $Y$, it can be written in the form:</p>
+$$g(\mathbb{E}[Y]) = \beta_0 + f_1(x_1) + ... + f_m(x_m).$$<h2 id="univariate-smooth-functions">Univariate Smooth Functions</h2>
+<p>Given we are trying to represent a response distribution using a univariate smooth function:</p>
+$$\begin{equation}y_i = f(x_i) + \epsilon_i\end{equation}$$<p>
 where $\epsilon_i$ is a random variable that follows a normal distribution.</p>
-$$f(x) = \sum_{i=1}^q b_i(x) \beta_i$$<p><br>
+<p>To estimate $f$, we can try to represent it in a way such that it becomes a linear model. To do this, we choose a <strong><strong>basis</strong></strong> which defines the space of functions for $f$. To create this basis we will need to choose some <strong><strong>basis functions</strong></strong>. If $b_i$ is the ith basis function, then $f$ can be represented as:</p>
+$$f(x) = \sum_{i=1}^q b_i(x) \beta_i$$<p>
 for some scalar parameters $\beta_i$. Substituting this equation into the previous one gives a linear function.</p>
-$$f = \beta_1 + \beta_2x + \beta_3x^2 + \beta_4 x^3.$$<p><br>
+<p>For example, if we believed $f$ could be represented as a 3rd order polynomial function. Then a basis for this space can be constructed using $b_1(x) = 1, b_2(x) = x, b_3(x) = x^2, b_4(x) = x^3$ to give us a function of the form:</p>
+$$f = \beta_1 + \beta_2x + \beta_3x^2 + \beta_4 x^3.$$<p>
 Polynomial bases are useful in situations which focuses on the properties of $f$ in the vicinity of a single point but when the interest relates to $f$ over the whole domain, the polynomial bases underperform. In these situations, splines are recommend to be used due to theoretic properties.</p>
 <p>A univariate function can be expressed as a <strong><strong>cubic spline</strong></strong>. A cubic spline is a curve made up of sections of cubic polynomials joined together such that they are continuous in value in the first and second derivatives. The points which join the curves together are called the <strong><strong>knots</strong></strong> of the spline.</p>
 <p>In a conventional spline, the knots are distributed at any point where a datum exists. For regression splines, the knots are evenly spaced through a range of observed x values or placed at quantiles of the distribution of the unique x values.</p>
@@ -276,11 +283,15 @@ $$\mathcal{V}_0 = \frac{1}{n} \sum{i=1}^n (y_i - \hat{f}_i)^2 / (1-A_{ii})^2.$$<
 $$\mathcal{V}_g = \frac{n \sum{i=1}^n (y_i - \hat{f}_i)^2}{[tr(I-A)]^2}$$<p>The GCV has many computational advantages over the OCV and it retains the property of minimising the $\mathbb{E}[M]$.</p>
 <p>To minimise the OCV or the GCV with respect to $\lambda$, numerical optimisation methods will need to be applied such as grid search and quasi-newton methods like BFGS.</p>
 <h2 id="additive-models">Additive Models</h2>
-$$y_i = f_1(x_i) + f_2(z_i) + \epsilon_i,$$<p><br>
+<p>Now that we know how to solve the problem using a univariate smooth function, suppose the response variable $y$ has two predictor variables $x$ and $z$. This gives an additive model taking the form:</p>
+$$y_i = f_1(x_i) + f_2(z_i) + \epsilon_i,$$<p>
 where $f_j$ are smooth functions and $\epsilon_i$ are i.i.d $N(0, \sigma^2)$ random variables.</p>
 <p>Before continuing, it is important to mention this model suffers from identifiability problems: $f_1$ and $f_2$ are only estimable to within an additive constant. This means that a constant could be added from $f_1$ and subtracted from $f_2$ without changing the model predictions. As a result, identifiability conditions must be applied to the model before fitting.</p>
 <p>Given that the identifiability issue has been addressed, the additive model can be represented using a regression spline estimating the penalised least squares and the degree of smoothing can be estimated by cross validation.</p>
-$$f_1(x) = \delta_1 + x\delta_2 + \sum_{j=1}^{q_1 - 2} R(x, x_j^*) \delta_{j+2}$$$$f_1(x) = \gamma_1 + z\gamma_2 + \sum_{j=1}^{q_2 - 2} R(z, z_j^*) \gamma_{j+2}$$<p>where $\delta_j$ and $\gamma_j$ are unknown parameters, $x_j^*$ and $z_j^*$ are knot locations.</p>
+<p>Each smooth function can be represented using the splines discussed above giving us the equation:</p>
+$$f_1(x) = \delta_1 + x\delta_2 + \sum_{j=1}^{q_1 - 2} R(x, x_j^*) \delta_{j+2}$$<p>
+and</p>
+$$f_1(x) = \gamma_1 + z\gamma_2 + \sum_{j=1}^{q_2 - 2} R(z, z_j^*) \gamma_{j+2}$$<p>where $\delta_j$ and $\gamma_j$ are unknown parameters, $x_j^*$ and $z_j^*$ are knot locations.</p>
 <p>The identifiable problem with the additive model mean $\delta_1$ and $\gamma_1$ are confounded. The simplest way to solve this problem is by constraining one of the parameters to 0. Under this constraint, the model can be written as a linear model $\textbf{y} = X \boldsymbol{\beta} + \boldsymbol{\epsilon}$ where the ith row of the matrix $X$ is written as:</p>
 $$X_i = [1, x_i, R(x_i, x_1^*), R(x_i, x_2^*), ..., R(x_i, x_{q_1 - 2}^*), z_i, R(z_i, z_2^*), ..., R(z_i, z_{q_2 -2}^*)]$$<p>with the parameter vector $\boldsymbol{\beta}$ written as $\boldsymbol{\beta} = [\delta_1, \delta_2, ..., \delta_{q_1}, \gamma_2, \gamma_{q_2} ]^T.$</p>
 <p>As we also did in the last section, the wiggliness of a function can be measured using:</p>
@@ -288,7 +299,8 @@ $$\int_0^1 [f_1''(x)]^2dx = \boldsymbol{\beta}^T S_1 \boldsymbol{\beta}, \quad \
 $$| \textbf{y} - X \boldsymbol{\beta}|^2 + \lambda_1 \boldsymbol{\beta}^T S_1 \boldsymbol{\beta} + \lambda_2 \boldsymbol{\beta}^T S_2 \boldsymbol{\beta},$$<p>where $\lambda_1$ and $\lambda_2$ are the smoothing parameters.</p>
 <h2 id="generalised-additive-models">Generalised Additive Models</h2>
 <p>GAMs follow from the additive models and take a similar form to generalised linear models where the response variables are known to follow some distribution from the exponential family or have a known mean variance relationship.</p>
-$$log(\mathbb{E}[y_i]) = f_1(x_1) + f_2(x_2) \quad \text{where} \quad y_i \sim \text{Gamma}.$$<p><br>
+<p>Suppose we choose to model our response variables with the model:</p>
+$$log(\mathbb{E}[y_i]) = f_1(x_1) + f_2(x_2) \quad \text{where} \quad y_i \sim \text{Gamma}.$$<p>
 With this model, we cannot take the same approach as above. The additive model was fitted with the penalised least squares and the GAM will be fit by a penalised iterative least squares.</p>
 <p>The reason behind the change in our objective criterion is because our the residuals of our model is no longer assumed to be normally distributed. Consequently the least squares is no longer the optimal criterion because it does not properly account for the variance in the distribution. This means that an alternative criterion needs to be used and this will be the maximised penalised likelihood. Often this takes the form of the log-likelihood because we assume that the residuals of the model come from an exponential family such as a Gaussian, Binomial, Exponential, and Poisson distribution.</p>
 <p>To fit the model with a log-likelihood objective, the penalised iteratively re-weighted least squares (P-IRLS) scheme is run till convergence.</p>
@@ -299,7 +311,7 @@ $$w_i = \frac{1}{V(\mu_i^{[k]} ) g'(\mu_i^{[k]})} \text{ and } z_i = g(\mu_i^{[k
 <ol start="2">
 <li>Minimise</li>
 </ol>
-$$| \sqrt{W} (z - X\boldsymbol{\beta})|^2 + \lambda_1 \boldsymbol{\beta}^T S_1 \boldsymbol{\beta} + \lambda_2 \boldsymbol{\beta}^T S_2 \boldsymbol{\beta}$$<p><br>
+$$| \sqrt{W} (z - X\boldsymbol{\beta})|^2 + \lambda_1 \boldsymbol{\beta}^T S_1 \boldsymbol{\beta} + \lambda_2 \boldsymbol{\beta}^T S_2 \boldsymbol{\beta}$$<p>
 w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagonal matrix such that $W_{ii} = w_i$.</p>
 <p>Whenever we fit a GAM model to a dataset, we choose our link function $g$ and as a result, we know what form the variance function takes. Some common examples include:</p>
 <ul>
@@ -343,7 +355,7 @@ w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagon
         About
     </div>
 
-    <img src="/image/logo.webp?v=1735290694" class="w-80 self-center" alt="Logo" />
+    <img src="/image/logo.webp?v=1735323639" class="w-80 self-center" alt="Logo" />
 
     <p class="leading-8 text-center text-lg font-light mt-3">
         
@@ -400,14 +412,14 @@ w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagon
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/probability/" class="hover:text-gray-300">Probability <span
+            <a href="/categories/graphs/" class="hover:text-gray-300">Graphs <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
         </li>
         
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/graphs/" class="hover:text-gray-300">Graphs <span
+            <a href="/categories/probability/" class="hover:text-gray-300">Probability <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
         </li>
         
@@ -442,6 +454,20 @@ w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagon
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
@@ -449,21 +475,7 @@ w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagon
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistical-modelling/" class="hover:text-gray-300">Statistical Modelling <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/algorithms/" class="hover:text-gray-300">Algorithms <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -501,23 +513,13 @@ w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagon
         
         
         
-        <a href="/tags/trees/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/statistics/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
-        
-        
-        
         <a href="/tags/time-series/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
         
         
         
-        <a href="/tags/auto-encoders/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Auto-Encoders&nbsp;&nbsp;2</span></a>
+        <a href="/tags/trees/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
         
         
         
@@ -526,43 +528,13 @@ w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagon
         
         
         
-        <a href="/tags/gans/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/statistics/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
         
         
         
-        <a href="/tags/gnns/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/algorithms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/dynamic-programming/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gams/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/boosting/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/docker/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/glms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/auto-encoders/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Auto-Encoders&nbsp;&nbsp;2</span></a>
         
         
         
@@ -571,8 +543,13 @@ w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagon
         
         
         
-        <a href="/tags/rest-apis/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/algorithms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
         
         
         
@@ -586,8 +563,43 @@ w.r.t $\boldsymbol{\beta}$ to obtain $\boldsymbol{\beta}^{[k]}$. W is the diagon
         
         
         
+        <a href="/tags/gams/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/glms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gnns/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        
+        
+        
         <a href="/tags/optimisation/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/rest-apis/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/boosting/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/dynamic-programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
         
         
         
