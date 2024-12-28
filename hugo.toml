@@ -36,7 +36,7 @@ theme = "Niello"
 	google_ad_client = "******"
 	ga4 = "******"
 [params.bannershowcase]
-	categories = ["Statistical Modelling"]
+	categories = ["Machine Learning"]
 	limit = 2
 [params.email]
 	contact = "benbradshaw01@outlook.com"
