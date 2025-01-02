@@ -7,5 +7,5 @@ keywords = ["Trees", "Machine Learning", "ML", "Random Forests", "Random Forest"
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++

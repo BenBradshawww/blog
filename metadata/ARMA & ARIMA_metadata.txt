@@ -7,5 +7,5 @@ keywords = ["Time Series", "ARMA", "ARIMA", "PACF", "EACF", "Indeterministic Pro
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++

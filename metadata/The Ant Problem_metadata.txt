@@ -7,5 +7,5 @@ keywords = ["Ants", "Ant Problem", "Probability", "Random Walks"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
