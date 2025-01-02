@@ -7,5 +7,5 @@ keywords = ["GNNs", "Locally Linear Embeddings", "Graph Factorisation", "GraRep"
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++

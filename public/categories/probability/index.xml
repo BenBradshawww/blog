@@ -6,8 +6,15 @@
     <description>Recent content in Probability on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.mathstoml.com/categories/probability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terminating Dice Sequences</title>
+      <link>https://www.mathstoml.com/terminating-dice-sequences/</link>
+      <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/terminating-dice-sequences/</guid>
+      <description>&lt;h3 id=&#34;question&#34;&gt;Question&lt;/h3&gt;&#xA;&lt;p&gt;What is the expected number of dice that need to be rolled till the sum exceeds 6? [1]&lt;/p&gt;&#xA;&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;&#xA;&lt;p&gt;To do this, we&amp;rsquo;ll start with the formula for expectation for discrete random variables:&lt;/p&gt;&#xA;$$\mathbb{E}[X] = \sum_{i=1}^6 \mathbb{P}[X = i]$$&lt;p&gt;There is a neat trick you can use where:&lt;/p&gt;&#xA;$$\begin{align}\mathbb{E}[X] &amp;= 1 \cdot \mathbb{P}[X=1] + 2 \cdot \mathbb{P}[X=2] + 3 \cdot \mathbb{P}[X=3] + 4 \cdot \mathbb{P}[X=4]  + 5 \cdot \mathbb{P}[X=5] + 6 \cdot \mathbb{P}[X=6] \\ &amp;=\mathbb{P}[X=1] \\ &amp;+ \mathbb{P}[X=2] + \mathbb{P}[X=2] \\ &amp;+ \mathbb{P}[X=3] + \mathbb{P}[X=3] + \mathbb{P}[X=3] \\ &amp;+ \mathbb{P}[X=4] + \mathbb{P}[X=4] + \mathbb{P}[X=4] + \mathbb{P}[X=4] \\ &amp;+ \mathbb{P}[X=5] + \mathbb{P}[X=5] + \mathbb{P}[X=5] + \mathbb{P}[X=5]+ \mathbb{P}[X=5] \\ &amp;+ \mathbb{P}[X=6]+\mathbb{P}[X=6]+\mathbb{P}[X=6]+\mathbb{P}[X=6]+\mathbb{P}[X=6]+\mathbb{P}[X=6]. \\ &amp;= \mathbb{P}[X&gt;0]+\mathbb{P}[X&gt;1]+\mathbb{P}[X&gt;2]+\mathbb{P}[X&gt;3]+\mathbb{P}[X&gt;4]+\mathbb{P}[X&gt;5]\end{align}$$&lt;p&gt;&#xA;This gives a new formula for expectation written as:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Perpetual Children</title>
       <link>https://www.mathstoml.com/perpetual-children/</link>

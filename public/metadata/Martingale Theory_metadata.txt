@@ -7,5 +7,5 @@ keywords = ["Martingales", "Optional-Stopping Theorem"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++

@@ -7,5 +7,5 @@ keywords = ["U-Net", "Machine Learning", "ML", "AutoEncoders"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++

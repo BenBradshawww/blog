@@ -8,5 +8,5 @@ description = "SEO Description Here"
 draft = false
 featuredImage = "/images/vivek-kumar-riAKT8Z7ifE-unsplash.jpg"
 [params.math]
-  math = true
+math = true
 +++

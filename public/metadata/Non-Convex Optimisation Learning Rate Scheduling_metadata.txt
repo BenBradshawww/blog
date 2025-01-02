@@ -7,5 +7,5 @@ keywords = ["Non-Convex", "Learning Rate", "LR"]
 description = "SEO Description Here"
 draft = false
 [params.math]
-  math = true
+math = true
 +++
