@@ -10,6 +10,8 @@ draft = false
 math = true
 +++
 
+![Image](/images/robin-noguier-sydwCr54rf0-unsplash.jpg)
+[Image by Robin Nouguier](https://unsplash.com/@robinnoguier)
 ### Question
 What is the expected number of dice that need to be rolled till the sum exceeds 6? [1]
 
@@ -56,5 +58,6 @@ $$\begin{align}\mathbb{E}[X] &= \sum_{k=0}^5 \mathbb{P}[X>k] \\ &= \sum_{k=0}^5 
 3. Wikipedia. (2023). _Hockey-stick identity_. [online] Available at: https://en.wikipedia.org/wiki/Hockey-stick_identity.
 
 ‌
+
 
 ‌

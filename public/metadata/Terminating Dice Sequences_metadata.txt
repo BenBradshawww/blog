@@ -1,0 +1,11 @@
++++
+title = 'Terminating Dice Sequences'
+date = 2025-01-02
+categories = ["Probability"]
+tags = ["Probability"]
+keywords = ["Dice", "Probability", "Random Walks", "Optiver"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+math = true
++++
