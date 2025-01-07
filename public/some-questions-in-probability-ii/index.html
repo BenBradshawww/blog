@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
     <title>
     
-    Tags - MathsToML
+    Some Questions in Probability II - MathsToML
     
 </title>
     
@@ -15,9 +15,13 @@
     
     
     
-    <meta name="keywords" content="Example Site Home SEO Keywords">
-    <meta name="description" content="Example Site Home SEO Description">
-    <link rel="canonical" href="https://www.mathstoml.com/tags/" />
+    
+    
+    
+    
+    <meta name="keywords" content="Dice , Probability , Random Walks , Expectation">
+    <meta name="description" content="SEO Description Here">
+    <link rel="canonical" href="https://www.mathstoml.com/some-questions-in-probability-ii/" />
     <link rel="icon" href="/favicon.ico?v=1736290606" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
@@ -124,7 +128,7 @@
 
 
 <li>
-    <a    aria-current="page"     class="active px-5 lg:px-10 py-3 font-light border-b-2 border-red-500 text-gray-100"     href="/tags/"  >Tags</a>
+    <a    class="px-5 lg:px-10 py-3 font-light hover:border-b-2 hover:border-red-500"     href="/tags/"  >Tags</a>
     
 </li>
 
@@ -198,7 +202,7 @@
             </li>
             
             <li>
-                &gt;&nbsp;&nbsp;<a href="/tags/" class="hover:text-gray-100">Tags</a>
+                &gt;&nbsp;&nbsp;<a href="/some-questions-in-probability-ii/" class="hover:text-gray-100">Some Questions in Probability II</a>
             </li>
             
         </ul>
@@ -217,419 +221,107 @@
             <main class="w-full overflow-hidden">
                 
 
-
-
-
-
-
-
-<div class="list-container-rows">
+<article class="single-article">
     
+    <div class="group relative">
+        <h1 class="text-3xl font-medium leading-10 text-gray-400 hover:text-gray-100">
+            <a href="/some-questions-in-probability-ii/">
+                Some Questions in Probability II
+            </a>
+        </h1>
+        <time datetime="2025-03-16" class="flex items-center py-2 text-xl text-gray-600">
+            2025-01-07 00:00
+            &nbsp;&nbsp;|&nbsp;&nbsp;6 minute read
+        </time>
 
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/hannes-knutsson-2icXZAriT_E-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/probability/">Probability</a>
-        </h3>
+        <div
+            class="mt-1 lg:pb-10 px-2 text-2xl leading-10 font-thin text-gray-500 overflow-hidden break-words article-body">
+            <p><img src="/images/hannes-knutsson-2icXZAriT_E-unsplash.jpg" alt="Image"></p>
+<p><a href="https://unsplash.com/@hannesknutsson">Image by Hannes Knutsson</a></p>
+<h3 id="question">Question:</h3>
+<p>On average, how many rolls would it take to get two of the same face when rolling a die.</p>
+<p>For example, acceptable sequences with two of the same face include 2344, 1234566, and 123453. [1]</p>
+<h3 id="solution">Solution:</h3>
+<p>There are two ways you could approach this question, either using markov chains or permutations. Of these, we will focus on the latter, the easier of the two.</p>
+<p>Let $X$ denote the number of rolls till we have found the same face twice. Our goal is to find $\mathbb{P}[X=x]$ for $x \in \{2, ..., 7\}$.</p>
+<p>At $X=2$, the rolls must form a sequence of $AA$, where $A \in \{1, ..., 6\}$. Given two rolls, there are 6 sequences of this pattern out of the $6^2$ possible sequences. Hence,</p>
+$$\mathbb{P}[X=2] = \frac{6}{6^2} = \frac{1}{6}.$$<p>
+For $X=3$, the valid sequences take the form of ABA or BAA. As a result,</p>
+$$\mathbb{P}[X=3] = 2\cdot\frac{6\cdot5}{6^3} = \frac{5}{18}.$$<p>
+For $X=4$, the valid sequences take the form of ABCA, BACA, or BCAA. So,</p>
+$$\mathbb{P}[X=4] = 3\cdot\frac{6\cdot5\cdot4}{6^4} = \frac{5}{18}.$$<p>Iterating this process over the last terms and following the formula for the expectation of a discrete random variable.</p>
+$$\mathbb{E}[X] = \sum_{x=2}^7x\mathbb{P}[X=x] = \frac{1223}{324}.$$<h3 id="question-1">Question:</h3>
+<p>Suppose we were to roll a die 6k times. What is the probability that each face comes up an equal number of times (lets say k times). Find the asymptotic distribution for the probability in terms of k. [1]</p>
+<h3 id="solution-1">Solution:</h3>
+<p>In $6k$ rolls, we want $k$ of them to appear with the face &ldquo;1&rdquo;. Consequently, there are</p>
+$$\binom{6k}{k}$$<p>
+ways this can occur. This can be thought of as given there are 6k positions and k of them are 1. How many different permutations are there.</p>
+<p>Now given the $5k$ remaining spots, there are</p>
+$$\binom{5k}{k}$$<p>
+ways face &ldquo;2&rdquo; can appear. Continuing this process, leaves</p>
+$$\binom{6k}{k} \binom{5k}{k} \binom{4k}{k} \binom{3k}{k} \binom{2k}{k} \binom{k}{k}$$<p>
+rolls where there are an equal number of each face.</p>
+<p>Since there are $6^{6k}$ total number of sequences. The final probability is:</p>
+$$\frac{\binom{6k}{k} \binom{5k}{k} \binom{4k}{k} \binom{3k}{k} \binom{2k}{k} \binom{k}{k}}{6^{6k}} = \frac{(6k)!}{(k!)^6 6^{6k}}$$<h3 id="question-2">Question:</h3>
+<p>What is the expected number of rolls to obtain a 6 given that the 6 comes before the 5.</p>
+<h3 id="solution-2">Solution:</h3>
+<p>First, we will find the probability that the first 6 comes before the first 5. Let $X$ denote the time of the first 6 given we have not found a 5 yet.</p>
+$$\begin{align}\mathbb{P}[X=1] &= \frac{1}{6} \\\mathbb{P}[X=2] &= \frac{1}{6} \frac{4}{6} \\ \mathbb{P}[X=3] &= \frac{1}{6} (\frac{4}{6})^2 \\ &\vdots \\ \mathbb{P}[X=k] &= \frac{1}{6} (\frac{4}{6})^{k-1}  \end{align}$$<p>Taking the sum of the terms gives:</p>
+$$\sum_{k=1}^\infty \mathbb{P}[X=k] = \frac{1}{2}$$<p>Using this, to find the probability the kth roll will be a 6 given we have not observed a 5 before this roll gives:</p>
+$$\begin{align}\mathbb{P}[6 \text{ on k-th roll} | 6 \text{ occurs before 5}] &= \frac{\mathbb{P}[6 \text{ on k-th roll and 6 occurs before 5}]}{\mathbb{P}[6 \text{ occurs before 5}]} \\&= \frac{\frac{1}{6} \cdot (\frac{4}{6})^{k-1}}{\frac{1}{2}}\end{align}$$<p>
+Substituting this into the discrete expectation formula:</p>
+$$\mathbb{E}[X] = \sum_{k=1}^\infty k \mathbb{P}[X=k].$$<p>
+Following this formula gives an expectation of 3.</p>
+<h3 id="question-3">Question:</h3>
+<p>A building has 10 floors above the basement. If 12 people get into an elevator at the basement, and each chooses a floor at random to get out, independently of the others, at how many floors do you expect the elevator to make a stop to let out one or more of these 12 people? [3]</p>
+<h3 id="solution-3">Solution:</h3>
+<p>Let $\mathbb{1}_k$ be the indicator variable for whether the lift stops at floor $k$. An indicator variable has two values: 0 and 1. 0 for when no one gets off at floor k and 1 for when someone gets off at floor k.</p>
+<p>Our goal is to find the sum $S$ of these 10 indicator variables:</p>
+$$\mathbb{E}[S] = \mathbb{E}[\sum_{k=1}^{10}\mathbb{1}_k].$$<p>
+Using the linearity of expectation, we rewrite the equation above to:</p>
+$$\sum_{k=1}^{10}\mathbb{E}[\mathbb{1}_k].$$<p>
+Since each indicator variable is identically distributed. This formula is simplified to:</p>
+$$10 \cdot \mathbb{E}[\mathbb{1}_k].$$<p>
+The expectation of an indicator variable can be written as:</p>
+$$\mathbb{E}[\mathbb{1}_k] = 1\cdot \mathbb{P}[\mathbb{1}_k=1]  + 0\cdot \mathbb{P}[\mathbb{1}_k=0] = \mathbb{P}[\mathbb{1}_k=1].$$<p>
+The probability of not observing anyone get off at floor $k$ is $(\frac{9}{10})^{12}$  and the probability of observing someone get off at floor $k$ is $1- (\frac{9}{10})^{12}$.  As a result:</p>
+$$\mathbb{E}[S] = 10 \cdot \mathbb{P}[\mathbb{1}_k=1] = 10 \cdot (1- (\frac{9}{10})^{12}) \approx 7.17.$$<p>
+So we are expected to stop at 7 of the 10 floors.</p>
+<h3 id="question-4">Question:</h3>
+<p>You have two ropes. Each rope will take exactly 1 hour to burn all the way through. The densities of each rope vary throughout at unknown rates which cause some portions to burn fast and others to burn slow.</p>
+<p>Using nothing but a lighter and the two ropes, how can you measure exactly 45 minutes?</p>
+<h3 id="solution-4">Solution:</h3>
+<p>Begin by igniting both ends of the first rope and one end of the second rope simultaneously. When the flames from both ends of the first rope meet in the middle, exactly 30 minutes will have elapsed. At this point, ignite the other end of the second rope. Since the second rope will now burn from both ends, it will take 15 minutes for the two flames to meet. Thus, the total elapsed time will be 45 minutes.</p>
+<h3 id="question-5">Question:</h3>
+<p>Choose a person randomly on the street, 𝑋. Let 𝑁 denote the random variable representing the number of people that you select randomly from the street before you find someone who&rsquo;s taller than 𝑋. What is 𝐸[𝑁]? [5]</p>
+<h3 id="solution-5">Solution:</h3>
+<p>In short, the answer is infinity.</p>
+<p>Let $f_X$ denote the PDF and $F_X$ denote the CDF of the the random variable $X$. Given the height of the first person is $x_0$, the probability someone is taller than $x_0$ is written as $1-F_X(x_0)$. Using this information, we can model the number of people needed till we get someone taller than $x_0$ as $N \sim \text{Geom}(1-F_X(x_0))$, a geometric distribution with parameter $1-F_X(x_0)$. As a result, $\mathbb{E}[N | X=x_0] = \frac{1}{1 - F_X(x_0)}$.</p>
+<p>Using the formula for total expectation we get:</p>
+$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{-\infty}^{\infty}\frac{f_X(x)}{1 - F_X(x)}dx = -\ln(1 - F_X(x)) |_{-\infty}^{\infty} = \infty $$<p>Another nice way to see this is if we assume $X$ follows a uniform distribution over $(0, 1)$. Assuming $x_0$ is the height of the first person. The probability someone is taller is equivalent to $1-x_0$ and the number of people we would have to find till we found someone taller than $x_0$ follows a geometric distribution,  $N \sim \text{Geom}(1- x_0)$.</p>
+<p>Using total expectation again gives:</p>
+$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 - x}dx = -x -\ln(|x-1|) |_{0}^{1} = \infty $$<p>References:</p>
+<ol>
+<li>Conroy, M. (2020). <em>A Collection of Dice Problems with solutions and useful appendices (a work continually in progress)</em>. [online] Available at: <a href="https://www.madandmoonly.com/doctormatt/mathematics/dice1.pdf">https://www.madandmoonly.com/doctormatt/mathematics/dice1.pdf</a>.</li>
+<li>Rolls, E. (2023). <em>Expected Rolls To Obtain a $6$ Given that $6$ Comes Before $5$</em>. [online] Mathematics Stack Exchange. Available at: <a href="https://math.stackexchange.com/questions/4806318/expected-rolls-to-obtain-a-6-given-that-6-comes-before-5">https://math.stackexchange.com/questions/4806318/expected-rolls-to-obtain-a-6-given-that-6-comes-before-5</a> [Accessed 1 Jan. 2025].</li>
+<li>Openquant.co. (2024). <em>Ten Floor Building - OpenQuant</em>. [online] Available at: <a href="https://openquant.co/questions/ten-floor-building">https://openquant.co/questions/ten-floor-building</a> [Accessed 5 Jan. 2025].</li>
+<li>Openquant.co. (2024). <em>Burning Ropes - OpenQuant</em>. [online] Available at: <a href="https://openquant.co/questions/burning-ropes">https://openquant.co/questions/burning-ropes</a> [Accessed 7 Jan. 2025].</li>
+<li>riddle, I. (2021). <em>Interesting riddle about heights</em>. [online] Mathematics Stack Exchange. Available at: <a href="https://math.stackexchange.com/questions/4136049/interesting-riddle-about-heights">https://math.stackexchange.com/questions/4136049/interesting-riddle-about-heights</a> [Accessed 7 Jan. 2025].</li>
+</ol>
+<p>‌</p>
+<p>‌</p>
+<p>‌</p>
+
+        </div>
     </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/bob-brewer-f309SjsrC3I-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/boosting/">Boosting</a>
-        </h3>
+    <div class="text-gray-500 text-lg">
+        Page link:&nbsp;<a href="https://www.mathstoml.com/some-questions-in-probability-ii/"
+            class="border-b border-b-gray-500 hover:text-gray-400">https://www.mathstoml.com/some-questions-in-probability-ii/</a>
     </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/bob-brewer-f309SjsrC3I-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/machine-learning/">Machine Learning</a>
-        </h3>
+    <div class="my-10 py-5 border-t border-dashed border-t-white/10 text-xl text-gray-600">
+        
     </div>
-
 </article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/bob-brewer-f309SjsrC3I-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/trees/">Trees</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/anh-vy--kJ542I1oVU-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/gams/">GAMs</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/anh-vy--kJ542I1oVU-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/glms/">GLMs</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/will-turner-iSulLiXzGg0-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/docker/">Docker</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/joshua-sukoff-xTSwjDonDhE-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/optimisation/">Optimisation</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/ante-hamersmit-DSUjNkiRFg0-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/rest-apis/">REST APIs</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/elijah-grimm-jSt_ZxlG2bk-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/arima/">ARIMA</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/elijah-grimm-jSt_ZxlG2bk-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/arma/">ARMA</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/daniela-turcanu-wABdckxoj90-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/statistics/">Statistics</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/elijah-grimm-jSt_ZxlG2bk-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/time-series/">Time Series</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/boliviainteligente-AXNZb4FEkh8-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/gnns/">GNNs</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/photo-1542144950-fa020d965709.avif?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/auto-encoders/">Auto-Encoders</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/justin-lim-tloFnD-7EpI-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/diffusion-models/">Diffusion Models</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/danny-greenberg-cbN8rxHr5S0-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/algorithms/">Algorithms</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/danny-greenberg-cbN8rxHr5S0-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/dynamic-programming/">Dynamic Programming</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/cajeo-zhang-20JfNRPsMCo-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/gnn/">GNN</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-
-    
-    
-    <article class="relative w-60 h-60 rounded-lg overflow-hidden">
-    
-    
-    <img src="/images/justin-simmonds-oGKncrpXn70-unsplash.jpg?v=1736290606" alt="Image" class="w-full h-full object-cover" />
-    
-    <div class="absolute inset-x-0 bottom-0 h-auto pt-3 pb-5 overflow-hidden bg-gray-600/30 backdrop-blur-xl">
-        <h3
-            class="mt-2 py-2 line-clamp-1 text-center text-2xl font-medium leading-none text-gray-100 hover:text-gray-600">
-            <a href="/tags/gans/">GANs</a>
-        </h3>
-    </div>
-
-</article>
-    
-
-
-    
-    
-</div>
-
-
-
 
 
             </main>
@@ -745,13 +437,6 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
@@ -767,6 +452,13 @@
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -804,16 +496,6 @@
         
         
         
-        <a href="/tags/statistics/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/gnn/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
-        
-        
-        
         <a href="/tags/trees/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
         
@@ -826,6 +508,41 @@
         
         <a href="/tags/time-series/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/statistics/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/gnn/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/algorithms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arma/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/boosting/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gnns/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
         
         
         
@@ -866,31 +583,6 @@
         
         <a href="/tags/glms/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/algorithms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arma/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/boosting/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gnns/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/docker/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
         
         
         

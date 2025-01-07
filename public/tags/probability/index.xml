@@ -6,8 +6,15 @@
     <description>Recent content in Probability on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.mathstoml.com/tags/probability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Some Questions in Probability II</title>
+      <link>https://www.mathstoml.com/some-questions-in-probability-ii/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/some-questions-in-probability-ii/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/hannes-knutsson-2icXZAriT_E-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://unsplash.com/@hannesknutsson&#34;&gt;Image by Hannes Knutsson&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;question&#34;&gt;Question:&lt;/h3&gt;&#xA;&lt;p&gt;On average, how many rolls would it take to get two of the same face when rolling a die.&lt;/p&gt;&#xA;&lt;p&gt;For example, acceptable sequences with two of the same face include 2344, 1234566, and 123453. [1]&lt;/p&gt;&#xA;&lt;h3 id=&#34;solution&#34;&gt;Solution:&lt;/h3&gt;&#xA;&lt;p&gt;There are two ways you could approach this question, either using markov chains or permutations. Of these, we will focus on the latter, the easier of the two.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Terminating Dice Sequences</title>
       <link>https://www.mathstoml.com/terminating-dice-sequences/</link>

@@ -52,6 +52,8 @@ Returning to the discrete expectation formula:
 
 $$\begin{align}\mathbb{E}[X] &= \sum_{k=0}^5 \mathbb{P}[X>k] \\ &= \sum_{k=0}^5 \frac{1}{6^k} \binom{5}{k} \\ &= (1 + \frac{1}{6})^5 \approx 2.16 \end{align}$$
 
+So our answer is 2.16!
+
 ### References:
 1. Optiver (2024). _Prove it - Ep3: Terminating Dice Sums_. [online] YouTube. Available at: https://www.youtube.com/watch?v=YKE5SRXK_nI [Accessed 2 Jan. 2025].
 2. Wikipedia. (2023). _Stars and bars (combinatorics)_. [online] Available at: https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics).

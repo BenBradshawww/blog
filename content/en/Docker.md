@@ -15,7 +15,7 @@ math = true
 In this article, we will cover what containerisation means and we look at Docker, a containerisation platform. Furthermore, we will cover the key commands and concepts needed to create your own containers in docker.
 ## What is Docker?
 
-Docker is an open-source software platform that assists the deployment of applications. It does this by creating standardized units called containers which are isolated environments containing the application code, runtime, libraries, and any dependencies. These containers are a type of virtual machine that has an OS but does not simulate the entire computer. It is like a sandboxed environment.
+Docker is an open-source software platform that assists the deployment of applications. It does this by creating standardised units called containers which are isolated environments containing the application code, runtime, libraries, and any dependencies. These containers are a type of virtual machine that has an OS but does not simulate the entire computer. It is like a sandboxed environment.
 
 The goal of containers is to provide portability, meaning you can run the same container on any computer environment. This even works with environments with a different OS and hardware.
 
@@ -25,7 +25,7 @@ Another advantage of these containers is their consistency. Since they are decou
 
 A virtual machine (VM) [1] is another way of creating a virtual environment. A VM is a computer that lives inside a host machine and they are created by virtualising [appendix 1] the host machine's underlying hardware and OS. The hardware is virtualised and then a portion of the hardware is used to run the VM.
 
-![](https://www.mathstoml.com/content/images/2024/11/image.png)
+![Image](/images/vm_image.png)
 
 Figure 1. Virtual Machines. Source found at: [https://endjin.com/blog/2022/01/introduction-to-containers-and-docker](https://endjin.com/blog/2022/01/introduction-to-containers-and-docker)
 
@@ -37,7 +37,7 @@ Containers aim to solve this issue. The containers virtualise only the applicati
 
 Containers are best thought of as processes on the host system with isolated environments.
 
-![](https://www.mathstoml.com/content/images/2024/11/Screenshot-2024-11-06-at-08.00.44-2.png)
+![Image](/images/containers-diagram-drawio.png)
 
 Figure 2. Containers. Source found at: [https://endjin.com/blog/2022/01/introduction-to-containers-and-docker](https://endjin.com/blog/2022/01/introduction-to-containers-and-docker)
 
@@ -47,12 +47,14 @@ Rather than using a hypervisor layer, the docker containers use a Docker daemon 
 
 Now that we know what docker containers are, you may wonder where the containers get their files and configurations. This is when docker images step in. These images are standalone packages which include all the files, binaries, libraries, and configs required to start running a container and at runtime, the images are converted to containers.
 
-Here are key principal's of images [2]:
+Here are key principal's of Docker images [2]:
 
 1. Images are Immutable. This means that Docker images cannot be altered after they are created. You can think of an image as a snapshot of a file system at a particular point in time. If you want to make changes (like installing new software or modifying files), you cannot alter the existing image directly. Instead, you can create a new image with those changes.
 2. Container Images are composed of layers where each layer represents a set of file system changes. These layers stack on top of each other and each command in the Dockerfile (we'll cover this later) creates a new layer in the image. For example, in a project you have a base layer consisting of installing python. The subsequent layer may copy the application code to the container and the final layer may install additional libraries from the requirements.txt.
 
 Many docker images can be found at the [Docker Hub](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/) website. Docker hub contains thousands of trusted images such as pytorch, tensorflow, postgres, neo4j, python, wordpress images and many more.
+
+In case their is still any confusion between what a Docker images and docker container is. The Docker image provides the blueprints of an application while a docker container is the running instance of that Docker image.
 
 During your own projects, the base images may be insufficient. In this situation a Dockerfile is needed. A Dockerfile allows the user to create highly customisable environments tailored to the application's needs. It allows the user to build an environment by specifying the OS, configuration files, environment variables, and more.
 
@@ -99,7 +101,7 @@ Now that the Docker Image has been made, the next step is to create the containe
 docker run -d --name my_app_container -p 3000:3000 my_custom_image
 ```
 * -d: runs the container in detached mode, allowing the container to run in the background.
-* --name: provides a name for the container.
+* --name: provides a name for the container. Without this, docker will create a default name for the container using a string of random characters.
 * -p: maps your device's port 3000 to the container's port 3000.
 * my_custom_image: specifies the image to be used to create the container.
 
