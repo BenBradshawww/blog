@@ -1,16 +1,27 @@
 #!/bin/bash
 
 # Step 1: Pull latest changes from the origin
-echo "Pulling latest changes from the origin"
+echo "Pulling latest changes from the origin..."
 git pull origin main
 
 
 # Step 2: Copy images from obsidian to website
 IMAGE_SOURCE_DIR="/Users/benbradshaw/Documents/Obsidian Vault/images/"
 IMAGE_TARGET_DIR="/Users/benbradshaw/Documents/Code/website/static/images/"
+IMAGE_TARGET_DIR_2="/Users/benbradshaw/Documents/Code/custom_blog/static/images/"
 
-echo "Copying blogs from obsidian to "
+echo "Copying images from obsidian to blog..."
 rsync -avh "$IMAGE_SOURCE_DIR" "$IMAGE_TARGET_DIR"
+
+if [ $? -eq 0 ]; then
+    echo "rsync completed successfully!"
+else
+    echo "rsync failed."
+    exit 1
+fi
+
+echo "Copying images from obsidian to dev blog..."
+rsync -avh "$IMAGE_SOURCE_DIR" "$IMAGE_TARGET_DIR_2"
 
 if [ $? -eq 0 ]; then
     echo "rsync completed successfully!"
@@ -21,8 +32,8 @@ fi
 
 
 # Step 3: Save blog metadata
-echo "Saving blog metadata"
-python scripts/python_scripts/save_blog_metadata.py
+echo "Saving blog metadata..."
+python scripts/python_scripts/save_blog_metadata.py 
 
 if [ $? -ne 0 ]; then
     echo "Python script save_blog_metadata.py failed. Exiting."
@@ -33,9 +44,20 @@ fi
 # Step 4: Copy blogs from obsidian to website
 BLOG_SOURCE_DIR="/Users/benbradshaw/Documents/Obsidian Vault/posts/"
 BLOG_TARGET_DIR="/Users/benbradshaw/Documents/Code/website/content/en/"
+BLOG_TARGET_DIR_2="/Users/benbradshaw/Documents/Code/custom_blog/content/posts/"
 
-echo "Copying blogs from obsidian to "
+echo "Copying blogs from obsidian to website..."
 rsync -avh "$BLOG_SOURCE_DIR" "$BLOG_TARGET_DIR"
+
+if [ $? -eq 0 ]; then
+    echo "rsync completed successfully!"
+else
+    echo "rsync failed."
+    exit 1
+fi
+
+echo "Copying blogs from obsidian to dev blog..."
+rsync -avh "$BLOG_SOURCE_DIR" "$BLOG_TARGET_DIR_2"
 
 if [ $? -eq 0 ]; then
     echo "rsync completed successfully!"
@@ -46,7 +68,7 @@ fi
 
 
 # Step 5: Update blog with its metadata
-echo "Adding blog metadata"
+echo "Adding blog metadata..."
 python scripts/python_scripts/add_blog_metadata.py
 
 if [ $? -ne 0 ]; then
@@ -55,7 +77,7 @@ if [ $? -ne 0 ]; then
 fi
 
 
-# Step 6: Confirm that all manaul changes with the blog metadata have been written.
+# Step 6: Confirm that all manual changes with the blog metadata have been written.
 while true; do
     read -p "Type 'Y' if you have finished adding additional metadata:" input
     if [[ "$input" == "Y" ]]; then
@@ -66,8 +88,8 @@ while true; do
     fi
 done
 
-# Step 7: Update blog with its metadata
-echo "Adding spacing between paragraphs and latex $$"
+# Step 7: Add spacing between paragraphs and latex $$
+echo "Adding spacing between paragraphs and latex $$..."
 python scripts/python_scripts/add_spacing.py
 
 if [ $? -ne 0 ]; then
@@ -76,7 +98,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Step 8: Updating main branch
-echo "Updating public directory"
+echo "Updating public directory..."
 hugo build
 
 if [ $? -ne 0 ]; then
@@ -86,7 +108,7 @@ fi
 
 echo "www.mathstoml.com" > public/CNAME
 
-echo "Committing changes"
+echo "Committing changes..."
 git add .
 
 DEFAULT_MESSAGE="Update blogs"
@@ -95,12 +117,12 @@ COMMIT_MESSAGE=${1:-$DEFAULT_MESSAGE}
 
 git commit -m "$COMMIT_MESSAGE"
 
-echo "Pushing changes to the origin"
+echo "Pushing changes to the origin..."
 git push origin main
 
 
 # Step 9: Update deployment branch
-echo "Updating public branch"
+echo "Updating public branch..."
 git subtree split --prefix public -b deploy
 
 git push origin deploy -f

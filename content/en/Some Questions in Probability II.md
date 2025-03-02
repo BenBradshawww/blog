@@ -10,7 +10,6 @@ draft = false
 math = true
 +++
 
-
 ![Image](/images/hannes-knutsson-2icXZAriT_E-unsplash.jpg)
 
 [Image by Hannes Knutsson](https://unsplash.com/@hannesknutsson)
@@ -130,13 +129,13 @@ Let $f_X$ denote the PDF and $F_X$ denote the CDF of the the random variable $X$
 
 Using the formula for total expectation we get:
 
-$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{-\infty}^{\infty}\frac{f_X(x)}{1 - F_X(x)}dx = -\ln(1 - F_X(x)) |_{-\infty}^{\infty} = \infty $$
+$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X]] = \int_{-\infty}^{\infty}\frac{f_X(x)}{1 - F_X(x)}dx = -\ln(1 - F_X(x)) |_{-\infty}^{\infty} = \infty $$
 
 Another nice way to see this is if we assume $X$ follows a uniform distribution over $(0, 1)$. Assuming $x_0$ is the height of the first person. The probability someone is taller is equivalent to $1-x_0$ and the number of people we would have to find till we found someone taller than $x_0$ follows a geometric distribution,  $N \sim \text{Geom}(1- x_0)$.
 
 Using total expectation again gives:
 
-$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 - x}dx = -x -\ln(|x-1|) |_{0}^{1} = \infty $$
+$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X]] = \int_{0}^{1}\frac{x}{1 - x}dx = -x -\ln(|x-1|) |_{0}^{1} = \infty $$
 
 References:
 1. Conroy, M. (2020). _A Collection of Dice Problems with solutions and useful appendices (a work continually in progress)_. [online] Available at: https://www.madandmoonly.com/doctormatt/mathematics/dice1.pdf.
