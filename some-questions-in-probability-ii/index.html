@@ -22,7 +22,7 @@
     <meta name="keywords" content="Dice , Probability , Random Walks , Expectation">
     <meta name="description" content="SEO Description Here">
     <link rel="canonical" href="https://www.mathstoml.com/some-questions-in-probability-ii/" />
-    <link rel="icon" href="/favicon.ico?v=1737913375" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=1740939952" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
     
@@ -298,9 +298,9 @@ So we are expected to stop at 7 of the 10 floors.</p>
 <p>In short, the answer is infinity.</p>
 <p>Let $f_X$ denote the PDF and $F_X$ denote the CDF of the the random variable $X$. Given the height of the first person is $x_0$, the probability someone is taller than $x_0$ is written as $1-F_X(x_0)$. Using this information, we can model the number of people needed till we get someone taller than $x_0$ as $N \sim \text{Geom}(1-F_X(x_0))$, a geometric distribution with parameter $1-F_X(x_0)$. As a result, $\mathbb{E}[N | X=x_0] = \frac{1}{1 - F_X(x_0)}$.</p>
 <p>Using the formula for total expectation we get:</p>
-$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{-\infty}^{\infty}\frac{f_X(x)}{1 - F_X(x)}dx = -\ln(1 - F_X(x)) |_{-\infty}^{\infty} = \infty $$<p>Another nice way to see this is if we assume $X$ follows a uniform distribution over $(0, 1)$. Assuming $x_0$ is the height of the first person. The probability someone is taller is equivalent to $1-x_0$ and the number of people we would have to find till we found someone taller than $x_0$ follows a geometric distribution,  $N \sim \text{Geom}(1- x_0)$.</p>
+$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X]] = \int_{-\infty}^{\infty}\frac{f_X(x)}{1 - F_X(x)}dx = -\ln(1 - F_X(x)) |_{-\infty}^{\infty} = \infty $$<p>Another nice way to see this is if we assume $X$ follows a uniform distribution over $(0, 1)$. Assuming $x_0$ is the height of the first person. The probability someone is taller is equivalent to $1-x_0$ and the number of people we would have to find till we found someone taller than $x_0$ follows a geometric distribution,  $N \sim \text{Geom}(1- x_0)$.</p>
 <p>Using total expectation again gives:</p>
-$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 - x}dx = -x -\ln(|x-1|) |_{0}^{1} = \infty $$<p>References:</p>
+$$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X]] = \int_{0}^{1}\frac{x}{1 - x}dx = -x -\ln(|x-1|) |_{0}^{1} = \infty $$<p>References:</p>
 <ol>
 <li>Conroy, M. (2020). <em>A Collection of Dice Problems with solutions and useful appendices (a work continually in progress)</em>. [online] Available at: <a href="https://www.madandmoonly.com/doctormatt/mathematics/dice1.pdf">https://www.madandmoonly.com/doctormatt/mathematics/dice1.pdf</a>.</li>
 <li>Rolls, E. (2023). <em>Expected Rolls To Obtain a $6$ Given that $6$ Comes Before $5$</em>. [online] Mathematics Stack Exchange. Available at: <a href="https://math.stackexchange.com/questions/4806318/expected-rolls-to-obtain-a-6-given-that-6-comes-before-5">https://math.stackexchange.com/questions/4806318/expected-rolls-to-obtain-a-6-given-that-6-comes-before-5</a> [Accessed 1 Jan. 2025].</li>
@@ -338,7 +338,7 @@ $$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 -
         About
     </div>
 
-    <img src="/image/logo.webp?v=1737913375" class="w-80 self-center" alt="Logo" />
+    <img src="/image/logo.webp?v=1740939952" class="w-80 self-center" alt="Logo" />
 
     <p class="leading-8 text-center text-lg font-light mt-3">
         
@@ -437,14 +437,7 @@ $$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 -
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/algorithms/" class="hover:text-gray-300">Algorithms <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
+            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -458,7 +451,14 @@ $$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 -
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
+            <a href="/categories/algorithms/" class="hover:text-gray-300">Algorithms <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/diffusion-models/" class="hover:text-gray-300">Diffusion Models <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -496,6 +496,21 @@ $$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 -
         
         
         
+        <a href="/tags/time-series/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/trees/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
+        
+        
+        
+        <a href="/tags/statistics/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
+        
+        
+        
         <a href="/tags/auto-encoders/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Auto-Encoders&nbsp;&nbsp;2</span></a>
         
@@ -506,63 +521,8 @@ $$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 -
         
         
         
-        <a href="/tags/time-series/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/statistics/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/trees/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/arma/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gans/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/algorithms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/boosting/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/dynamic-programming/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/glms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arima/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/docker/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/optimisation/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
+        <a href="/tags/gams/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
         
         
         
@@ -571,18 +531,58 @@ $$\mathbb{E}[N] = \mathbb{E} [ \mathbb{E}[N | X=x_0]] = \int_{0}^{1}\frac{x}{1 -
         
         
         
-        <a href="/tags/diffusion-models/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        <a href="/tags/algorithms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
         
         
         
-        <a href="/tags/gams/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/arima/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arma/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/dynamic-programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/boosting/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
         
         
         
         <a href="/tags/gnns/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/optimisation/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/diffusion-models/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/glms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
         
         
         
