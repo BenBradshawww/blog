@@ -8,20 +8,9 @@ git pull origin main
 # Step 2: Copy images from obsidian to website
 IMAGE_SOURCE_DIR="/Users/benbradshaw/Documents/Obsidian Vault/images/"
 IMAGE_TARGET_DIR="/Users/benbradshaw/Documents/Code/website/static/images/"
-IMAGE_TARGET_DIR_2="/Users/benbradshaw/Documents/Code/custom_blog/static/images/"
 
 echo "Copying images from obsidian to blog..."
 rsync -avh "$IMAGE_SOURCE_DIR" "$IMAGE_TARGET_DIR"
-
-if [ $? -eq 0 ]; then
-    echo "rsync completed successfully!"
-else
-    echo "rsync failed."
-    exit 1
-fi
-
-echo "Copying images from obsidian to dev blog..."
-rsync -avh "$IMAGE_SOURCE_DIR" "$IMAGE_TARGET_DIR_2"
 
 if [ $? -eq 0 ]; then
     echo "rsync completed successfully!"
@@ -44,7 +33,6 @@ fi
 # Step 4: Copy blogs from obsidian to website
 BLOG_SOURCE_DIR="/Users/benbradshaw/Documents/Obsidian Vault/posts/"
 BLOG_TARGET_DIR="/Users/benbradshaw/Documents/Code/website/content/en/"
-BLOG_TARGET_DIR_2="/Users/benbradshaw/Documents/Code/custom_blog/content/posts/"
 
 echo "Copying blogs from obsidian to website..."
 rsync -avh "$BLOG_SOURCE_DIR" "$BLOG_TARGET_DIR"
@@ -55,17 +43,6 @@ else
     echo "rsync failed."
     exit 1
 fi
-
-echo "Copying blogs from obsidian to dev blog..."
-rsync -avh "$BLOG_SOURCE_DIR" "$BLOG_TARGET_DIR_2"
-
-if [ $? -eq 0 ]; then
-    echo "rsync completed successfully!"
-else
-    echo "rsync failed."
-    exit 1
-fi
-
 
 # Step 5: Update blog with its metadata
 echo "Adding blog metadata..."

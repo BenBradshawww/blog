@@ -50,5 +50,12 @@
       <guid>https://www.mathstoml.com/the-ant-problem/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/mi_shots-8SJwz4nk7FA-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@mi_shots?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by mi_shots&lt;/a&gt;&#xA;Today we&amp;rsquo;ll be looking at a classic problem in probability: &amp;ldquo;The Ant Problem&amp;rdquo;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-question&#34;&gt;The Question:&lt;/h2&gt;&#xA;&lt;p&gt;An ant leaves its anthill in order to forage for food. It moves with the speed of 10cm per second, but it doesn&amp;rsquo;t know where to go, therefore every second it moves randomly 10cm directly north, south, east or west with equal probability.&lt;/p&gt;&#xA;&lt;p&gt;a) If the food is located on east-west lines 20cm to the north and 20cm to the south, as well as on north-south lines 20cm to the east and 20cm to the west from the anthill, how long will it take the ant to reach it on average?&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Gambler&#39;s Ruin for a Symmetric Random Walk</title>
+      <link>https://www.mathstoml.com/gamblers-ruin-for-a-symmetric-random-walk/</link>
+      <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/gamblers-ruin-for-a-symmetric-random-walk/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/jakob-owens-EroR0Ah9hqI-unsplash.jpg&#34; alt=&#34;Image by Jacob Owens: https://unsplash.com/@jakobowens1&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;A gambler starts with i dollars and bets $1 on a fair coin toss, winning $1 on heads and losing $1 on tails. The game stops when the gambler reaches 0 or N dollars.&lt;/p&gt;&#xA;&lt;p&gt;• Derive the probability $p_i$ that the gambler reaches N dollars (i.e. “wins”) before going broke.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll cover 3 ways to approach this questions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;solution-1&#34;&gt;Solution 1&lt;/h2&gt;&#xA;&lt;p&gt;Let $p_i$ denote the probability of reaching N dollars given he currently has i dollars.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
