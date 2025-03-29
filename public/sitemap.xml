@@ -3,21 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.mathstoml.com/</loc>
-    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/categories/algorithms/</loc>
+    <lastmod>2025-01-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/categories/</loc>
-    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/gamblers-ruin-for-a-symmetric-random-walk/</loc>
+    <lastmod>2025-01-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/tags/probability/</loc>
-    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/tags/random-walk/</loc>
+    <lastmod>2025-01-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.mathstoml.com/tags/</loc>
+    <lastmod>2025-01-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/categories/probability/</loc>
     <lastmod>2025-01-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/some-questions-in-probability-ii/</loc>
-    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.mathstoml.com/tags/</loc>
     <lastmod>2025-01-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/terminating-dice-sequences/</loc>
@@ -140,19 +149,10 @@
     <loc>https://www.mathstoml.com/tags/algorithms/</loc>
     <lastmod>2024-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mathstoml.com/categories/algorithms/</loc>
-    <lastmod>2024-08-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.mathstoml.com/tags/dynamic-programming/</loc>
     <lastmod>2024-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/dynamic-programming-in-solving-palindrome-partitioning/</loc>
-    <lastmod>2024-08-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.mathstoml.com/gamblers-ruin-for-a-symmetric-random-walk/</loc>
-    <lastmod>2024-08-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.mathstoml.com/tags/random-walk/</loc>
     <lastmod>2024-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.mathstoml.com/tags/gnn/</loc>

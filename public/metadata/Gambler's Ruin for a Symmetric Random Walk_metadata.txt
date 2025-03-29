@@ -1,6 +1,6 @@
 +++
 title = "Gambler's Ruin for a Symmetric Random Walk"
-date = 2024-08-24
+date = 2025-01-20
 categories = ["Algorithms"]
 tags = ["Probability", "Random Walk"]
 keywords = ["Probability", "Symmetry", "Random Walk"]

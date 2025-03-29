@@ -6,21 +6,21 @@
     <description>Recent content in Algorithms on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sat, 24 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.mathstoml.com/categories/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gambler&#39;s Ruin for a Symmetric Random Walk</title>
+      <link>https://www.mathstoml.com/gamblers-ruin-for-a-symmetric-random-walk/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/gamblers-ruin-for-a-symmetric-random-walk/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/jakob-owens-EroR0Ah9hqI-unsplash.jpg&#34; alt=&#34;Image by Jacob Owens: https://unsplash.com/@jakobowens1&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;A gambler starts with i dollars and bets $1 on a fair coin toss, winning $1 on heads and losing $1 on tails. The game stops when the gambler reaches 0 or N dollars.&lt;/p&gt;&#xA;&lt;p&gt;• Derive the probability $p_i$ that the gambler reaches N dollars (i.e. “wins”) before going broke.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll cover 3 ways to approach this questions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;solution-1&#34;&gt;Solution 1&lt;/h2&gt;&#xA;&lt;p&gt;Let $p_i$ denote the probability of reaching N dollars given he currently has i dollars.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Dynamic Programming in Solving Palindrome Partitioning</title>
       <link>https://www.mathstoml.com/dynamic-programming-in-solving-palindrome-partitioning/</link>
       <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://www.mathstoml.com/dynamic-programming-in-solving-palindrome-partitioning/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/danny-greenberg-cbN8rxHr5S0-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@by_danny_g?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Danny Greenberg&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;summary&#34;&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;This article explores dynamic programming (DP), a technique used to tackle complex problems in computer science. We will specifically apply DP to two problems involving palindrome partitioning.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;A basic understanding of dynamic programming and some experience with DP problems are recommended before reading this article.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;strong&gt;Definitions&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;• &lt;strong&gt;&lt;strong&gt;Palindrome&lt;/strong&gt;&lt;/strong&gt;: A string is a palindrome if it reads the same backward as forward. For example, “aba” is a palindrome, while “aab” is not.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Gambler&#39;s Ruin for a Symmetric Random Walk</title>
-      <link>https://www.mathstoml.com/gamblers-ruin-for-a-symmetric-random-walk/</link>
-      <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.mathstoml.com/gamblers-ruin-for-a-symmetric-random-walk/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/jakob-owens-EroR0Ah9hqI-unsplash.jpg&#34; alt=&#34;Image by Jacob Owens: https://unsplash.com/@jakobowens1&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;A gambler starts with i dollars and bets $1 on a fair coin toss, winning $1 on heads and losing $1 on tails. The game stops when the gambler reaches 0 or N dollars.&lt;/p&gt;&#xA;&lt;p&gt;• Derive the probability $p_i$ that the gambler reaches N dollars (i.e. “wins”) before going broke.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll cover 3 ways to approach this questions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;solution-1&#34;&gt;Solution 1&lt;/h2&gt;&#xA;&lt;p&gt;Let $p_i$ denote the probability of reaching N dollars given he currently has i dollars.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
