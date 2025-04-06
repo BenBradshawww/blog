@@ -57,5 +57,12 @@
       <guid>https://www.mathstoml.com/the-ant-problem/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/mi_shots-8SJwz4nk7FA-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@mi_shots?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by mi_shots&lt;/a&gt;&#xA;Today we&amp;rsquo;ll be looking at a classic problem in probability: &amp;ldquo;The Ant Problem&amp;rdquo;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-question&#34;&gt;The Question:&lt;/h2&gt;&#xA;&lt;p&gt;An ant leaves its anthill in order to forage for food. It moves with the speed of 10cm per second, but it doesn&amp;rsquo;t know where to go, therefore every second it moves randomly 10cm directly north, south, east or west with equal probability.&lt;/p&gt;&#xA;&lt;p&gt;a) If the food is located on east-west lines 20cm to the north and 20cm to the south, as well as on north-south lines 20cm to the east and 20cm to the west from the anthill, how long will it take the ant to reach it on average?&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Eulerian Numbers</title>
+      <link>https://www.mathstoml.com/eulerian-numbers/</link>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/eulerian-numbers/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;stephanie-leblanc-JLMEZxBcXCU-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@sleblanc01&#34;&gt;Image by Stephanie LeBlanc&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I was recently doing a few probability questions and then I stumbled upon this one:&lt;/p&gt;&#xA;&lt;h2 id=&#34;question&#34;&gt;Question&lt;/h2&gt;&#xA;&lt;p&gt;A frog began its journey on the first stone in a sequence of seven stones, numbered 1 through 7 from left to right. With each move, the frog hopped to a stone it hadn&amp;rsquo;t already landed on. What is the probability that after touching all the stones, the frog made precisely one jump to the left during its hops.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
