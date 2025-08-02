@@ -1,0 +1,11 @@
++++
+title = 'Eulerian Numbers'
+date = 2024-04-05
+categories = ["Probability"]
+tags = ["Probability"]
+keywords = ["Probability"]
+description = "SEO Description Here"
+draft = false
+[params.math]
+math = true
++++
