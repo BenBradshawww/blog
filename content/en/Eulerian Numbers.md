@@ -63,7 +63,7 @@ As well $A(0,0) = 0!$
 
 Now equipped with this information we can reattempt the question. Given the frog starts at stone 1, there are 6 possible stones to jump on. This gives us $6! = 720$ combination of jumps.
 
-If there is 1 leftward jump (1 descent), then there must be 4 ascents. As such, we need to calculate the Eulerian number for $n=6$ and $k=4$. Using the property that $A(n,n-k-1)= A(n,k)$. We know that $A(6, 4) = A(6, 1)$.
+If there is only 1 leftward jump (1 descent), then there must be 4 ascents. As such, we need to calculate the Eulerian number for $n=6$ and $k=4$. Using the property that $A(n,n-k-1)= A(n,k)$. We know that $A(6, 4) = A(6, 1)$.
 
 Using:
 

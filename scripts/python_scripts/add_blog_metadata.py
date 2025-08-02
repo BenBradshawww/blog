@@ -28,16 +28,19 @@ def add_metadata(metadata_path):
             continue # No about me page in dev blog
         blog_path = os.path.join(blog_directory, filename + '.md')
 
-        with open(metadata_path, 'r') as f:
-            metadata_content = f.read()
-        
-        with open(blog_path, 'r') as f:
-            existing_content = f.read()
+        if os.path.isfile(blog_path):
+            with open(metadata_path, 'r') as f:
+                metadata_content = f.read()
+            
+            with open(blog_path, 'r') as f:
+                existing_content = f.read()
 
-        with open(blog_path, 'w') as f:
-            f.write(metadata_content + '\n' + existing_content)
+            with open(blog_path, 'w') as f:
+                f.write(metadata_content + '\n' + existing_content)
 
-        logger.info(f"Metadata added to {filename} in {blog_directory}")
+            logger.info(f"Metadata added to {filename} in {blog_directory}")
+        else:
+            logger.warning(f"No file found at {blog_path}, skipping...")
 
 if __name__ == "__main__":
     add_metadata_to_all_blogs()

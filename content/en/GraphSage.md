@@ -34,7 +34,7 @@ GraphSage introduced 2 methods: the embedding generation method (called the forw
 
 Given a Graph $\mathcal{G}(V, \mathcal{E})$ where $V$ corresponds to the domain of nodes and $\mathcal{E}$ corresponds to the domain of edges. The embedding generation method follows:
 
-![](https://mathstoml.ghost.io/content/images/2024/09/image-5.png)
+![Graph Sage Forward Prop](/images/graph_sage_forward_prop.png)
 
 Figure 1. The forward propagation algorithm. Source: [https://arxiv.org/pdf/1706.02216](https://arxiv.org/pdf/1706.02216)
 
@@ -62,7 +62,7 @@ The key difference to previous method which have implemented this form of loss i
 
 Similar to other GNN algorithms, GraphSage's aggregator function had to be symmetric, trainable, and have the ability to provide a rich representational capacity. So GraphSage experimented with 3 different aggregator functions: the mean aggregator, LSTM aggregator, and the pooling aggregator.
 
-****Mean Aggregator****
+**Mean Aggregator**
 
 Given embedding vectors$\{ h_{u}^{k-1}, \forall u \in \mathcal{N}(v) \}$, the mean aggregator for the embedding for node v and layer k is written as:
 
@@ -70,11 +70,11 @@ $$ h_{v}^{k} \leftarrow \sigma (W \cdot \text{MEAN}( \{h_{v}^{k-1}\} \cup \{ \{h
 
 This method is often referenced as the mean based aggregator convolutional since it is rough linear approximation of the local spectral convolution (see the appendix).
 
-****LSTM Aggregator****
+**LSTM Aggregator**
 
 Another experimented aggregator function was the LSTM (see the appendix) aggregator. Here LSTMs have the advantage of having more expressive capabilities but suffers from its main limitation of being inherently non-symmetric due to their sequential processing. To help the LSTM overcome this limitation, a random permutation of the node's neighbours are inputted to LSTM.
 
-****Pooling Aggregator****
+**Pooling Aggregator**
 
 The final of the 3 approaches is the pooling approach where a neighbouring embeddings are fed independently through a neural network:
 
@@ -88,7 +88,7 @@ The authors [Hamilton et al.](https://arxiv.org/pdf/1706.02216) tested the perfo
 
 Two further variants of the GraphSage model were tested: the unsupervised model which was trained on the loss function defined above and the supervised model which was trained on the cross-entropy loss function. For further insights into the experimental details, visit [Hamilton et al.](https://arxiv.org/pdf/1706.02216)'s paper.
 
-![](https://mathstoml.ghost.io/content/images/2024/09/image-6.png)
+![Graph Sage Results](/images/graph_sage_results.png)
 
 From the results, each of the tested aggregators exceeded the performance of the previous state of the art methods with the GraphSage-LSTM and GraphSage-pool achieving the highest results.
 
@@ -98,21 +98,21 @@ This article delved into GraphSage, an inductive node embedding method with appl
 
 ## Appendix
 
-****Spectral Convolution:**** In spectral graph convolution, an eigen decomposition of the Laplacian matrix is performed, which gives us the information related to the underlying structure of the graph. This operation is performed on the Fourier space and finds the smallest eigenvalues as these explain the graph structure better in Spectral Convolution. ChebNet is an example of a method which has applied the idea spectral convolutions with a focus on local spectral convolutions.
+**Spectral Convolution:** In spectral graph convolution, an eigen decomposition of the Laplacian matrix is performed, which gives us the information related to the underlying structure of the graph. This operation is performed on the Fourier space and finds the smallest eigenvalues as these explain the graph structure better in Spectral Convolution. ChebNet is an example of a method which has applied the idea spectral convolutions with a focus on local spectral convolutions.
 
-****Local Spectral Convolution:**** The difference between spectral convolutions and local spectral convolutions is that the local methods focus more on the informations from a node's immediate neighbourhood rather than the entire graph. As a result these methods are more computationally efficient and often provide more practical relevance. The Graph Convolution Network (GCN) used a first-order approximation of the spectral convolution which lead to localised operations. Here the full-spectral convolution can be written as:
+**Local Spectral Convolution:** The difference between spectral convolutions and local spectral convolutions is that the local methods focus more on the informations from a node's immediate neighbourhood rather than the entire graph. As a result these methods are more computationally efficient and often provide more practical relevance. The Graph Convolution Network (GCN) used a first-order approximation of the spectral convolution which lead to localised operations. Here the full-spectral convolution can be written as:
 
 $$h_{v} = \sum_{u\in \mathcal{N}(i)} \frac{1}{\sqrt{d_{u}d_{v}}} h_{j},$$
 
 where $d_{v}$ and $d_{u}$ correspond to the degrees of nodes v and u.
 
-****Spatial Convolution:**** These methods work on local neighbourhoods of nodes to understand their properties based on the k neighbours. Unlike spatial convolutions, these methods are much simpler to implement. GraphSage is an example of Spatial Convolution.
+**Spatial Convolution:** These methods work on local neighbourhoods of nodes to understand their properties based on the k neighbours. Unlike spatial convolutions, these methods are much simpler to implement. GraphSage is an example of Spatial Convolution.
 
-****Negative Sampling:**** Negative sampling is a technique in machine learning which is designed to enhance the efficiency of the models by selecting a small subset of negative samples from a pool of negative samples. This form of loss function is defined the maximise the similarity between the positive pairs and minimise the similarity between the negative pairs. As a result, this form of model should be able to distinguish between positive and negative samples, in our case, between nodes close and far apart.
+**Negative Sampling:** Negative sampling is a technique in machine learning which is designed to enhance the efficiency of the models by selecting a small subset of negative samples from a pool of negative samples. This form of loss function is defined the maximise the similarity between the positive pairs and minimise the similarity between the negative pairs. As a result, this form of model should be able to distinguish between positive and negative samples, in our case, between nodes close and far apart.
 
-****DeepWalk:**** DeepWalk is a shallow node embeddings method which uses a random walk to capture the nodes structure. These random walks sequences are then applied to the Skip-Gram model to predict nearby nodes. Using the Skip-Gram model, dense vector embeddings for the nodes are generated where nodes that co-occur have a similar embedding.
+**DeepWalk:** DeepWalk is a shallow node embeddings method which uses a random walk to capture the nodes structure. These random walks sequences are then applied to the Skip-Gram model to predict nearby nodes. Using the Skip-Gram model, dense vector embeddings for the nodes are generated where nodes that co-occur have a similar embedding.
 
-****LSTM:**** An LSTM is a type of recurrent neural network (RNN) that is designed to better capture and retain information while avoiding the vanishing gradient problem. There LSTM is composed of 3 gates, the forget gate, input gate, and output gate, with each gate controlling the amount of information to be stored or forgotten during each step.
+**LSTM:** An LSTM is a type of recurrent neural network (RNN) that is designed to better capture and retain information while avoiding the vanishing gradient problem. There LSTM is composed of 3 gates, the forget gate, input gate, and output gate, with each gate controlling the amount of information to be stored or forgotten during each step.
 
 ### References
 
