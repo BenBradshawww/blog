@@ -40,4 +40,4 @@ If I have applied other changes to the website, I can deploy these changes using
 bash scripts/bash_scripts/update_website.sh
 ```
 
-Special thanks to Network Chuck for inspiration from his video ![here](https://www.youtube.com/watch?v=dnE7c0ELEH8&t=981s). 
+Special thanks to Network Chuck for inspiration from his video [here](https://www.youtube.com/watch?v=dnE7c0ELEH8&t=981s). 
