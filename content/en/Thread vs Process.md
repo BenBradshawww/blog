@@ -12,7 +12,6 @@ math = true
 
 ![Image by Ammar Mahmood](/images/ammar-mahmood-NkB27DjRE7Y-unsplash.jpg)
 [Image by Ammar Mahmood](https://unsplash.com/@ammarmahmood)
-
 ## What is a Process?
 
 A process is an instance of a program that is running on a computer. Each computer has its own memory space, system resources, and execution context. For example, when you run a piece of code, create a new browser tab, or open a new application, you are creating a new process. [1]

@@ -1,6 +1,6 @@
 +++
 title = "Welch's T-test"
-date = 2025-09-03
+date = 2025-07-03
 categories = ["Statistics", "Hypothesis Testing"]
 tags = ["Statistics"]
 keywords = ["Statistics", "Hypothesis Testing"]
