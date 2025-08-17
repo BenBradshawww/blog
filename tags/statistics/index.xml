@@ -6,8 +6,15 @@
     <description>Recent content in Statistics on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sat, 05 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.mathstoml.com/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welch&#39;s T-test</title>
+      <link>https://www.mathstoml.com/welchs-t-test/</link>
+      <pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.mathstoml.com/welchs-t-test/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/turtle.jpg&#34; alt=&#34;Wexor Tmg&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@wexor&#34;&gt;Image by Wxor Tmg&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;In hypothesis testing, there are a host of methods that could be used to perform your test. Today we&amp;rsquo;ll look at Welch&amp;rsquo;s T-test. This test excels in situations where two sample means vary significantly, specifically, if the samples have unequal variances or unequal sample sizes.&lt;/p&gt;&#xA;&lt;p&gt;In general, this test should be used when:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Comparing two independent groups.&lt;/li&gt;&#xA;&lt;li&gt;Unequal variances.&lt;/li&gt;&#xA;&lt;li&gt;Unequal sample sizes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The Welch&amp;rsquo;s &lt;em&gt;t&lt;/em&gt;-test is designed for unequal population variances, a relaxation of the Student&amp;rsquo;s t-test that assumes the two groups have equal variance. But similar to the Student&amp;rsquo;s t-test, Welch&amp;rsquo;s test shares the assumption that the data must follow a normal distribution.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>What is a Time Series &amp; How can we Model it?</title>
       <link>https://www.mathstoml.com/what-is-a-time-series--how-can-we-model-it/</link>

@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Statistics on </title>
-    <link>https://www.mathstoml.com/categories/statistics/</link>
-    <description>Recent content in Statistics on </description>
+    <title>Hypothesis Testing on </title>
+    <link>https://www.mathstoml.com/categories/hypothesis-testing/</link>
+    <description>Recent content in Hypothesis Testing on </description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate>Thu, 03 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://www.mathstoml.com/categories/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.mathstoml.com/categories/hypothesis-testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welch&#39;s T-test</title>
       <link>https://www.mathstoml.com/welchs-t-test/</link>
       <pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://www.mathstoml.com/welchs-t-test/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/turtle.jpg&#34; alt=&#34;Wexor Tmg&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@wexor&#34;&gt;Image by Wxor Tmg&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;In hypothesis testing, there are a host of methods that could be used to perform your test. Today we&amp;rsquo;ll look at Welch&amp;rsquo;s T-test. This test excels in situations where two sample means vary significantly, specifically, if the samples have unequal variances or unequal sample sizes.&lt;/p&gt;&#xA;&lt;p&gt;In general, this test should be used when:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Comparing two independent groups.&lt;/li&gt;&#xA;&lt;li&gt;Unequal variances.&lt;/li&gt;&#xA;&lt;li&gt;Unequal sample sizes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The Welch&amp;rsquo;s &lt;em&gt;t&lt;/em&gt;-test is designed for unequal population variances, a relaxation of the Student&amp;rsquo;s t-test that assumes the two groups have equal variance. But similar to the Student&amp;rsquo;s t-test, Welch&amp;rsquo;s test shares the assumption that the data must follow a normal distribution.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kullback-Leibler Divergence</title>
-      <link>https://www.mathstoml.com/kullback-leibler-divergence/</link>
-      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.mathstoml.com/kullback-leibler-divergence/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://www.mathstoml.com/images/daniela-turcanu-wABdckxoj90-unsplash.jpg&#34; alt=&#34;Image&#34;&gt;&#xA;&lt;a href=&#34;https://unsplash.com/@protopopica?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit&#34;&gt;Image by Daniela Turcanu&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;This article will cover the key features of Kullback-Leibler Divergence (KL divergence), a formula invented in 1951 by the mathematicians Soloman Kullback and Richard Leibler. This formula is used in the background of many of the modern day machine learning models focused around probabilistic modelling. These including Variational Autoencoders (VAEs), Generative Models, Reinforcement Learning, and Natural Language Processing. Additionally, this article will cover some of KL divergence&amp;rsquo;s key properties and briefly cover one of its applications.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
