@@ -22,7 +22,7 @@
     <meta name="keywords" content="Trees , Machine Learning , ML , Decision Trees , Boosting , Gradient Boosting">
     <meta name="description" content="SEO Description Here">
     <link rel="canonical" href="https://www.mathstoml.com/xgboost/" />
-    <link rel="icon" href="/favicon.ico?v=1755441801" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=1755441970" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
     
@@ -254,24 +254,23 @@ $$\mathcal{L}(\phi) = \sum_i l(\hat{y}_i, y_i) + \sum_i \Omega (f_k) \quad \text
 <h3 id="gradient-tree-boosting">Gradient Tree Boosting</h3>
 <p>Tree ensemble methods cannot be optimised by traditional optimisation methods in the Euclidean space because they are discontinuos functions and are not differentiable. Consequently, this prohibits the use of gradient based optimisation methods which rely on these two properties. As a result, models need to be trained in an additive manner.</p>
 <p>Given a prediction $\hat{y}_i^{(t)}$ of the ith instance (of $n$ samples) during the t-th iteration. We need to find $f_t$ that minimises this objective:</p>
-$$\mathcal{L}^{(t)} = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)} + f_t(x_i)) + \Omega(f_t).$$<p>In essence, we greedily add the $f_t$ that most improves our model. Applying the Taylor&rsquo;s Theorem Approximation, we can render a second-order approximation of the equation above:</p>
+$$\mathcal{L}^{(t)} = \sum_{i=1}^n l(y_i, \hat{y}_i^{(t)} + f_t(x_i)) + \Omega(f_t).$$<p>In essence, we greedily add the $f_t$ that improves our model the most.</p>
+<p>Applying the Taylor&rsquo;s Theorem Approximation, we can render a second-order approximation of the equation above:</p>
 $$\mathcal{L}^{(t)} \approx \sum_{i=1}^n [l(y_i, \hat{y}_i^{(t)}) + g_if_t(x_i)) + \frac{1}{2}h_if_t(x_i)^2] + \Omega(f_t),$$<p>where</p>
 $$g_i = \frac{\delta l(y_i, \hat{y}_i^{(t-1)})}{\delta \hat{y}_i^{(t-1)} } \quad \text{and} \quad h_i = \frac{\delta l(y_i, \hat{y}_i^{(t-1)})}{\delta^2 \hat{y}_i^{(t-1)^2} }.$$<p>Removing the constant terms gives:</p>
 $$\mathcal{L}^{(t)} = \sum_i^n [g_if_t(x_i)) + \frac{1}{2}h_if_t(x_i)^2] + \Omega(f_t).$$<p>Let $I_j = \{i | q(x_i) = j \}$ be the instance set of the leaf $j$.</p>
 $$\mathcal{L}^{(t)} = \sum_{j=1}^T [(\sum_{i \in I_j}g_i)w_j) + \frac{1}{2}(\sum_{i \in I_j}h_i + \lambda) w_j^2] + \lambda T.$$<p>Differentiating and equating to 0, tells us that the optimal weight $w_j^*$ of leaf $j$ is given by:</p>
 $$w_j^* = -\frac{\sum_{i \in I_j}g_i}{\sum_{i \in I_j}h_i + \lambda}.$$<p>Substituting this above, gives the optimal value of:</p>
-$$\tilde{\mathcal{L}}^{(t)}(q) = -\frac{1}{2} \sum_{j=1}^T\frac{(\sum_{i \in I_j}g_i)^2}{\sum_{i \in I_j}h_i + \lambda} + \lambda T.$$<p>
-This function can be thought of as a quality measure of the tree structure $q$ and can be thought of as the impurity score.</p>
+$$\tilde{\mathcal{L}}^{(t)}(q) = -\frac{1}{2} \sum_{j=1}^T\frac{(\sum_{i \in I_j}g_i)^2}{\sum_{i \in I_j}h_i + \lambda} + \lambda T.$$<p>This function can be thought of as a quality measure of the tree structure $q$ and can also be thought of as the impurity score.</p>
 <p>The issue with this metric is that it becomes impossible to enumerate over all tree structures because any time a new branch is added, the number of potential configurations increases combinatorially. This approach is infeasible for any large dataset.</p>
 <p>Alternatively, a greedy approach is taken where we start with a leaf and iteratively add branches to the tree. Let $I_L$ and $I_R$ denote the instance sets on the left and right nodes after the split. Letting $I = I_L \cup I_R$, then the loss reduction formula is given by:</p>
-$$\mathcal{L}_{\text{split}} = \frac{1}{2} \left[ \frac{(\sum_{i \in I_L}g_i)^2}{\sum_{i \in I_L}h_i + \lambda} + \frac{(\sum_{i \in I_R}g_i)^2}{\sum_{i \in I_R}h_i + \lambda} - \frac{(\sum_{i \in I}g_i)^2}{\sum_{i \in I}h_i + \lambda} \right] - \lambda.$$<p>
-This formula is used for evaluating split candidates.</p>
+$$\mathcal{L}_{\text{split}} = \frac{1}{2} \left[ \frac{(\sum_{i \in I_L}g_i)^2}{\sum_{i \in I_L}h_i + \lambda} + \frac{(\sum_{i \in I_R}g_i)^2}{\sum_{i \in I_R}h_i + \lambda} - \frac{(\sum_{i \in I}g_i)^2}{\sum_{i \in I}h_i + \lambda} \right] - \lambda.$$<p>This formula is used for evaluating split candidates.</p>
 <h3 id="shrinkage-and-column-subsampling">Shrinkage and Column Subsampling</h3>
 <p>In addition to the regularised objective, two further techniques were introduced by Tianqi Chen and Carlos Guestrin. The first method, is shrinkage introduce by Friedman where newly added weights are scaled by a factor $\mu$ after each step of tree boosting. This reduces the influence of each individual tree and leaves spaces for future trees to improve the model.</p>
-<p>The second method is column subsampling (which is also used in random forest) and this method often outperforms the row. sub-sampling method.</p>
+<p>The second method is column subsampling (which is also used in random forest) and this method often outperforms the row sub-sampling method.</p>
 <h3 id="split-finding-algorithms">Split Finding Algorithms</h3>
-<p>The basic split finding algorithm (which we will call the exact greedy method) which enumerates over all the possible splits on features is computationally demanding. This becomes even more of an issue when the dataset is large and does not fit into memory or if this model is trained in a distributive setting.
-<img src="/images/algorithm_1_exact.png" alt="Image"></p>
+<p>The basic split finding algorithm (which we will call the exact greedy method) which enumerates over all the possible splits on features is computationally demanding. This becomes even more of an issue when the dataset is large and does not fit into memory or if this model is trained in a distributive setting.</p>
+<p><img src="/images/algorithm_1_exact.png" alt="Image"></p>
 <p>As a result, an alternative framework is proposed. This approximate algorithm proposes candidate split points based on percentiles of a feature distribution. The algorithm maps the continuous features into buckets split by the candidate split points, aggregates the statistics and finds the best solution among the proposals.</p>
 <p>There are two variants of this proposal; the global variant which propose split points during the initial tree construction phase and then uses the same proposals for splits at each level. The local variant re-proposes after each split. The local proposal tends to outperform the global proposal, however, the global method can achieve a similar performance to the global proposal given enough candidate split points are given.</p>
 <p>Most approximate methods for distributed tree learning also follow this framework but some construct approximations based on histograms of the gradient statistic and some use other variants of binning strategies instead of quantile. But, from these methods, Tianqi Chen and Carlos Guestrin chose to go for the quantile strategy.</p>
@@ -286,8 +285,8 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
 <li>Weight Squared Loss. The rewritten loss takes the form of: $\sum_{i=1}^n \frac{1}{2} h_i \left(f_t(x_i) - \frac{g_i}{h_i} \right)^2 + \Omega(f_t) + \text{constant}$, which is a weighted square loss with labels $g_i/h_i$.</li>
 <li>The gradient is insufficient. The gradients $g_i$ indiciate the direction of optimisation but does not account for the magnitude or stability of the loss function. If only the gradient points were used as weights the model would be unable to distinguish between instances with similar gradients but different curvatures (uncertainty). This could lead to suboptimal splits that do not accurately capture the structure of the data.</li>
 </ol>
-<p>The algorithm for the approximate splitting algorithm is below.
-<img src="/images/algorithm_2_approximate_split.png" alt="Image"></p>
+<p>The algorithm for the approximate splitting algorithm is below.</p>
+<p><img src="/images/algorithm_2_approximate_split.png" alt="Image"></p>
 <h3 id="sparsity-aware-split-finding">Sparsity-aware Split Finding</h3>
 <p>In many of the real world problems, the input $x$ is sparse as a result of the presence of missing values, frequent zero entries, or artefacts a result of feature engineering and one hot encoding. To make an algorithm aware of this sparsity, Tianqi Chen and Carlos Guestrin proposed to add a default direction in each tree. When a sample is missing, the instance is assigned to that direction with the optimal direction learnt from the data.</p>
 <p><img src="/images/algorithm_3_sparse_aware.png" alt="Image"></p>
@@ -320,7 +319,7 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         About
     </div>
 
-    <img src="/image/logo.webp?v=1755441801" class="w-80 self-center" alt="Logo" />
+    <img src="/image/logo.webp?v=1755441970" class="w-80 self-center" alt="Logo" />
 
     <p class="leading-8 text-center text-lg font-light mt-3">
         
@@ -340,6 +339,10 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         
         <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/thread-vs-process/" class="py-5 hover:text-gray-300">Thread vs Process</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
             <a href="/gamblers-ruin-for-a-symmetric-random-walk/" class="py-5 hover:text-gray-300">Gambler&#39;s Ruin for a Symmetric Random Walk</a>
         </li>
         
@@ -353,10 +356,6 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
             <a href="/xgboost/" class="py-5 hover:text-gray-300">XGBoost</a>
-        </li>
-        
-        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
-            <a href="/perpetual-children/" class="py-5 hover:text-gray-300">Perpetual Children</a>
         </li>
         
         
@@ -398,6 +397,13 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
+            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/time-series/" class="hover:text-gray-300">Time Series <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
         </li>
@@ -406,13 +412,6 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
             <a href="/categories/trees/" class="hover:text-gray-300">Trees <span
-                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
-        </li>
-        
-        
-        
-        <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
         </li>
         
@@ -433,16 +432,18 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
+            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
+            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
+        
+        
         
         
         
@@ -478,23 +479,8 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         
         
-        <a href="/tags/gnn/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/trees/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
-        
-        
-        
         <a href="/tags/auto-encoders/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Auto-Encoders&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/time-series/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
         
         
         
@@ -503,43 +489,18 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         
         
-        <a href="/tags/gans/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/time-series/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Time Series&nbsp;&nbsp;2</span></a>
         
         
         
-        <a href="/tags/gnns/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/trees/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
         
         
         
-        <a href="/tags/rest-apis/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/boosting/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gams/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arma/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/docker/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/dynamic-programming/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        <a href="/tags/gnn/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
         
         
         
@@ -548,13 +509,23 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         
         
-        <a href="/tags/diffusion-models/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        <a href="/tags/arima/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARIMA&nbsp;&nbsp;1</span></a>
         
         
         
-        <a href="/tags/glms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        <a href="/tags/dynamic-programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gams/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gnns/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
         
         
         
@@ -563,8 +534,40 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         
         
         
+        <a href="/tags/arma/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/diffusion-models/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/docker/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Docker&nbsp;&nbsp;1</span></a>
+        
+        
+        
         <a href="/tags/random-walk/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Random Walk&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Programming&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/boosting/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        
+        
         
         
         
@@ -606,6 +609,13 @@ $$|r_k(s_{k,j}) - r_k(s_{k,j+1})| < \epsilon, \quad s_{k1} = \min_i x_{ik}, \qua
         <li class="mb-1 border-b border-b-white/10 border-dashed">
             <a href="/en/archives">Nov, 2024<span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">May, 2025<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         

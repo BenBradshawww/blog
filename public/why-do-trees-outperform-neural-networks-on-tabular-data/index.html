@@ -22,7 +22,7 @@
     <meta name="keywords" content="Trees , Machine Learning , ML , Random Forests , Random Forest">
     <meta name="description" content="SEO Description Here">
     <link rel="canonical" href="https://www.mathstoml.com/why-do-trees-outperform-neural-networks-on-tabular-data/" />
-    <link rel="icon" href="/favicon.ico?v=1755441801" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=1755441970" type="image/x-icon">
     
 <link rel="stylesheet" href="/css/app.min.b80070c428cb0fdb565420914fa58a8c0a534bf1f6aca65496a3fbdd04269510.css" integrity="sha256-uABwxCjLD9tWVCCRT6WKjApTS/H2rKZUlqP73QQmlRA=" crossorigin="anonymous">
     
@@ -240,25 +240,25 @@
 <a href="https://unsplash.com/@toddquackenbush?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Image by Todd Quackenbush</a></p>
 <p>For the past 30 years, tree-based algorithms such as Adaboost and Random Forests have been the go-to methods for solving tabular data problems. While neural networks (NNs) have been used in this context, they have historically struggled to match the performance of tree-based methods. Despite recent advancements in NN capabilities and their success in tasks from computer vision, language translation, and image generation, tree-based algorithms still outperform neural networks when it comes to tabular data. This article will introduce several reasons behind the continued dominance of tree-based methods in this domain.</p>
 <ol>
-<li><strong><strong>Smoothness of Neural Networks</strong></strong>:</li>
+<li><strong>Smoothness of Neural Networks</strong>:</li>
 </ol>
 <p>Tabular data often has high dimensionality due to the large number of features each of different types. From these features, many of them have multidimensional relationships which can be complicated to model.</p>
 <p>One issue with NNs is that they are inherently too smooth for most tabular data target functions (see definition at the end of the paper), which tend to be irregular in order to capture the complex tabular feature relations and structure. NNs are biased towards low-frequency functions, whereas tree-based algorithms, which are based on decision trees, use piecewise continuous functions. This gives trees an advantage in handling the irregularities common in tabular data and helps them model these complexities.</p>
-<p>2. <strong><strong>Handling Uninformative Features</strong></strong>:</p>
+<p>2. <strong>Handling Uninformative Features</strong>:</p>
 <p>Tree-based algorithms, being greedy, can effectively disregard uninformative features during the split process, using a splitting criteria such as entropy or the Gini index. In contrast, the neural networks initially assign weights to all features (including uninformative ones) by either giving each feature the same weight or assigning a random weight to the features. Even when there are small weights applied to these features, they can negatively impact the model’s performance. Consequently, it takes the NN model longer to learn which features are uninformative and then assign them a small weight which won&rsquo;t impact the model&rsquo;s performance.</p>
-<p>3. <strong><strong>Rotational Invariance of Neural Networks</strong></strong>:</p>
+<p>3. <strong>Rotational Invariance of Neural Networks</strong>:</p>
 <p>In the paper by Grinsztajn on why trees outperform NNs on tabular data, Grinsztajn stated that Neural networks, particularly MultiLayer Perceptrons (MLPs), are naturally &ldquo;rotationally invariant&rdquo; and do not preserve the natural orientation of the data.</p>
 <p>In this context, the MLP&rsquo;s rotational invariance corresponds to MLPs being unable to capture the natural orientation and relationships of the features. This must not be confused with the rotational invariance found in Geometric Neural Networks (GNNs) where if the features are rotated by applying a rotation matrix, the model&rsquo;s predictions will remain the same.</p>
 <p>Similarly in this context, the natural orientation of the feature refers to the inherent structure and relationships between the features. The structure refers to the meaning of the feature, data types, data ranges, and feature distribution. The relationships refer to the interactions between features, correlations dependencies, and the hierarchical or sequential relationships.</p>
 <p>The NNs initially treats each feature to be independent of one another. Additionally, the NNs do not have built-in mechanisms to preserve the natural relationships between features. For the NN to learn these structures and relationships between the features, more training and data is needed and a change in architecture may be required.</p>
 <p>On the contrary, tree-based models and their ensembles inherently preserve natural orientation of features. Trees follow a greedy procedure which splits the data on the specific feature which achieves the highest splitting criteria. Each of these splits conserves the original meaning of the feature and its interactions. Consequently, these splits maintain the structure and relationships present in the data. For neural networks, these structures and relationships need to be learnt. This gives the tree-based models an inductive bias.</p>
-<p><strong><strong>Conclusion:</strong></strong></p>
+<p><strong>Conclusion:</strong></p>
 <p>Tree-based algorithms are easier and quicker to train compared to neural networks, making them a more practical choice for most tabular data problems. However, this does not mean that neural networks are entirely unsuitable for tabular data; with the right hyperparameters, NNs can potentially outperform tree-based models in specific scenarios.</p>
-<p><strong><strong>Reference</strong></strong></p>
+<p><strong>Reference</strong></p>
 <p>This summary is based on the following paper, which provides a deeper understanding of the content covered here:</p>
 <p>Grinsztajn, L., Oyallon, E. and Varoquaux, G. (n.d.). <strong>Why do tree-based models still outperform deep learning on tabular data?</strong> [online] Available at: <a href="https://arxiv.org/pdf/2207.08815">https://arxiv.org/pdf/2207.08815</a></p>
-<p><strong><strong>Definitions:</strong></strong></p>
-<p>• <strong><strong>Target Function</strong></strong>: The underlying function that maps inputs to outputs, representing the true relationship between features and labels. The goal in practice is to approximate this function as accurately as possible.</p>
+<p><strong>Definitions:</strong></p>
+<p>• <strong>Target Function</strong>: The underlying function that maps inputs to outputs, representing the true relationship between features and labels. The goal in practice is to approximate this function as accurately as possible.</p>
 
         </div>
     </div>
@@ -286,7 +286,7 @@
         About
     </div>
 
-    <img src="/image/logo.webp?v=1755441801" class="w-80 self-center" alt="Logo" />
+    <img src="/image/logo.webp?v=1755441970" class="w-80 self-center" alt="Logo" />
 
     <p class="leading-8 text-center text-lg font-light mt-3">
         
@@ -306,6 +306,10 @@
         
         
         <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
+            <a href="/thread-vs-process/" class="py-5 hover:text-gray-300">Thread vs Process</a>
+        </li>
+        
+        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
             <a href="/gamblers-ruin-for-a-symmetric-random-walk/" class="py-5 hover:text-gray-300">Gambler&#39;s Ruin for a Symmetric Random Walk</a>
         </li>
         
@@ -319,10 +323,6 @@
         
         <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
             <a href="/xgboost/" class="py-5 hover:text-gray-300">XGBoost</a>
-        </li>
-        
-        <li class="leading-10 line-clamp-1 mb-3 font-light border-b border-b-white/10 border-dashed">
-            <a href="/perpetual-children/" class="py-5 hover:text-gray-300">Perpetual Children</a>
         </li>
         
         
@@ -364,14 +364,14 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
+            <a href="/categories/algorithms/" class="hover:text-gray-300">Algorithms <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
         </li>
         
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/algorithms/" class="hover:text-gray-300">Algorithms <span
+            <a href="/categories/programming-tools/" class="hover:text-gray-300">Programming Tools <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">2</span></a>
         </li>
         
@@ -392,7 +392,7 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/statistics/" class="hover:text-gray-300">Statistics <span
+            <a href="/categories/auto-encoders/" class="hover:text-gray-300">Auto-Encoders <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
@@ -406,9 +406,11 @@
         
         
         <li class="mb-1 border-b border-b-gray-900 border-dashed font-light">
-            <a href="/categories/non-convex-optimisation/" class="hover:text-gray-300">Non-Convex Optimisation <span
+            <a href="/categories/statistical-modelling/" class="hover:text-gray-300">Statistical Modelling <span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
+        
+        
         
         
         
@@ -444,18 +446,13 @@
         
         
         
+        <a href="/tags/auto-encoders/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Auto-Encoders&nbsp;&nbsp;2</span></a>
+        
+        
+        
         <a href="/tags/statistics/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Statistics&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/gnn/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
-        
-        
-        
-        <a href="/tags/trees/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
         
         
         
@@ -464,23 +461,13 @@
         
         
         
-        <a href="/tags/auto-encoders/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Auto-Encoders&nbsp;&nbsp;2</span></a>
+        <a href="/tags/trees/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Trees&nbsp;&nbsp;2</span></a>
         
         
         
-        <a href="/tags/glms/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/optimisation/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/random-walk/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Random Walk&nbsp;&nbsp;1</span></a>
+        <a href="/tags/gnn/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNN&nbsp;&nbsp;2</span></a>
         
         
         
@@ -489,38 +476,18 @@
         
         
         
+        <a href="/tags/dynamic-programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/algorithms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Algorithms&nbsp;&nbsp;1</span></a>
+        
+        
+        
         <a href="/tags/diffusion-models/"><span
                 class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Diffusion Models&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gnns/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/rest-apis/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">REST APIs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/boosting/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Boosting&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gans/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/arma/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
-        
-        
-        
-        <a href="/tags/gams/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
         
         
         
@@ -529,8 +496,45 @@
         
         
         
-        <a href="/tags/dynamic-programming/"><span
-                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Dynamic Programming&nbsp;&nbsp;1</span></a>
+        <a href="/tags/gams/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GAMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gnns/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GNNs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/optimisation/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Optimisation&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/arma/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">ARMA&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/random-walk/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Random Walk&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/gans/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GANs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/glms/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">GLMs&nbsp;&nbsp;1</span></a>
+        
+        
+        
+        <a href="/tags/programming/"><span
+                class="inline-block p-0 bg-gray-800 hover:bg-gray-900 border border-gray-800 text-gray-500 hover:text-gray-300 font-light mb-1 px-5 rounded-full hover:scale-105">Programming&nbsp;&nbsp;1</span></a>
+        
+        
         
         
         
@@ -572,6 +576,13 @@
         <li class="mb-1 border-b border-b-white/10 border-dashed">
             <a href="/en/archives">Nov, 2024<span
                     class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">4</span></a>
+        </li>
+        
+        
+        
+        <li class="mb-1 border-b border-b-white/10 border-dashed">
+            <a href="/en/archives">May, 2025<span
+                    class="ml-2 px-2 bg-gray-800 rounded-full text-gray-500">1</span></a>
         </li>
         
         
